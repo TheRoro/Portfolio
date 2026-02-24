@@ -94,7 +94,7 @@ const PlanetsComponent = () => {
               position={[-4.5, -0.5, -3]}
               color="#8980F5"
               size={1.1}
-              speed={0.04}
+              speed={0.01}
               name="purple"
               scale={[1.1, 1, 1]}
             />
@@ -102,7 +102,7 @@ const PlanetsComponent = () => {
               position={[0, 0, 1]}
               color="#02ccaa"
               size={1.5}
-              speed={0.04}
+              speed={0.01}
               name="teal"
               scale={[1.05, 1, 1]}
             />
@@ -110,7 +110,7 @@ const PlanetsComponent = () => {
               position={[0.2, -0.35, 4]}
               color="#FF7979"
               size={0.13}
-              speed={0.04}
+              speed={0.01}
               name="red"
               scale={[1.1, 1, 1]}
             />
