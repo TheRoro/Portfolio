@@ -9,7 +9,7 @@ const ProjectTile = ({
   orientation,
 }) => {
   const openLink = link => {
-    window.open(link, "_blank")
+    window.open(link, "_blank", "noopener,noreferrer")
   }
   return (
     <div className={`project-tile project-tile-${orientation}`}>

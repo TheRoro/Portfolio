@@ -22,7 +22,7 @@ const ContactModule = () => {
   ])
 
   const openLink = link => {
-    window.open(link, "_blank")
+    window.open(link, "_blank", "noopener,noreferrer")
   }
 
   const mouseEnterFunction = (name, index) => {

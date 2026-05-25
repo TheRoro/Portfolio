@@ -5,7 +5,7 @@ import "./styles.scss"
 
 const LinksComponent = ({ repoUrl, webUrl }) => {
   const openLink = link => {
-    window.open(link, "_blank")
+    window.open(link, "_blank", "noopener,noreferrer")
   }
   return (
     <div className="links-row">

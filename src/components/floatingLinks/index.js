@@ -8,7 +8,7 @@ import "./styles.scss"
 
 const FloatingLinks = () => {
   const openLink = link => {
-    window.open(link, "_blank")
+    window.open(link, "_blank", "noopener,noreferrer")
   }
 
   const containerAnimation = {
