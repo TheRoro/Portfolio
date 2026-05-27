@@ -21,10 +21,6 @@ const ContactModule = () => {
     "inactive",
   ])
 
-  const openLink = link => {
-    window.open(link, "_blank", "noopener,noreferrer")
-  }
-
   const mouseEnterFunction = (name, index) => {
     setLogoName(name)
     let temp = [...activeHover]
@@ -80,60 +76,74 @@ const ContactModule = () => {
           ref={ref}
         >
           <motion.li className="logo-item" variants={itemAnimation} key={0}>
-            <GithubLogo
-              className={`logo ${activeHover[0]}`}
-              onClick={() => openLink("https://github.com/TheRoro")}
+            <a
+              href="https://github.com/TheRoro"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
               onMouseEnter={() => mouseEnterFunction("GitHub", 0)}
               onMouseLeave={() => mouseLeaveFunction(0)}
-            />
+            >
+              <GithubLogo className={`logo ${activeHover[0]}`} />
+            </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={1}>
-            <LinkedinLogo
-              className={`logo ${activeHover[1]}`}
-              onClick={() =>
-                openLink("https://www.linkedin.com/in/rodrigoramirezb/")
-              }
+            <a
+              href="https://www.linkedin.com/in/rodrigoramirezb/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
               onMouseEnter={() => mouseEnterFunction("LinkedIn", 1)}
               onMouseLeave={() => mouseLeaveFunction(1)}
-            />
+            >
+              <LinkedinLogo className={`logo ${activeHover[1]}`} />
+            </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={2}>
-            <EmailLogo
-              className={`logo ${activeHover[2]}`}
-              onClick={() => {
-                window.location.href = "mailto:rodrigoramirezbr@outlook.com"
-              }}
+            <a
+              href="mailto:rodrigoramirezbr@outlook.com"
+              aria-label="Email Me"
               onMouseEnter={() => mouseEnterFunction("Email Me", 2)}
               onMouseLeave={() => mouseLeaveFunction(2)}
-              variants={itemAnimation}
-            />
+            >
+              <EmailLogo className={`logo ${activeHover[2]}`} />
+            </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={3}>
-            <ResumeLogo
-              className={`logo ${activeHover[3]}`}
-              onClick={() => openLink("/rodrigo_ramirez_resume.pdf")}
+            <a
+              href="/rodrigo_ramirez_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Resume CV"
               onMouseEnter={() => mouseEnterFunction("Resume CV", 3)}
               onMouseLeave={() => mouseLeaveFunction(3)}
-              variants={itemAnimation}
-            />
+            >
+              <ResumeLogo className={`logo ${activeHover[3]}`} />
+            </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={4}>
-            <CodepenLogo
-              className={`logo ${activeHover[4]}`}
-              onClick={() => openLink("https://codepen.io/theroro")}
+            <a
+              href="https://codepen.io/theroro"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="CodePen"
               onMouseEnter={() => mouseEnterFunction("CodePen", 4)}
               onMouseLeave={() => mouseLeaveFunction(4)}
-              variants={itemAnimation}
-            />
+            >
+              <CodepenLogo className={`logo ${activeHover[4]}`} />
+            </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={5}>
-            <InstagramLogo
-              className={`logo ${activeHover[5]}`}
-              onClick={() => openLink("https://www.instagram.com/rorocodes/")}
+            <a
+              href="https://www.instagram.com/rorocodes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
               onMouseEnter={() => mouseEnterFunction("Instagram", 5)}
               onMouseLeave={() => mouseLeaveFunction(5)}
-              variants={itemAnimation}
-            />
+            >
+              <InstagramLogo className={`logo ${activeHover[5]}`} />
+            </a>
           </motion.li>
         </motion.ul>
         <div className="name-container">

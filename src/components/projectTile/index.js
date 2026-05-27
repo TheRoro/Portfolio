@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { Link } from "gatsby"
 import GithubLogo from "../../../static/social/github.svg"
 import ExternalLinkLogo from "../../../static/social/externalLink.svg"
 import "./styles.scss"
@@ -8,22 +8,9 @@ const ProjectTile = ({
   project: { title, name, summary, keywords, tags, imgUrl, repoUrl, webUrl },
   orientation,
 }) => {
-  const openLink = link => {
-    window.open(link, "_blank", "noopener,noreferrer")
-  }
   return (
     <div className={`project-tile project-tile-${orientation}`}>
-      <div
-        className="image-container"
-        onClick={() => {
-          navigate(`/${name}/`)
-        }}
-        onKeyDown={() => {
-          navigate(`/${name}/`)
-        }}
-        role="link"
-        tabIndex={0}
-      >
+      <Link className="image-container" to={`/${name}/`}>
         <span className="text">
           <h1>View More</h1>
         </span>
@@ -32,14 +19,28 @@ const ProjectTile = ({
           src={`/projects/${imgUrl}`}
           alt={`${title} · ${summary}`}
         />
-      </div>
+      </Link>
       <div className="details-container">
         <h2 className="keywords">{keywords}</h2>
         <p className="summary">{summary}</p>
         <p className="tags">{tags}</p>
         <div className="links">
-          <GithubLogo className="logo" onClick={() => openLink(repoUrl)} />
-          <ExternalLinkLogo className="logo" onClick={() => openLink(webUrl)} />
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} code repository`}
+          >
+            <GithubLogo className="logo" />
+          </a>
+          <a
+            href={webUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} live website`}
+          >
+            <ExternalLinkLogo className="logo" />
+          </a>
         </div>
       </div>
     </div>

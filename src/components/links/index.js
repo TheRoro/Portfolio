@@ -4,17 +4,28 @@ import ExternalLinkLogo from "../../../static/social/externalLink.svg"
 import "./styles.scss"
 
 const LinksComponent = ({ repoUrl, webUrl }) => {
-  const openLink = link => {
-    window.open(link, "_blank", "noopener,noreferrer")
-  }
   return (
     <div className="links-row">
       <div className="repo-link-col">
-        <GithubLogo className="logo" onClick={() => openLink(repoUrl)} />
+        <a
+          href={repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Code Repository"
+        >
+          <GithubLogo className="logo" />
+        </a>
         <p className="logo-label">Code Repository</p>
       </div>
       <div className="web-link-col">
-        <ExternalLinkLogo className="logo" onClick={() => openLink(webUrl)} />
+        <a
+          href={webUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Live Website"
+        >
+          <ExternalLinkLogo className="logo" />
+        </a>
         <p className="logo-label">Live Website</p>
       </div>
     </div>

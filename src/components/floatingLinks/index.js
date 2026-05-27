@@ -7,10 +7,6 @@ import ResumeLogo from "../../../static/social/resume.svg"
 import "./styles.scss"
 
 const FloatingLinks = () => {
-  const openLink = link => {
-    window.open(link, "_blank", "noopener,noreferrer")
-  }
-
   const containerAnimation = {
     hidden: { opacity: 1, scale: 1 },
     visible: {
@@ -40,32 +36,39 @@ const FloatingLinks = () => {
       animate="visible"
     >
       <motion.li className="logo-item" variants={itemAnimation} key={0}>
-        <LinkedinLogo
-          className="logo"
-          onClick={() =>
-            openLink("https://www.linkedin.com/in/rodrigoramirezb/")
-          }
-        />
+        <a
+          href="https://www.linkedin.com/in/rodrigoramirezb/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <LinkedinLogo className="logo" />
+        </a>
       </motion.li>
       <motion.li className="logo-item" variants={itemAnimation} key={1}>
-        <EmailLogo
-          className="logo"
-          onClick={() => {
-            window.location.href = "mailto:rodrigoramirezbr@outlook.com"
-          }}
-        />
+        <a href="mailto:rodrigoramirezbr@outlook.com" aria-label="Email">
+          <EmailLogo className="logo" />
+        </a>
       </motion.li>
       <motion.li className="logo-item" variants={itemAnimation} key={2}>
-        <GithubLogo
-          className="logo"
-          onClick={() => openLink("https://github.com/TheRoro")}
-        />
+        <a
+          href="https://github.com/TheRoro"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <GithubLogo className="logo" />
+        </a>
       </motion.li>
       <motion.li className="logo-item" variants={itemAnimation} key={3}>
-        <ResumeLogo
-          className="logo"
-          onClick={() => openLink("/rodrigo_ramirez_resume.pdf")}
-        />
+        <a
+          href="/rodrigo_ramirez_resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Resume"
+        >
+          <ResumeLogo className="logo" />
+        </a>
       </motion.li>
     </motion.ul>
   )
