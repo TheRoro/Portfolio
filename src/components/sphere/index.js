@@ -20,7 +20,6 @@ const SphereComponent = () => {
               color="#02ccaa"
               size={1.5}
               speed={0.04}
-              name="teal"
               scale={[1.05, 1, 1]}
             />
             <ambientLight intensity={0.5} />

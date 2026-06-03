@@ -7,7 +7,7 @@ const Planet = ({ size, position, color, speed, scale }) => {
   const ref = useRef(null)
   // Multiply by delta (and a 60fps baseline) so rotation speed is the same
   // regardless of the display's refresh rate.
-  useFrame((state, delta) => (ref.current.rotation.y += speed * delta * 60))
+  useFrame((_, delta) => (ref.current.rotation.y += speed * delta * 60))
 
   const [expand, setExpand] = useState(false)
 

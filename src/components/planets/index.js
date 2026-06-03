@@ -4,11 +4,15 @@ import { a } from "@react-spring/three"
 import Planet from "../planet"
 import "./styles.scss"
 
-const Ring = ({ args, position, color, name }) => {
+// Tilt the rings so they sit at an angle relative to the planets (radians).
+const RING_TILT_X = 90.04
+const RING_TILT_Y = 9.79
+
+const Ring = ({ args, position, color }) => {
   const ref = useRef(null)
   useEffect(() => {
-    ref.current.rotation.x = 90.04
-    ref.current.rotation.y = 9.79
+    ref.current.rotation.x = RING_TILT_X
+    ref.current.rotation.y = RING_TILT_Y
   }, [])
   return (
     <mesh ref={ref} position={position}>
@@ -24,23 +28,12 @@ const RingGroup = () => {
 
   return (
     <a.mesh ref={ref}>
-      <Ring
-        position={ringPosition}
-        color="#64bdad"
-        args={[2.2, 2.35, 100]}
-        name="inner"
-      />
-      <Ring
-        position={ringPosition}
-        color="#43887B"
-        args={[2.4, 2.42, 100]}
-        name="middle"
-      />
+      <Ring position={ringPosition} color="#64bdad" args={[2.2, 2.35, 100]} />
+      <Ring position={ringPosition} color="#43887B" args={[2.4, 2.42, 100]} />
       <Ring
         position={ringPosition}
         color="#7eccbe"
         args={[2.45, 2.52, 80, 1]}
-        name="outter"
       />
     </a.mesh>
   )
@@ -63,7 +56,6 @@ const PlanetsComponent = () => {
               color="#8980F5"
               size={1.1}
               speed={0.01}
-              name="purple"
               scale={[1.1, 1, 1]}
             />
             <Planet
@@ -71,7 +63,6 @@ const PlanetsComponent = () => {
               color="#02ccaa"
               size={1.5}
               speed={0.01}
-              name="teal"
               scale={[1.05, 1, 1]}
             />
             <Planet
@@ -79,7 +70,6 @@ const PlanetsComponent = () => {
               color="#FF7979"
               size={0.13}
               speed={0.01}
-              name="red"
               scale={[1.1, 1, 1]}
             />
             <ambientLight intensity={0.5} />
