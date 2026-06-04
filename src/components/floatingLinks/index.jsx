@@ -1,9 +1,9 @@
 import React from "react"
 import { motion } from "framer-motion"
-import GithubLogo from "../../../static/social/github.svg"
-import LinkedinLogo from "../../../static/social/linkedin.svg"
-import EmailLogo from "../../../static/social/email.svg"
-import ResumeLogo from "../../../static/social/resume.svg"
+import GithubLogo from "../../assets/social/github.svg?react"
+import LinkedinLogo from "../../assets/social/linkedin.svg?react"
+import EmailLogo from "../../assets/social/email.svg?react"
+import ResumeLogo from "../../assets/social/resume.svg?react"
 import "./styles.scss"
 
 const FloatingLinks = () => {

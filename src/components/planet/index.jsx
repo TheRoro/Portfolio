@@ -25,9 +25,8 @@ const Planet = ({ size, position, color, speed, scale }) => {
       castShadow
       receiveShadow
     >
-      <sphereBufferGeometry attach="geometry" args={[size, 50, 50]} />
+      <sphereGeometry args={[size, 50, 50]} />
       <MeshWobbleMaterial
-        attach="material"
         color={color}
         roughness={1}
         speed={speed}

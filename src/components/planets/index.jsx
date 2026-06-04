@@ -16,8 +16,8 @@ const Ring = ({ args, position, color }) => {
   }, [])
   return (
     <mesh ref={ref} position={position}>
-      <ringBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial attach="material" color={color} roughness={0} />
+      <ringGeometry args={args} />
+      <meshStandardMaterial color={color} roughness={0} />
     </mesh>
   )
 }

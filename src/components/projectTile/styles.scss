@@ -59,15 +59,16 @@
   }
 
   .details-container {
-    @include flex(center, flex-end);
+    @include flex(space-between, flex-end);
     flex-direction: column;
+    height: 15rem;
+    min-height: 15rem;
     width: 28rem;
     max-width: 100%;
-    max-height: 100%;
     margin-left: 5vh;
 
     & > * {
-      margin: 0.9rem 0;
+      margin: 0;
     }
   }
 
@@ -128,7 +129,7 @@
   flex-direction: row-reverse;
 
   .details-container {
-    @include flex(center, flex-start);
+    @include flex(space-between, flex-start);
     margin-left: 0;
     margin-right: 5vh;
   }
@@ -158,6 +159,9 @@
 
     .details-container {
       @include flex(center, flex-start);
+      gap: 1rem;
+      height: auto;
+      min-height: 0;
       margin-left: 0;
       margin-right: 0;
       margin-bottom: 2vh;

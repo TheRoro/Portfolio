@@ -1,10 +1,12 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { useNavigate } from "react-router-dom"
 import ProjectTile from "../../components/projectTile"
 import { selectedProjects } from "../../components/projectsInfo"
 import "./styles.scss"
 
 const MainProjectsModule = () => {
+  const navigate = useNavigate()
+
   return (
     <section className="main-projects" id="main-projects">
       <h1 className="section-title glowing-text mb-5">Selected Projects</h1>
@@ -20,7 +22,7 @@ const MainProjectsModule = () => {
       <button
         className="button"
         onClick={() => {
-          navigate("projects")
+          navigate("/projects/")
         }}
       >
         More Projects

@@ -1,10 +1,9 @@
 import React, { useRef } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
-import MyReactLogo from "../../../static/tech/react_logo.svg"
-import TypeScriptLogo from "../../../static/tech/typescript_logo.svg"
-import SassLogo from "../../../static/tech/sass_logo.svg"
-import NextLogo from "../../../static/tech/next_logo.svg"
+import MyReactLogo from "../../assets/tech/react_logo.svg?react"
+import TypeScriptLogo from "../../assets/tech/typescript_logo.svg?react"
+import SassLogo from "../../assets/tech/sass_logo.svg?react"
+import NextLogo from "../../assets/tech/next_logo.svg?react"
 import "./styles.scss"
 
 const AboutModule = () => {
@@ -14,12 +13,7 @@ const AboutModule = () => {
     <section className="about" id="about" ref={constraintsRef}>
       <h1 className="section-title glowing-text mb-5">About Me</h1>
       <div className="content-row">
-        <StaticImage
-          src="../../../static/rodrigo.jpg"
-          alt="rodrigo ramirez"
-          className="image"
-          placeholder="blurred"
-        />
+        <img src="/rodrigo.jpg" alt="rodrigo ramirez" className="image" />
         <div className="text-container">
           <p className="text">
             Hello! my name is{" "}

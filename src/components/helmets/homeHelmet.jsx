@@ -1,9 +1,8 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 
 const HomeHelmet = () => {
   return (
-    <Helmet>
+    <>
       <meta charSet="utf-8" />
       <title>Rodrigo Ramirez · Software Engineer Portfolio</title>
       <meta name="theme-color" content="#16ffd8" />
@@ -30,7 +29,7 @@ const HomeHelmet = () => {
         content="Software Engineer Portfolio of Rodrigo Ramirez. Software Engineer specialized in JavaScript Frameworks like React and Vue."
       />
       <meta name="image" content="/sphere.png" />
-    </Helmet>
+    </>
   )
 }
 

@@ -4,7 +4,9 @@
 
 My Name is **Rodrigo Ramirez**, and this is the code repository for my Software Engineer Portfolio.
 
-This portfolio was made using React.js and is a compilation of my most important Front-End projects, mostly Single-Page Application Frameworks/Libraries (React, Vue, Next, Nuxt).
+This portfolio is built with React, Vite, React Three Fiber, React Spring, and
+Framer Motion. It highlights selected software projects through a responsive
+interface and interactive WebGL scenes.
 
 It's currently hosted on [Netlify](https://www.netlify.com/), here's the link:
 
@@ -12,7 +14,26 @@ https://rodrigoramirez.dev/
 
 I hope you enjoy it as much as I enjoyed creating it!
 
-## Contact info:
+## Local development
+
+Requires a current Node.js LTS release.
+
+```sh
+npm install
+npm run dev
+```
+
+Vite serves the site at `http://localhost:5173`. Use `npm run local` to expose
+the development server to other devices on the local network.
+
+```sh
+npm run check
+```
+
+The production build is written to `dist/`. Netlify's checked-in configuration
+publishes that directory and preserves direct links to project routes.
+
+## Contact info
 
 **Email**
 

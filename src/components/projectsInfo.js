@@ -117,8 +117,8 @@ const portfolio = {
   summary:
     "A space-inspired portfolio combining responsive React content with interactive WebGL scenes.",
   description:
-    "This portfolio uses React and Gatsby with React Three Fiber, React Spring, and Framer Motion to create a distinctive space-inspired presentation for selected engineering work.",
-  tags: "Gatsby · React · Three.js",
+    "This portfolio uses React, Vite, React Three Fiber, React Spring, and Framer Motion to create a distinctive space-inspired presentation for selected engineering work.",
+  tags: "Vite · React · Three.js",
   palette: [
     { background: "#16ffd8", text: "#353535" },
     { background: "#121921", text: "#FFFFFF" },

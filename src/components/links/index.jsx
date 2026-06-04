@@ -1,6 +1,6 @@
 import React from "react"
-import GithubLogo from "../../../static/social/github.svg"
-import ExternalLinkLogo from "../../../static/social/externalLink.svg"
+import GithubLogo from "../../assets/social/github.svg?react"
+import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
 import "./styles.scss"
 
 const LinksComponent = ({ repoUrl, webUrl, webLabel = "Live Website" }) => {

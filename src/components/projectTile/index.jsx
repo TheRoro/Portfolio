@@ -1,7 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
-import GithubLogo from "../../../static/social/github.svg"
-import ExternalLinkLogo from "../../../static/social/externalLink.svg"
+import { Link } from "react-router-dom"
+import GithubLogo from "../../assets/social/github.svg?react"
+import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
 import "./styles.scss"
 
 const ProjectTile = ({
