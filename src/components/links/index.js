@@ -3,7 +3,7 @@ import GithubLogo from "../../../static/social/github.svg"
 import ExternalLinkLogo from "../../../static/social/externalLink.svg"
 import "./styles.scss"
 
-const LinksComponent = ({ repoUrl, webUrl }) => {
+const LinksComponent = ({ repoUrl, webUrl, webLabel = "Live Website" }) => {
   return (
     <div className="links-row">
       <div className="repo-link-col">
@@ -22,11 +22,11 @@ const LinksComponent = ({ repoUrl, webUrl }) => {
           href={webUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Live Website"
+          aria-label={webLabel}
         >
           <ExternalLinkLogo className="logo" />
         </a>
-        <p className="logo-label">Live Website</p>
+        <p className="logo-label">{webLabel}</p>
       </div>
     </div>
   )

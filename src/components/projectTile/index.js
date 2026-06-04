@@ -5,7 +5,17 @@ import ExternalLinkLogo from "../../../static/social/externalLink.svg"
 import "./styles.scss"
 
 const ProjectTile = ({
-  project: { title, name, summary, keywords, tags, imgUrl, repoUrl, webUrl },
+  project: {
+    title,
+    name,
+    summary,
+    keywords,
+    tags,
+    imgUrl,
+    repoUrl,
+    webUrl,
+    webLabel,
+  },
   orientation,
 }) => {
   return (
@@ -37,7 +47,7 @@ const ProjectTile = ({
             href={webUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${title} live website`}
+            aria-label={webLabel || `Open ${title}`}
           >
             <ExternalLinkLogo className="logo" />
           </a>

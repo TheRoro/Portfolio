@@ -1,7 +1,7 @@
 import React from "react"
 import { navigate } from "gatsby"
 import ProjectTile from "../../components/projectTile"
-import { bodega, pokeapp } from "../../components/projectsInfo"
+import { selectedProjects } from "../../components/projectsInfo"
 import "./styles.scss"
 
 const MainProjectsModule = () => {
@@ -9,8 +9,13 @@ const MainProjectsModule = () => {
     <section className="main-projects" id="main-projects">
       <h1 className="section-title glowing-text mb-5">Selected Projects</h1>
       <div className="projects-list">
-        <ProjectTile project={bodega} orientation="right" />
-        <ProjectTile project={pokeapp} orientation="left" />
+        {selectedProjects.map((project, index) => (
+          <ProjectTile
+            key={project.name}
+            project={project}
+            orientation={index % 2 === 0 ? "right" : "left"}
+          />
+        ))}
       </div>
       <button
         className="button"

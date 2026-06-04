@@ -17,7 +17,11 @@ const ProjectPage = ({ project }) => {
           <h1 className="project-title">{project.title}</h1>
           <h2 className="project-subtitle">{project.summary}</h2>
           <ProjectRow project={project} />
-          <LinksComponent repoUrl={project.repoUrl} webUrl={project.webUrl} />
+          <LinksComponent
+            repoUrl={project.repoUrl}
+            webUrl={project.webUrl}
+            webLabel={project.webLabel}
+          />
           <PaletteComponent palette={project.palette} />
         </section>
       </PageTransition>
