@@ -4,10 +4,13 @@ const HomeHelmet = () => {
   return (
     <>
       <meta charSet="utf-8" />
-      <title>Rodrigo Ramirez · Software Engineer Portfolio</title>
+      <title>Rodrigo Ramirez · Software Engineer at Microsoft, Xbox</title>
       <meta name="theme-color" content="#16ffd8" />
       <link rel="canonical" href="https://rodrigoramirez.dev" />
-      <meta property="og:title" content="Software Engineer Portfolio" />
+      <meta
+        property="og:title"
+        content="Rodrigo Ramirez · Software Engineer at Microsoft, Xbox"
+      />
       <meta property="og:url" content="https://rodrigoramirez.dev" />
       <meta
         property="og:image"
@@ -22,11 +25,11 @@ const HomeHelmet = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:description"
-        content="Software Engineer portfolio of Rodrigo Ramirez"
+        content="Experience and selected work from Rodrigo Ramirez, a Software Engineer at Microsoft, Xbox."
       />
       <meta
         name="description"
-        content="Software Engineer Portfolio of Rodrigo Ramirez. Software Engineer specialized in JavaScript Frameworks like React and Vue."
+        content="Experience and selected work from Rodrigo Ramirez across Xbox product engineering, cloud infrastructure, diagnostics, and reliable systems."
       />
       <meta name="image" content="/sphere.png" />
     </>

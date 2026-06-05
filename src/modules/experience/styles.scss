@@ -1,0 +1,237 @@
+@use "../../styles/variables.scss" as *;
+
+.experience {
+  width: min(72rem, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: calc($navbar-height + 3rem) 0 7rem;
+
+  .experience-heading {
+    @include flex(center, center);
+    flex-direction: column;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .experience-eyebrow,
+  .entry-label,
+  .education-date {
+    color: $primary;
+    font-family: "Sora", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    margin: 0.75rem 0 1.25rem;
+  }
+
+  .experience-intro {
+    max-width: 44rem;
+    color: $text2;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+
+    &::before {
+      position: absolute;
+      top: 0.75rem;
+      bottom: 0;
+      left: 0.45rem;
+      width: 2px;
+      background: linear-gradient($primary, $purple, transparent);
+      content: "";
+    }
+  }
+
+  .timeline-entry {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(202, 209, 232, 0.14);
+    border-radius: 1.5rem;
+    background: rgba(44, 57, 80, 0.32);
+  }
+
+  .timeline-marker {
+    position: absolute;
+    top: 2.3rem;
+    left: -2.55rem;
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid $background;
+    border-radius: 50%;
+    background: $primary;
+    box-shadow: 0 0 1rem rgba(22, 255, 216, 0.65);
+  }
+
+  .entry-header,
+  .role-heading {
+    @include flex(space-between, flex-start);
+    gap: 1.5rem;
+  }
+
+  .entry-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(202, 209, 232, 0.12);
+
+    h2 {
+      font-family: "Sora", sans-serif;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 0.35rem;
+      color: $text2;
+      font-size: 1rem;
+    }
+  }
+
+  .entry-dates {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .entry-label {
+    margin-top: 1.5rem;
+  }
+
+  .role {
+    padding-top: 1.75rem;
+
+    & + .role {
+      margin-top: 1.75rem;
+      border-top: 1px solid rgba(202, 209, 232, 0.12);
+    }
+
+    h3 {
+      color: $purple-100;
+      font-family: "Sora", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    ul {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.25rem;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      color: $text2;
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.6;
+
+      &::marker {
+        color: $primary;
+      }
+    }
+  }
+
+  .role-heading p {
+    flex-shrink: 0;
+    color: $text2;
+    font-size: 0.95rem;
+  }
+
+  .role-summary {
+    display: block;
+    margin-top: 0.8rem;
+    color: $text;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .education {
+    margin-top: 5rem;
+
+    & > h2 {
+      margin-bottom: 1.5rem;
+      color: $primary;
+      font-family: "Sora", sans-serif;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+
+    article {
+      padding: 1.75rem;
+      border: 1px solid rgba(202, 209, 232, 0.14);
+      border-radius: 1.25rem;
+      background: rgba(44, 57, 80, 0.2);
+    }
+
+    h3 {
+      margin: 0.75rem 0 0.5rem;
+      font-family: "Sora", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    p {
+      display: block;
+      color: $text2;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .education-program {
+      margin-bottom: 0.75rem;
+      color: $text;
+      font-weight: 500;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    width: min(100% - 2rem, 42rem);
+    padding-bottom: 5rem;
+
+    .experience-intro {
+      font-size: 1.1rem;
+    }
+
+    .timeline {
+      padding-left: 1.25rem;
+
+      &::before {
+        left: 0.2rem;
+      }
+    }
+
+    .timeline-marker {
+      left: -1.6rem;
+    }
+
+    .timeline-entry {
+      padding: 1.5rem;
+    }
+
+    .entry-header,
+    .role-heading {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .entry-dates {
+      text-align: left;
+    }
+
+    .education-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

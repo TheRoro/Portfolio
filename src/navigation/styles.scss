@@ -34,7 +34,20 @@
     }
   }
 
+  .links {
+    @include flex(flex-end, center);
+  }
+
   @media only screen and (max-width: $nav-breakpoint) {
     padding: 0 1rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 0 0.5rem;
+
+    .navigation-link {
+      margin: 0 0.45rem;
+      font-size: 0.8rem;
+    }
   }
 }

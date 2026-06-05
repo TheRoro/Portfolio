@@ -9,7 +9,8 @@ const HomeNav = () => {
     <nav className="nav">
       <IconScrollLink href="home" icon={<Sphere className="brand-sphere" />} />
       <div className="links">
-        <TextScrollLink href="main-projects" name="Projects" />
+        <TextScrollLink href="experience" name="Experience" />
+        <TextScrollLink href="main-projects" name="Work" />
         <TextScrollLink href="about" name="About" />
         <TextScrollLink href="contact" name="Contact" />
       </div>

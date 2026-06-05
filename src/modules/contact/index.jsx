@@ -121,7 +121,11 @@ const ContactModule = () => {
               <ResumeLogo className={`logo ${activeHover[3]}`} />
             </a>
           </motion.li>
-          <motion.li className="logo-item" variants={itemAnimation} key={4}>
+          <motion.li
+            className="logo-item secondary"
+            variants={itemAnimation}
+            key={4}
+          >
             <a
               href="https://codepen.io/theroro"
               target="_blank"
@@ -133,7 +137,11 @@ const ContactModule = () => {
               <CodepenLogo className={`logo ${activeHover[4]}`} />
             </a>
           </motion.li>
-          <motion.li className="logo-item" variants={itemAnimation} key={5}>
+          <motion.li
+            className="logo-item secondary"
+            variants={itemAnimation}
+            key={5}
+          >
             <a
               href="https://www.instagram.com/rorocodes/"
               target="_blank"

@@ -28,6 +28,11 @@
       list-style: none;
     }
 
+    .logo-item.secondary {
+      opacity: 0.55;
+      transform: scale(0.72);
+    }
+
     .logo {
       width: 100%;
       height: 100%;
