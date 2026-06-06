@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useAnimation, motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import Footer from "../../components/footer/index"
 import GithubLogo from "../../assets/social/github.svg?react"
 import LinkedinLogo from "../../assets/social/linkedin.svg?react"
@@ -11,6 +12,7 @@ import CodepenLogo from "../../assets/social/codepen.svg?react"
 import "./styles.scss"
 
 const ContactModule = () => {
+  const reduceMotion = usePrefersReducedMotion()
   const [logoName, setLogoName] = React.useState("")
   const [activeHover, setActiveHover] = React.useState([
     "inactive",
@@ -39,10 +41,10 @@ const ContactModule = () => {
   const [ref, inView] = useInView()
 
   useEffect(() => {
-    if (inView) {
+    if (inView || reduceMotion) {
       controls.start("visible")
     }
-  }, [controls, inView])
+  }, [controls, inView, reduceMotion])
 
   const containerAnimation = {
     hidden: { opacity: 1, scale: 1 },
@@ -71,7 +73,7 @@ const ContactModule = () => {
         <motion.ul
           className="contact-grid"
           variants={containerAnimation}
-          initial="hidden"
+          initial={reduceMotion ? false : "hidden"}
           animate={controls}
           ref={ref}
         >

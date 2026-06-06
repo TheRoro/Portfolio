@@ -1,10 +1,20 @@
-import React from "react"
+import React, { lazy, Suspense } from "react"
 import { Link as LinkScroll } from "react-scroll"
-import Planets from "../../components/planets"
 import FloatingLinks from "../../components/floatingLinks"
+import SpaceFallback from "../../components/spaceFallback"
+import WebGLBoundary from "../../components/webglBoundary"
+import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import "./styles.scss"
 
+const Planets = lazy(() => import("../../components/planets"))
+
 const HomeModule = () => {
+  const reduceMotion = usePrefersReducedMotion()
+  const scrollProps = {
+    smooth: !reduceMotion,
+    duration: reduceMotion ? 0 : 1000,
+  }
+
   return (
     <section id="home" className="home">
       <div className="home-col">
@@ -15,16 +25,16 @@ const HomeModule = () => {
           <LinkScroll
             className="hero-action hero-action-primary"
             to="experience"
-            smooth={true}
-            duration={1000}
+            href="#experience"
+            {...scrollProps}
           >
             <span>View experience</span>
           </LinkScroll>
           <LinkScroll
             className="hero-action"
             to="main-projects"
-            smooth={true}
-            duration={1000}
+            href="#main-projects"
+            {...scrollProps}
           >
             <span>View selected work</span>
           </LinkScroll>
@@ -40,15 +50,19 @@ const HomeModule = () => {
           <LinkScroll
             className="hero-action"
             to="contact"
-            smooth={true}
-            duration={1000}
+            href="#contact"
+            {...scrollProps}
           >
             <span>Contact me</span>
           </LinkScroll>
         </div>
       </div>
       <div className="planets-container">
-        <Planets />
+        <WebGLBoundary fallback={<SpaceFallback />}>
+          <Suspense fallback={<SpaceFallback />}>
+            <Planets />
+          </Suspense>
+        </WebGLBoundary>
       </div>
       <FloatingLinks />
     </section>

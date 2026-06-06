@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
+import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import GithubLogo from "../../assets/social/github.svg?react"
 import LinkedinLogo from "../../assets/social/linkedin.svg?react"
 import EmailLogo from "../../assets/social/email.svg?react"
@@ -7,6 +8,7 @@ import ResumeLogo from "../../assets/social/resume.svg?react"
 import "./styles.scss"
 
 const FloatingLinks = () => {
+  const reduceMotion = usePrefersReducedMotion()
   const containerAnimation = {
     hidden: { opacity: 1, scale: 1 },
     visible: {
@@ -32,7 +34,7 @@ const FloatingLinks = () => {
       className="floating-links"
       id="floating-links"
       variants={containerAnimation}
-      initial="hidden"
+      initial={reduceMotion ? false : "hidden"}
       animate="visible"
     >
       <motion.li className="logo-item" variants={itemAnimation} key={0}>

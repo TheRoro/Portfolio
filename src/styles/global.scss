@@ -128,6 +128,23 @@ h1 {
 
 @keyframes glowing {
   100% {
-    text-shadow: 0 0 10px $primary, 0 0 15px $primary;
+    text-shadow:
+      0 0 10px $primary,
+      0 0 15px $primary;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .glowing-text {
+    animation: none;
+    text-shadow: none;
   }
 }

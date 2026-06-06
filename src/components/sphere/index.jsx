@@ -1,32 +1,62 @@
 import React, { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import Planet from "../planet"
+import SpaceFallback from "../spaceFallback"
+import WebGLBoundary from "../webglBoundary"
+import useSceneActivity from "../../hooks/useSceneActivity"
+import useWebGLRenderer from "../../hooks/useWebGLRenderer"
 import "./styles.scss"
 
 const SphereComponent = () => {
+  const { containerRef, isActive, reduceMotion } = useSceneActivity()
+  const { createRenderer, webGLReady } = useWebGLRenderer({
+    alpha: true,
+    antialias: false,
+    enabled: !reduceMotion,
+    powerPreference: "low-power",
+  })
+  const fallback = <SpaceFallback compact />
+
   return (
-    <>
-      <div className="sphere" id="sphere">
-        <Canvas camera={{ zoom: 11, position: [0, 0, 25] }}>
-          <Suspense fallback={null}>
-            <spotLight
-              intensity={0.7}
-              angle={0.9}
-              penumbra={1}
-              position={[-15, 6, 4]}
-            />
-            <Planet
-              position={[0, 0, 1]}
-              color="#02ccaa"
-              size={1.5}
-              speed={0.04}
-              scale={[1.05, 1, 1]}
-            />
-            <ambientLight intensity={0.5} />
-          </Suspense>
-        </Canvas>
-      </div>
-    </>
+    <div className="sphere" id="sphere" ref={containerRef}>
+      {reduceMotion || !webGLReady ? (
+        fallback
+      ) : (
+        <WebGLBoundary fallback={fallback}>
+          <Canvas
+            camera={{ fov: 36, position: [0, 0, 8] }}
+            dpr={[1, 1.25]}
+            fallback={fallback}
+            frameloop={isActive ? "always" : "demand"}
+            gl={createRenderer}
+          >
+            <Suspense fallback={null}>
+              <ambientLight intensity={0.55} />
+              <spotLight
+                color="#d4ddf8"
+                intensity={24}
+                angle={0.65}
+                penumbra={1}
+                position={[-4, 5, 6]}
+              />
+              <Planet
+                active={isActive}
+                color="#12cbae"
+                emissiveIntensity={0.22}
+                metalness={0}
+                position={[0, 0, 0]}
+                roughness={0.9}
+                scale={[1.04, 1, 1]}
+                segments={24}
+                size={1.45}
+                speed={0.018}
+                wobble={0.08}
+              />
+            </Suspense>
+          </Canvas>
+        </WebGLBoundary>
+      )}
+    </div>
   )
 }
 

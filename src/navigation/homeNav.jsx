@@ -1,5 +1,5 @@
 import React from "react"
-import Sphere from "../components/sphere"
+import LazySphere from "../components/lazySphere"
 import IconScrollLink from "./links/iconLink"
 import TextScrollLink from "./links/textLink"
 import "./styles.scss"
@@ -7,7 +7,7 @@ import "./styles.scss"
 const HomeNav = () => {
   return (
     <nav className="nav">
-      <IconScrollLink href="home" icon={<Sphere className="brand-sphere" />} />
+      <IconScrollLink href="home" icon={<LazySphere />} />
       <div className="links">
         <TextScrollLink href="experience" name="Experience" />
         <TextScrollLink href="main-projects" name="Work" />

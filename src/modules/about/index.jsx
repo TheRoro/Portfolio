@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { motion } from "framer-motion"
+import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import MyReactLogo from "../../assets/tech/react_logo.svg?react"
 import TypeScriptLogo from "../../assets/tech/typescript_logo.svg?react"
 import SassLogo from "../../assets/tech/sass_logo.svg?react"
@@ -8,6 +9,7 @@ import "./styles.scss"
 
 const AboutModule = () => {
   const constraintsRef = useRef(null)
+  const reduceMotion = usePrefersReducedMotion()
 
   return (
     <section className="about" id="about" ref={constraintsRef}>
@@ -32,28 +34,28 @@ const AboutModule = () => {
           <div className="logos-row">
             <motion.div
               className="logo-item"
-              drag
+              drag={!reduceMotion}
               dragConstraints={constraintsRef}
             >
               <MyReactLogo className="logo" />
             </motion.div>
             <motion.div
               className="logo-item"
-              drag
+              drag={!reduceMotion}
               dragConstraints={constraintsRef}
             >
               <TypeScriptLogo className="logo" />
             </motion.div>
             <motion.div
               className="logo-item"
-              drag
+              drag={!reduceMotion}
               dragConstraints={constraintsRef}
             >
               <SassLogo className="logo" />
             </motion.div>
             <motion.div
               className="logo-item"
-              drag
+              drag={!reduceMotion}
               dragConstraints={constraintsRef}
             >
               <NextLogo className="logo" />

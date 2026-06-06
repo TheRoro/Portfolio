@@ -1,8 +1,21 @@
 @use "../../styles/variables.scss" as *;
 
 .planets {
+  position: relative;
   height: 100%;
   width: 100%;
   margin: 0;
   @include flex(center, center);
+  background: $background;
+
+  canvas {
+    opacity: 0;
+    animation: reveal-scene 0.8s ease-out forwards;
+  }
+}
+
+@keyframes reveal-scene {
+  to {
+    opacity: 1;
+  }
 }

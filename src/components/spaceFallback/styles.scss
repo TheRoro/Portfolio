@@ -1,0 +1,115 @@
+@use "../../styles/variables.scss" as *;
+
+.space-fallback {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 20% 28%,
+      rgba(212, 221, 248, 0.45) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 72% 18%,
+      rgba(212, 221, 248, 0.3) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(212, 221, 248, 0.35) 0 1px,
+      transparent 2px
+    );
+
+  .fallback-orbit {
+    position: absolute;
+    top: 44%;
+    left: 56%;
+    width: 46%;
+    aspect-ratio: 2.4;
+    border: 8px solid #8ad9cb;
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 5px $background,
+      0 0 0 9px #5dcab7,
+      0 0 0 14px $background,
+      0 0 0 19px #a2e0d5;
+    transform: translate(-50%, -50%) rotate(-18deg);
+  }
+
+  .fallback-planet {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    box-shadow:
+      inset -1rem -0.8rem 1.8rem rgba(18, 25, 33, 0.5),
+      0 0 2rem currentColor;
+  }
+
+  .fallback-planet-primary {
+    top: 30%;
+    left: 45%;
+    width: 26%;
+    aspect-ratio: 1;
+    background: radial-gradient(
+      circle at 30% 25%,
+      #62dbc7,
+      #12cbae 48%,
+      #009d88
+    );
+    color: rgba(18, 203, 174, 0.2);
+  }
+
+  .fallback-planet-purple {
+    top: 22%;
+    left: 19%;
+    width: 14%;
+    aspect-ratio: 1;
+    background: radial-gradient(
+      circle at 30% 25%,
+      $purple-100,
+      $purple 50%,
+      #4f478f
+    );
+    color: rgba(137, 128, 245, 0.2);
+  }
+
+  .fallback-planet-red {
+    right: 17%;
+    bottom: 24%;
+    width: 6%;
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 30% 25%, $red-100, $red 50%, #953f48);
+    color: rgba(255, 121, 121, 0.18);
+  }
+
+  .fallback-planet-gold {
+    top: 21%;
+    right: 18%;
+    width: 8%;
+    aspect-ratio: 1;
+    background: radial-gradient(
+      circle at 30% 25%,
+      #ffe5a1,
+      #f4b95c 50%,
+      #8b632e
+    );
+    color: rgba(244, 185, 92, 0.16);
+  }
+}
+
+.space-fallback-compact {
+  border-radius: 50%;
+
+  .fallback-orbit,
+  .fallback-planet-purple {
+    display: none;
+  }
+
+  .fallback-planet-primary {
+    top: 8%;
+    left: 8%;
+    width: 84%;
+  }
+}
