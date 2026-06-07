@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"
+import React, { lazy, Suspense, useEffect } from "react"
 import { AnimatePresence } from "framer-motion"
 import { Navigate, Route, Routes, useLocation } from "react-router-dom"
 
@@ -14,6 +14,10 @@ const VSQuotePage = lazy(() => import("./pages/vsquote"))
 
 const App = () => {
   const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+  }, [location.pathname])
 
   return (
     <AnimatePresence mode="wait">
