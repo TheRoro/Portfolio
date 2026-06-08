@@ -1,15 +1,14 @@
 import React from "react"
+import ProjectImage from "../projectImage"
 import "./styles.scss"
 
-const ProjectRow = ({ project: { title, description, keywords, imgUrl } }) => {
+const ProjectRow = ({ project }) => {
+  const { title, description, keywords } = project
+
   return (
     <div className="project-row">
       <div className="image-container">
-        <img
-          className="image"
-          src={`/projects/${imgUrl}`}
-          alt={`${title} · ${keywords}`}
-        />
+        <ProjectImage project={project} alt={`${title} · ${keywords}`} />
       </div>
       <div className="details-container">
         <h2 className="keywords">{keywords}</h2>

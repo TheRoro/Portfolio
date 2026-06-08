@@ -25,7 +25,10 @@
   }
 
   .nav-logo {
-    width: 4rem;
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
     transition: all 0.2s ease-in-out;
 
     &:hover {

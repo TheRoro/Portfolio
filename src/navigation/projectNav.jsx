@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import LazySphere from "../components/lazySphere"
+import NavLogo from "../components/navLogo"
 import "./styles.scss"
 
 const ProjectNav = () => {
   return (
     <nav className="nav">
       <Link to="/" className="img-link" aria-label="Home">
-        <LazySphere />
+        <NavLogo />
       </Link>
       <div className="links">
         <Link className="navigation-link" to="/projects">

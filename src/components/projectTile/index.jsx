@@ -2,33 +2,20 @@ import React from "react"
 import { Link } from "react-router-dom"
 import GithubLogo from "../../assets/social/github.svg?react"
 import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
+import ProjectImage from "../projectImage"
 import "./styles.scss"
 
-const ProjectTile = ({
-  project: {
-    title,
-    name,
-    summary,
-    keywords,
-    tags,
-    imgUrl,
-    repoUrl,
-    webUrl,
-    webLabel,
-  },
-  orientation,
-}) => {
+const ProjectTile = ({ project, orientation }) => {
+  const { title, name, summary, keywords, tags, repoUrl, webUrl, webLabel } =
+    project
+
   return (
     <div className={`project-tile project-tile-${orientation}`}>
       <Link className="image-container" to={`/${name}/`}>
         <span className="text">
           <h1>View More</h1>
         </span>
-        <img
-          className="image"
-          src={`/projects/${imgUrl}`}
-          alt={`${title} · ${summary}`}
-        />
+        <ProjectImage project={project} alt={`${title} · ${summary}`} />
       </Link>
       <div className="details-container">
         <h2 className="keywords">{keywords}</h2>

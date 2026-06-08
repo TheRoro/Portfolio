@@ -9,7 +9,7 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-route-pages.mjs",
     "dev": "vite",
     "local": "vite --host 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
