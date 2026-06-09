@@ -9,28 +9,57 @@
   .content-row {
     @include flex(center, center);
     width: 100%;
-    min-height: 10rem;
+    max-width: 1080px;
+
+    .portrait {
+      flex: 0 0 clamp(260px, 25vw, 320px);
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1px solid rgba($primary, 0.22);
+      border-radius: 24px;
+      cursor: pointer;
+      box-shadow:
+        rgba(0, 0, 0, 0.28) 0 18px 45px,
+        rgba($primary, 0.12) 0 0 36px;
+      transition: box-shadow 0.45s ease-in-out;
+
+      &:hover {
+        box-shadow:
+          rgba(0, 0, 0, 0.28) 0 18px 45px,
+          rgba($primary, 0.52) 0 0 34px,
+          rgba($primary, 0.22) 0 0 64px;
+      }
+    }
 
     .image {
-      height: 230px;
-      width: 230px;
-      border-radius: 20px;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .text-container {
-      max-width: 550px;
+      max-width: 640px;
       position: relative;
       margin-left: 4vw;
       z-index: 1;
 
+      .eyebrow {
+        margin-bottom: 1rem;
+        color: $primary;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18rem;
+        text-transform: uppercase;
+      }
+
       .text {
-        font-size: 1.2rem;
+        font-size: 1.08rem;
         font-weight: 300;
-        line-height: 1.8rem;
-        letter-spacing: 0.05rem;
-        margin-left: 0.5rem;
+        line-height: 1.75rem;
+        letter-spacing: 0.02rem;
         text-align: justify;
+        hyphens: auto;
 
         .accent-text {
           color: $primary;
@@ -38,20 +67,12 @@
           transition: all 0.2s ease-in-out;
         }
 
-        &:before {
-          @include flex(center, center);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          content: "INNOVATIVE SOFTWARE";
-          color: $purple;
-          opacity: 0.1;
-          font-size: 5.5rem;
-          font-weight: 700;
-          line-height: 6rem;
-          text-transform: uppercase;
+        p {
+          margin: 0 0 1rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
     }
@@ -61,19 +82,11 @@
     @include flex(center, center);
     flex-direction: column;
     width: 100%;
-    margin-top: 7vh;
-
-    .phrase {
-      font-family: "Raleway", sans-serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      text-align: center;
-    }
+    margin-top: 5vh;
 
     .tech-row {
       @include flex(flex-start, flex-start);
       flex-direction: column;
-      margin-top: 5vh;
 
       .favs-title {
         font-size: 1.1rem;
@@ -125,32 +138,19 @@
       flex-direction: column;
       margin-top: 5vh;
 
+      .portrait {
+        flex-basis: auto;
+        width: min(80vw, 320px);
+      }
+
       .text-container {
-        @include flex(center, center);
         width: auto;
         max-width: 400px;
-        margin: 5vh 5vw;
+        margin: 5vh 5vw 0;
 
         .text {
           font-size: 1rem;
           line-height: 1.6rem;
-          margin: 5vh 0;
-
-          &:before {
-            @include flex(center, center);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            content: "INNOVATIVE SOFTWARE";
-            color: $purple;
-            opacity: 0.1;
-            font-size: calc(55px + 20 * ((100vw - 320px) / 680));
-            font-weight: 700;
-            line-height: 6rem;
-            text-transform: uppercase;
-          }
         }
       }
     }
@@ -159,8 +159,6 @@
       margin-top: 3vh;
 
       .tech-row {
-        margin-top: 7vh;
-
         .favs-title {
           margin-bottom: 4vh;
         }

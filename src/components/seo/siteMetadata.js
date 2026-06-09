@@ -6,8 +6,8 @@ const HOME_SEO = {
   description:
     "Experience and selected work from Rodrigo Ramirez across Xbox product engineering, cloud infrastructure, diagnostics, and reliable systems.",
   path: "/",
-  imagePath: "/projects/optimized/portfolio-og.jpg",
-  imageAlt: "Rodrigo Ramirez software engineering portfolio",
+  imagePath: "/rodrigo/social.jpg",
+  imageAlt: "Rodrigo Ramirez, software engineer at Microsoft working on Xbox",
 }
 
 const PROJECTS_SEO = {
@@ -45,6 +45,7 @@ const homeStructuredData = {
       ...personReference,
       name: "Rodrigo Ramirez",
       url: SITE_URL,
+      image: absoluteUrl("/rodrigo/portrait.jpg"),
       jobTitle: "Software Engineer",
       worksFor: {
         "@type": "Organization",
