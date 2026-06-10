@@ -1,18 +1,30 @@
 import React, { useRef } from "react"
 import { motion } from "framer-motion"
-import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
-import MyReactLogo from "../../assets/tech/react_logo.svg?react"
+import CSharpLogo from "../../assets/tech/csharp_logo.svg?react"
+import DotNetLogo from "../../assets/tech/dotnet_logo.svg?react"
+import LinuxLogo from "../../assets/tech/linux_logo.svg?react"
+import ReactLogo from "../../assets/tech/react_logo.svg?react"
+import SqlLogo from "../../assets/tech/sql_logo.svg?react"
 import TypeScriptLogo from "../../assets/tech/typescript_logo.svg?react"
-import SassLogo from "../../assets/tech/sass_logo.svg?react"
-import NextLogo from "../../assets/tech/next_logo.svg?react"
+import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import "./styles.scss"
 
+const DraggableIcon = ({ children, constraints, disabled }) => (
+  <motion.div
+    className={`draggable-icon${disabled ? " drag-disabled" : ""}`}
+    drag={!disabled}
+    dragConstraints={constraints}
+  >
+    {children}
+  </motion.div>
+)
+
 const AboutModule = () => {
-  const constraintsRef = useRef(null)
+  const capabilitiesRef = useRef(null)
   const reduceMotion = usePrefersReducedMotion()
 
   return (
-    <section className="about" id="about" ref={constraintsRef}>
+    <section className="about" id="about">
       <h1 className="section-title glowing-text mb-5">About</h1>
       <div className="content-row">
         <picture className="portrait">
@@ -64,40 +76,92 @@ const AboutModule = () => {
         </div>
       </div>
       <div className="secondary-row">
-        <div className="tech-row">
-          <p className="favs-title">tools I enjoy:</p>
-          <div className="logos-row">
-            <motion.div
-              className="logo-item"
-              drag={!reduceMotion}
-              dragConstraints={constraintsRef}
-            >
-              <MyReactLogo className="logo" />
-            </motion.div>
-            <motion.div
-              className="logo-item"
-              drag={!reduceMotion}
-              dragConstraints={constraintsRef}
-            >
-              <TypeScriptLogo className="logo" />
-            </motion.div>
-            <motion.div
-              className="logo-item"
-              drag={!reduceMotion}
-              dragConstraints={constraintsRef}
-            >
-              <SassLogo className="logo" />
-            </motion.div>
-            <motion.div
-              className="logo-item"
-              drag={!reduceMotion}
-              dragConstraints={constraintsRef}
-            >
-              <NextLogo className="logo" />
-            </motion.div>
-          </div>
-          <p className="instruction-text">you can play with the icons!</p>
+        <h2 className="capabilities-title">What I work across</h2>
+        <div className="capabilities-grid" ref={capabilitiesRef}>
+          <article className="capability-card">
+            <p className="capability-label">Product</p>
+            <div className="capability-icons" aria-hidden="true">
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <ReactLogo className="tech-logo" />
+              </DraggableIcon>
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <TypeScriptLogo className="tech-logo" />
+              </DraggableIcon>
+            </div>
+            <h3>Product interfaces</h3>
+            <p className="capability-tools">React · TypeScript</p>
+          </article>
+          <article className="capability-card">
+            <p className="capability-label">Services</p>
+            <div className="capability-icons" aria-hidden="true">
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <CSharpLogo className="tech-logo" />
+              </DraggableIcon>
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <DotNetLogo className="tech-logo" />
+              </DraggableIcon>
+            </div>
+            <h3>Backend systems</h3>
+            <p className="capability-tools">C# · .NET</p>
+          </article>
+          <article className="capability-card">
+            <p className="capability-label">Infrastructure</p>
+            <div className="capability-icons" aria-hidden="true">
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <LinuxLogo className="tech-logo monochrome-logo" />
+              </DraggableIcon>
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <svg className="line-icon" viewBox="0 0 32 32">
+                  <path d="M3 17h5l3-8 5 16 4-12 3 4h6" />
+                </svg>
+              </DraggableIcon>
+            </div>
+            <h3>Cloud diagnostics</h3>
+            <p className="capability-tools">Linux · Telemetry</p>
+          </article>
+          <article className="capability-card">
+            <p className="capability-label">Data</p>
+            <div className="capability-icons" aria-hidden="true">
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <SqlLogo className="tech-logo" />
+              </DraggableIcon>
+              <DraggableIcon
+                constraints={capabilitiesRef}
+                disabled={reduceMotion}
+              >
+                <svg className="line-icon" viewBox="0 0 32 32">
+                  <path d="M5 27V15h5v12M14 27V9h5v18M23 27V4h5v23M3 27h27" />
+                </svg>
+              </DraggableIcon>
+            </div>
+            <h3>Insights &amp; automation</h3>
+            <p className="capability-tools">SQL · Reporting</p>
+          </article>
         </div>
+        {!reduceMotion && (
+          <p className="capabilities-hint">you can play with the icons...</p>
+        )}
       </div>
     </section>
   )

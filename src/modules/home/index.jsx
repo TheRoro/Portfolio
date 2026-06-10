@@ -23,7 +23,7 @@ const HomeModule = () => {
         <p className="job glowing-text">Software Engineer</p>
         <div className="hero-actions" aria-label="Portfolio actions">
           <LinkScroll
-            className="hero-action hero-action-primary"
+            className="hero-action"
             to="experience"
             href="#experience"
             {...scrollProps}
@@ -39,7 +39,7 @@ const HomeModule = () => {
             <span>View selected work</span>
           </LinkScroll>
           <a
-            className="hero-action hero-action-download"
+            className="hero-action"
             href="/rodrigo_ramirez_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"

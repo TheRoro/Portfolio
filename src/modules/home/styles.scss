@@ -49,32 +49,12 @@
         color 0.2s ease-in-out,
         border-color 0.2s ease-in-out;
 
-      &::after {
-        display: inline-block;
-        margin-left: 0.55rem;
-        color: $primary;
-        content: "↘";
-        transition: transform 0.2s ease-in-out;
-      }
-
       &:hover,
       &:focus-visible {
         border-color: $primary;
         color: $primary;
         cursor: pointer;
-
-        &::after {
-          transform: translate(0.2rem, 0.2rem);
-        }
       }
-    }
-
-    .hero-action-primary {
-      color: $primary;
-    }
-
-    .hero-action-download::after {
-      content: "↓";
     }
 
     .job {
