@@ -170,7 +170,7 @@ const PlanetScene = ({ active, compact }) => {
         roughness={0.9}
         scale={[1.06, 1, 1]}
         segments={sphereSegments}
-        size={1.9}
+        size={1.8}
         speed={0.006}
         wobble={0.06}
       />
