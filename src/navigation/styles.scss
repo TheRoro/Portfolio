@@ -41,16 +41,70 @@
     @include flex(flex-end, center);
   }
 
+  .nav-menu-button {
+    display: none;
+  }
+
   @media only screen and (max-width: $nav-breakpoint) {
-    padding: 0 1rem;
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(1rem, env(safe-area-inset-left));
   }
 
   @media only screen and (max-width: 480px) {
     padding: 0 0.5rem;
 
     .navigation-link {
-      margin: 0 0.45rem;
-      font-size: 0.8rem;
+      min-height: 2.75rem;
+      margin: 0 0.55rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.nav-home {
+  @media only screen and (max-width: $home-breakpoint) {
+    .nav-menu-button {
+      display: block;
+      min-width: 4.5rem;
+      min-height: 2.75rem;
+      border: 1px solid rgba($text2, 0.28);
+      border-radius: 999px;
+      background: rgba($background2, 0.38);
+      color: $text;
+      font-family: "Sora", sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .links {
+      position: absolute;
+      top: calc(100% - 0.35rem);
+      right: max(0.5rem, env(safe-area-inset-right));
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      width: min(13rem, calc(100vw - 1rem));
+      padding: 0.65rem;
+      border: 1px solid rgba($text2, 0.18);
+      border-radius: 1rem;
+      background: rgba($nav-background, 0.98);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    }
+
+    .links-open {
+      display: flex;
+    }
+
+    .navigation-link {
+      margin: 0;
+      padding: 0.75rem;
+      border-radius: 0.65rem;
+
+      &:hover,
+      &:focus-visible {
+        background: rgba($background2, 0.5);
+        opacity: 1;
+      }
     }
   }
 }

@@ -87,6 +87,7 @@ const ContactModule = () => {
               onMouseLeave={() => mouseLeaveFunction(0)}
             >
               <GithubLogo className={`logo ${activeHover[0]}`} />
+              <span className="contact-label">GitHub</span>
             </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={1}>
@@ -99,6 +100,7 @@ const ContactModule = () => {
               onMouseLeave={() => mouseLeaveFunction(1)}
             >
               <LinkedinLogo className={`logo ${activeHover[1]}`} />
+              <span className="contact-label">LinkedIn</span>
             </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={2}>
@@ -109,6 +111,7 @@ const ContactModule = () => {
               onMouseLeave={() => mouseLeaveFunction(2)}
             >
               <EmailLogo className={`logo ${activeHover[2]}`} />
+              <span className="contact-label">Email</span>
             </a>
           </motion.li>
           <motion.li className="logo-item" variants={itemAnimation} key={3}>
@@ -121,6 +124,7 @@ const ContactModule = () => {
               onMouseLeave={() => mouseLeaveFunction(3)}
             >
               <ResumeLogo className={`logo ${activeHover[3]}`} />
+              <span className="contact-label">Résumé</span>
             </a>
           </motion.li>
           <motion.li
@@ -137,6 +141,7 @@ const ContactModule = () => {
               onMouseLeave={() => mouseLeaveFunction(4)}
             >
               <CodepenLogo className={`logo ${activeHover[4]}`} />
+              <span className="contact-label">CodePen</span>
             </a>
           </motion.li>
           <motion.li
@@ -153,6 +158,7 @@ const ContactModule = () => {
               onMouseLeave={() => mouseLeaveFunction(5)}
             >
               <InstagramLogo className={`logo ${activeHover[5]}`} />
+              <span className="contact-label">Instagram</span>
             </a>
           </motion.li>
         </motion.ul>

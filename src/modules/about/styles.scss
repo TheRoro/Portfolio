@@ -3,7 +3,7 @@
 .about {
   @include flex(flex-start, center);
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100svh;
   padding: $navbar-height 3rem 3rem 3rem;
 
   .content-row {
@@ -156,8 +156,8 @@
 
       .tech-logo,
       .line-icon {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
         pointer-events: none;
         user-select: none;
       }
@@ -240,13 +240,38 @@
       }
 
       .capability-card {
-        min-height: 180px;
+        min-height: 165px;
+        padding: 1.1rem;
       }
     }
   }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 650px) {
+  .about {
+    .content-row .text-container {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+
+    .secondary-row {
+      .capabilities-title {
+        align-self: flex-start;
+      }
+
+      .capability-card {
+        min-height: 150px;
+
+        .capability-label,
+        .capability-icons {
+          margin-bottom: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 370px) {
   .about .secondary-row .capabilities-grid {
     grid-template-columns: 1fr;
   }

@@ -6,6 +6,7 @@ import LinuxLogo from "../../assets/tech/linux_logo.svg?react"
 import ReactLogo from "../../assets/tech/react_logo.svg?react"
 import SqlLogo from "../../assets/tech/sql_logo.svg?react"
 import TypeScriptLogo from "../../assets/tech/typescript_logo.svg?react"
+import useMediaQuery from "../../hooks/useMediaQuery"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import "./styles.scss"
 
@@ -22,6 +23,10 @@ const DraggableIcon = ({ children, constraints, disabled }) => (
 const AboutModule = () => {
   const capabilitiesRef = useRef(null)
   const reduceMotion = usePrefersReducedMotion()
+  const compactCapabilities = useMediaQuery(
+    "(max-width: 650px), (pointer: coarse)",
+  )
+  const disableIconDrag = reduceMotion || compactCapabilities
 
   return (
     <section className="about" id="about">
@@ -83,13 +88,13 @@ const AboutModule = () => {
             <div className="capability-icons" aria-hidden="true">
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <ReactLogo className="tech-logo" />
               </DraggableIcon>
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <TypeScriptLogo className="tech-logo" />
               </DraggableIcon>
@@ -102,13 +107,13 @@ const AboutModule = () => {
             <div className="capability-icons" aria-hidden="true">
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <CSharpLogo className="tech-logo" />
               </DraggableIcon>
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <DotNetLogo className="tech-logo" />
               </DraggableIcon>
@@ -121,13 +126,13 @@ const AboutModule = () => {
             <div className="capability-icons" aria-hidden="true">
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <LinuxLogo className="tech-logo monochrome-logo" />
               </DraggableIcon>
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <svg className="line-icon" viewBox="0 0 32 32">
                   <path d="M3 17h5l3-8 5 16 4-12 3 4h6" />
@@ -142,13 +147,13 @@ const AboutModule = () => {
             <div className="capability-icons" aria-hidden="true">
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <SqlLogo className="tech-logo" />
               </DraggableIcon>
               <DraggableIcon
                 constraints={capabilitiesRef}
-                disabled={reduceMotion}
+                disabled={disableIconDrag}
               >
                 <svg className="line-icon" viewBox="0 0 32 32">
                   <path d="M5 27V15h5v12M14 27V9h5v18M23 27V4h5v23M3 27h27" />
@@ -159,7 +164,7 @@ const AboutModule = () => {
             <p className="capability-tools">SQL · Reporting</p>
           </article>
         </div>
-        {!reduceMotion && (
+        {!disableIconDrag && (
           <p className="capabilities-hint">you can play with the icons...</p>
         )}
       </div>

@@ -1,12 +1,17 @@
 import React from "react"
 import "./styles.scss"
 
-const SpaceFallback = ({ compact = false }) => {
+const SpaceFallback = ({ compact = false, mobile = false }) => {
+  const classes = [
+    "space-fallback",
+    compact && "space-fallback-compact",
+    mobile && "space-fallback-mobile",
+  ]
+    .filter(Boolean)
+    .join(" ")
+
   return (
-    <div
-      className={`space-fallback${compact ? " space-fallback-compact" : ""}`}
-      aria-hidden="true"
-    >
+    <div className={classes} aria-hidden="true">
       <span className="fallback-orbit" aria-hidden="true" />
       <span
         className="fallback-planet fallback-planet-purple"

@@ -3,12 +3,12 @@ import "./styles.scss"
 
 const Footer = () => {
   return (
-    <div className="footer" id="footer">
+    <footer className="footer" id="footer">
       <p className="text">
         <span>Designed & Developed by</span>{" "}
         <span className="name">Rodrigo Ramirez</span>
       </p>
-    </div>
+    </footer>
   )
 }
 

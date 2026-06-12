@@ -4,7 +4,7 @@
   @include flex(space-evenly, center);
   height: 10vh;
   position: absolute;
-  top: 88vh;
+  bottom: max(1vh, env(safe-area-inset-bottom));
   left: 0;
   padding: 0 3rem;
 
@@ -28,6 +28,12 @@
   }
 
   @media only screen and (max-width: $nav-breakpoint) {
-    padding: 0 1rem;
+    height: auto;
+    padding: 1rem max(1rem, env(safe-area-inset-left));
+
+    .logo {
+      width: 2.25rem;
+      margin-right: 1.25rem;
+    }
   }
 }

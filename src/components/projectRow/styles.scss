@@ -98,5 +98,20 @@
     .keywords {
       text-align: center;
     }
+
+    .description {
+      text-align: left;
+    }
+  }
+
+  @media only screen and (max-width: 540px) {
+    .image-container,
+    .details-container {
+      width: 100%;
+    }
+
+    .keywords {
+      font-size: clamp(1.8rem, 9vw, 2.25rem);
+    }
   }
 }

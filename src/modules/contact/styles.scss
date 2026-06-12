@@ -3,14 +3,18 @@
 .contact {
   @include flex(flex-start, center);
   flex-direction: column;
-  height: 100vh;
+  min-height: 100svh;
   padding-top: $navbar-height;
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: max(1rem, env(safe-area-inset-left));
 
   .contact-container {
     @include flex(center, center);
     flex-direction: column;
     width: 100%;
     min-height: 60vh;
+    flex: 1;
   }
 
   .contact-grid {
@@ -28,9 +32,20 @@
       list-style: none;
     }
 
+    .logo-item a {
+      @include flex(center, center);
+      flex-direction: column;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
     .logo-item.secondary {
       opacity: 0.55;
       transform: scale(0.72);
+    }
+
+    .contact-label {
+      display: none;
     }
 
     .logo {
@@ -71,12 +86,11 @@
       grid-template-rows: repeat(2, 1fr);
       gap: 3rem 0;
       margin-top: 2rem;
-      width: 350px;
-      max-width: 350px;
+      width: min(350px, 100%);
 
       .logo-item {
-        width: 4rem;
-        height: 4rem;
+        width: 5rem;
+        height: auto;
       }
 
       .logo {
@@ -86,6 +100,17 @@
         margin: 0 auto;
         transition: all 0.2s ease-in-out;
       }
+
+      .contact-label {
+        display: block;
+        margin-top: 0.55rem;
+        color: $text2;
+        font-size: 0.82rem;
+      }
+    }
+
+    .name-container {
+      display: none;
     }
   }
 

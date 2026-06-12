@@ -3,6 +3,7 @@ import { Link as LinkScroll } from "react-scroll"
 import FloatingLinks from "../../components/floatingLinks"
 import SpaceFallback from "../../components/spaceFallback"
 import WebGLBoundary from "../../components/webglBoundary"
+import useMediaQuery from "../../hooks/useMediaQuery"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import "./styles.scss"
 
@@ -10,6 +11,7 @@ const Planets = lazy(() => import("../../components/planets"))
 
 const HomeModule = () => {
   const reduceMotion = usePrefersReducedMotion()
+  const useMobileScene = useMediaQuery("(max-width: 650px)")
   const scrollProps = {
     smooth: !reduceMotion,
     duration: reduceMotion ? 0 : 1000,
@@ -72,11 +74,15 @@ const HomeModule = () => {
         </nav>
       </div>
       <div className="planets-container">
-        <WebGLBoundary fallback={<SpaceFallback />}>
-          <Suspense fallback={<SpaceFallback />}>
-            <Planets />
-          </Suspense>
-        </WebGLBoundary>
+        {useMobileScene ? (
+          <SpaceFallback mobile />
+        ) : (
+          <WebGLBoundary fallback={<SpaceFallback />}>
+            <Suspense fallback={<SpaceFallback />}>
+              <Planets />
+            </Suspense>
+          </WebGLBoundary>
+        )}
       </div>
       <FloatingLinks />
     </section>

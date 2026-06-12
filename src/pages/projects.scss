@@ -3,12 +3,26 @@
 .project-container {
   @include flex(flex-start, center);
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100svh;
   padding-top: $navbar-height;
   padding-bottom: 10vh;
   margin: 0 10vw;
 
   @media only screen and (max-width: 1600px) {
     margin: 0 5vw;
+  }
+
+  @media only screen and (max-width: 540px) {
+    margin: 0 1rem;
+
+    .project-title {
+      text-align: center;
+    }
+
+    .project-subtitle {
+      max-width: 100%;
+      font-size: 1.35rem;
+      line-height: 1.4;
+    }
   }
 }
