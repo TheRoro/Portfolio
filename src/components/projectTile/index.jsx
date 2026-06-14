@@ -10,12 +10,16 @@ const ProjectTile = ({ project, orientation }) => {
     project
 
   return (
-    <div className={`project-tile project-tile-${orientation}`}>
-      <Link className="image-container" to={`/${name}/`}>
+    <article className={`project-tile project-tile-${orientation}`}>
+      <Link
+        className="image-container"
+        to={`/${name}/`}
+        aria-label={`View ${title} project details`}
+      >
         <span className="text">
-          <h1>View More</h1>
+          <span className="view-more">View {title}</span>
         </span>
-        <ProjectImage project={project} alt={`${title} · ${summary}`} />
+        <ProjectImage project={project} alt="" />
       </Link>
       <div className="details-container">
         <h2 className="keywords">{keywords}</h2>
@@ -34,13 +38,13 @@ const ProjectTile = ({ project, orientation }) => {
             href={webUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={webLabel || `Open ${title}`}
+            aria-label={webLabel ? `${webLabel} for ${title}` : `Open ${title}`}
           >
             <ExternalLinkLogo className="logo" />
           </a>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 

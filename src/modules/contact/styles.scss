@@ -60,6 +60,15 @@
         fill: $primary;
       }
     }
+
+    .logo-item a:focus-visible .logo {
+      transform: translateY(-10px);
+      fill: $primary;
+    }
+
+    .logo-item.secondary:focus-within {
+      opacity: 1;
+    }
   }
 
   .name-container {

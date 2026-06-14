@@ -33,6 +33,10 @@
     }
   }
 
+  a:focus-visible .logo {
+    opacity: 0.8;
+  }
+
   .logo-label {
     font-size: 1.2rem;
     text-align: center;

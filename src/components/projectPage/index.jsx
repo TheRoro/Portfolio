@@ -10,9 +10,9 @@ import "../../pages/projects.scss"
 const ProjectPage = ({ project }) => {
   return (
     <>
+      <ProjectNav />
       <PageTransition>
         <ProjectHelmet project={project} />
-        <ProjectNav />
         <section className="project-container">
           <h1 className="project-title">{project.title}</h1>
           <h2 className="project-subtitle">{project.summary}</h2>

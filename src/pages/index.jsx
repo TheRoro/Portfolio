@@ -11,9 +11,9 @@ import Contact from "../modules/contact"
 const HomePage = () => {
   return (
     <>
+      <HomeNav />
       <PageTransition>
         <HomeHelmet />
-        <HomeNav />
         <Home />
         <Experience />
         <MainProjects />

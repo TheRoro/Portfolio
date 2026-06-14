@@ -7,6 +7,8 @@ const PageTransition = ({ children }) => {
 
   return (
     <motion.main
+      id="main-content"
+      tabIndex="-1"
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={reduceMotion ? undefined : { opacity: 0 }}

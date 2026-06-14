@@ -41,6 +41,9 @@
     }
 
     .hero-action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
       position: relative;
       padding: 0.25rem 0;
       color: $text;
@@ -49,7 +52,6 @@
       font-weight: 500;
       text-decoration: none;
       border: none;
-      outline: none;
       transition:
         color 0.2s ease-in-out,
         text-shadow 0.2s ease-in-out;
@@ -60,7 +62,6 @@
         cursor: pointer;
         text-decoration: none;
         border: none;
-        outline: none;
         text-shadow:
           0 0 10px $primary,
           0 0 15px $primary;

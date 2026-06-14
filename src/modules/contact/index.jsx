@@ -68,7 +68,7 @@ const ContactModule = () => {
 
   return (
     <section className="contact" id="contact">
-      <h1 className="section-title glowing-text mb-5">Get In Touch</h1>
+      <h2 className="section-title glowing-text mb-5">Get In Touch</h2>
       <div className="contact-container">
         <motion.ul
           className="contact-grid"
@@ -85,6 +85,8 @@ const ContactModule = () => {
               aria-label="GitHub"
               onMouseEnter={() => mouseEnterFunction("GitHub", 0)}
               onMouseLeave={() => mouseLeaveFunction(0)}
+              onFocus={() => mouseEnterFunction("GitHub", 0)}
+              onBlur={() => mouseLeaveFunction(0)}
             >
               <GithubLogo className={`logo ${activeHover[0]}`} />
               <span className="contact-label">GitHub</span>
@@ -98,6 +100,8 @@ const ContactModule = () => {
               aria-label="LinkedIn"
               onMouseEnter={() => mouseEnterFunction("LinkedIn", 1)}
               onMouseLeave={() => mouseLeaveFunction(1)}
+              onFocus={() => mouseEnterFunction("LinkedIn", 1)}
+              onBlur={() => mouseLeaveFunction(1)}
             >
               <LinkedinLogo className={`logo ${activeHover[1]}`} />
               <span className="contact-label">LinkedIn</span>
@@ -109,6 +113,8 @@ const ContactModule = () => {
               aria-label="Email Me"
               onMouseEnter={() => mouseEnterFunction("Email Me", 2)}
               onMouseLeave={() => mouseLeaveFunction(2)}
+              onFocus={() => mouseEnterFunction("Email Me", 2)}
+              onBlur={() => mouseLeaveFunction(2)}
             >
               <EmailLogo className={`logo ${activeHover[2]}`} />
               <span className="contact-label">Email</span>
@@ -122,6 +128,8 @@ const ContactModule = () => {
               aria-label="Resume CV"
               onMouseEnter={() => mouseEnterFunction("Resume CV", 3)}
               onMouseLeave={() => mouseLeaveFunction(3)}
+              onFocus={() => mouseEnterFunction("Resume CV", 3)}
+              onBlur={() => mouseLeaveFunction(3)}
             >
               <ResumeLogo className={`logo ${activeHover[3]}`} />
               <span className="contact-label">Résumé</span>
@@ -139,6 +147,8 @@ const ContactModule = () => {
               aria-label="CodePen"
               onMouseEnter={() => mouseEnterFunction("CodePen", 4)}
               onMouseLeave={() => mouseLeaveFunction(4)}
+              onFocus={() => mouseEnterFunction("CodePen", 4)}
+              onBlur={() => mouseLeaveFunction(4)}
             >
               <CodepenLogo className={`logo ${activeHover[4]}`} />
               <span className="contact-label">CodePen</span>
@@ -156,6 +166,8 @@ const ContactModule = () => {
               aria-label="Instagram"
               onMouseEnter={() => mouseEnterFunction("Instagram", 5)}
               onMouseLeave={() => mouseLeaveFunction(5)}
+              onFocus={() => mouseEnterFunction("Instagram", 5)}
+              onBlur={() => mouseLeaveFunction(5)}
             >
               <InstagramLogo className={`logo ${activeHover[5]}`} />
               <span className="contact-label">Instagram</span>

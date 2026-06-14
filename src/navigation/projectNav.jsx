@@ -5,7 +5,7 @@ import "./styles.scss"
 
 const ProjectNav = () => {
   return (
-    <nav className="nav">
+    <nav className="nav" aria-label="Primary">
       <Link to="/" className="img-link" aria-label="Home">
         <NavLogo />
       </Link>

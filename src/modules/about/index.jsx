@@ -30,7 +30,7 @@ const AboutModule = () => {
 
   return (
     <section className="about" id="about">
-      <h1 className="section-title glowing-text mb-5">About</h1>
+      <h2 className="section-title glowing-text mb-5">About</h2>
       <div className="content-row">
         <picture className="portrait">
           <source

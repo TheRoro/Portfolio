@@ -20,22 +20,27 @@ const App = () => {
   }, [location.pathname])
 
   return (
-    <AnimatePresence mode="wait">
-      <Suspense fallback={null}>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/projects/" element={<ProjectsPage />} />
-          <Route path="/bodega/" element={<BodegaPage />} />
-          <Route path="/drawly/" element={<DrawlyPage />} />
-          <Route path="/pokeapp/" element={<PokeAppPage />} />
-          <Route path="/portfolio/" element={<PortfolioPage />} />
-          <Route path="/repo-colors/" element={<RepoColorsPage />} />
-          <Route path="/upspell/" element={<UpSpellPage />} />
-          <Route path="/vsquote/" element={<VSQuotePage />} />
-          <Route path="*" element={<Navigate replace to="/" />} />
-        </Routes>
-      </Suspense>
-    </AnimatePresence>
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
+      <AnimatePresence mode="wait">
+        <Suspense fallback={null}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects/" element={<ProjectsPage />} />
+            <Route path="/bodega/" element={<BodegaPage />} />
+            <Route path="/drawly/" element={<DrawlyPage />} />
+            <Route path="/pokeapp/" element={<PokeAppPage />} />
+            <Route path="/portfolio/" element={<PortfolioPage />} />
+            <Route path="/repo-colors/" element={<RepoColorsPage />} />
+            <Route path="/upspell/" element={<UpSpellPage />} />
+            <Route path="/vsquote/" element={<VSQuotePage />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Routes>
+        </Suspense>
+      </AnimatePresence>
+    </>
   )
 }
 

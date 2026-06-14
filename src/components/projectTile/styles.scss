@@ -28,7 +28,8 @@
     transition: all 0.3s ease-in-out;
   }
 
-  .text h1 {
+  .view-more {
+    display: block;
     color: $text;
     font-family: "Sora", sans-serif;
     font-size: 2.3rem;
@@ -38,15 +39,34 @@
     margin: 0;
   }
 
-  .image-container:hover .text {
+  .image-container:hover .text,
+  .image-container:focus-visible .text {
     opacity: 1;
     cursor: pointer;
   }
 
-  .image-container:hover .image {
+  .image-container:hover .image,
+  .image-container:focus-visible .image {
     cursor: pointer;
     filter: brightness(0.1);
     -webkit-filter: brightness(0.1);
+  }
+
+  @media (hover: none) {
+    .text {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      padding: 3rem 1rem 1rem;
+      opacity: 1;
+      background: linear-gradient(transparent, rgba($background, 0.88));
+      transform: none;
+    }
+
+    .view-more {
+      font-size: 1.1rem;
+      text-align: left;
+    }
   }
 
   .image {
@@ -104,8 +124,8 @@
 
   .links a {
     @include flex(center, center);
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 44px;
+    height: 44px;
   }
 
   .logo {
@@ -120,6 +140,10 @@
       opacity: 0.8;
       cursor: pointer;
     }
+  }
+
+  .links a:focus-visible .logo {
+    opacity: 0.8;
   }
 }
 

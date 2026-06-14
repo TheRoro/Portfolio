@@ -7,7 +7,7 @@ const ExperienceModule = () => {
     <section className="experience" id="experience">
       <div className="experience-heading">
         <p className="experience-eyebrow">Career timeline</p>
-        <h1 className="section-title glowing-text">Experience</h1>
+        <h2 className="section-title glowing-text">Experience</h2>
         <p className="experience-intro">
           Building reliable systems across cloud infrastructure, diagnostics,
           and Xbox product experiences.

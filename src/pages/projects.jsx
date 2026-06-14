@@ -7,9 +7,9 @@ import ProjectsModule from "../modules/allProjects"
 const ProjectsPage = () => {
   return (
     <>
+      <ProjectsNav />
       <PageTransition>
         <AllProjectsHelmet />
-        <ProjectsNav />
         <ProjectsModule />
       </PageTransition>
     </>

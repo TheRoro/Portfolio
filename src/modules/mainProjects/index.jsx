@@ -9,7 +9,7 @@ const MainProjectsModule = () => {
 
   return (
     <section className="main-projects" id="main-projects">
-      <h1 className="section-title glowing-text mb-5">Selected Projects</h1>
+      <h2 className="section-title glowing-text mb-5">Selected Projects</h2>
       <div className="projects-list">
         {selectedProjects.map((project, index) => (
           <ProjectTile
