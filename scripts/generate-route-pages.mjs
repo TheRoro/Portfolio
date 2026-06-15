@@ -1,7 +1,7 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
-import { allProjects } from "../src/components/projectsInfo.js"
+import { allProjects } from "../src/content/projects.js"
 import {
   HOME_SEO,
   PROJECTS_SEO,

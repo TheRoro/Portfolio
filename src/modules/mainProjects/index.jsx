@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import ProjectTile from "../../components/projectTile"
-import { selectedProjects } from "../../components/projectsInfo"
+import { selectedProjects } from "../../content/projects"
 import "./styles.scss"
 
 const MainProjectsModule = () => {

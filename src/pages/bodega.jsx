@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectPage from "../components/projectPage"
-import { bodega } from "../components/projectsInfo"
+import { bodega } from "../content/projects"
 
 const BodegaPage = () => <ProjectPage project={bodega} />
 

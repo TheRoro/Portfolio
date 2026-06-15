@@ -1,5 +1,5 @@
 import React from "react"
-import { education, experience } from "../../components/experienceInfo"
+import { careerIntro, education, experience } from "../../content/career"
 import "./styles.scss"
 
 const ExperienceModule = () => {
@@ -8,10 +8,7 @@ const ExperienceModule = () => {
       <div className="experience-heading">
         <p className="experience-eyebrow">Career timeline</p>
         <h2 className="section-title glowing-text">Experience</h2>
-        <p className="experience-intro">
-          Building reliable systems across cloud infrastructure, diagnostics,
-          and Xbox product experiences.
-        </p>
+        <p className="experience-intro">{careerIntro}</p>
       </div>
 
       <div className="timeline">

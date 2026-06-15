@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectPage from "../components/projectPage"
-import { portfolio } from "../components/projectsInfo"
+import { portfolio } from "../content/projects"
 
 const PortfolioPage = () => <ProjectPage project={portfolio} />
 

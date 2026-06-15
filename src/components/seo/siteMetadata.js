@@ -1,22 +1,22 @@
-const SITE_NAME = "Rodrigo Ramirez · Software Engineer Portfolio"
-const SITE_URL = "https://rodrigoramirez.dev"
+import { profile, socialLinks } from "../../content/profile.js"
+
+const SITE_NAME = `${profile.name} · ${profile.role} Portfolio`
+const SITE_URL = profile.siteUrl
 
 const HOME_SEO = {
-  title: "Rodrigo Ramirez · Software Engineer at Microsoft, Xbox",
-  description:
-    "Experience and selected work from Rodrigo Ramirez across Xbox product engineering, cloud infrastructure, diagnostics, and reliable systems.",
+  title: `${profile.name} · ${profile.role} at ${profile.employer}, ${profile.product}`,
+  description: `Experience and selected work from ${profile.name} across ${profile.product} product engineering, cloud infrastructure, diagnostics, and reliable systems.`,
   path: "/",
-  imagePath: "/rodrigo/social.jpg",
-  imageAlt: "Rodrigo Ramirez, software engineer at Microsoft working on Xbox",
+  imagePath: profile.portrait.socialImage,
+  imageAlt: `${profile.name}, software engineer at ${profile.employer} working on ${profile.product}`,
 }
 
 const PROJECTS_SEO = {
-  title: "Software Engineering Projects · Rodrigo Ramirez",
-  description:
-    "Selected software projects by Rodrigo Ramirez spanning real-time systems, developer tools, accessible products, browser extensions, and interactive WebGL.",
+  title: `Software Engineering Projects · ${profile.name}`,
+  description: `Selected software projects by ${profile.name} spanning real-time systems, developer tools, accessible products, browser extensions, and interactive WebGL.`,
   path: "/projects/",
   imagePath: "/projects/optimized/portfolio-og.jpg",
-  imageAlt: "Selected software engineering projects by Rodrigo Ramirez",
+  imageAlt: `Selected software engineering projects by ${profile.name}`,
 }
 
 const absoluteUrl = path => new URL(path, `${SITE_URL}/`).toString()
@@ -25,7 +25,7 @@ const projectImagePath = project =>
   `/projects/optimized/${project.imgUrl.replace(/\.[^.]+$/, "")}-og.jpg`
 
 const projectSeo = project => ({
-  title: `${project.title} · ${project.keywords} · Rodrigo Ramirez`,
+  title: `${project.title} · ${project.keywords} · ${profile.name}`,
   description: `${project.summary} ${project.keywords}.`,
   path: `/${project.name}/`,
   imagePath: projectImagePath(project),
@@ -43,25 +43,18 @@ const homeStructuredData = {
     {
       "@type": "Person",
       ...personReference,
-      name: "Rodrigo Ramirez",
+      name: profile.name,
       url: SITE_URL,
-      image: absoluteUrl("/rodrigo/portrait.jpg"),
-      jobTitle: "Software Engineer",
+      image: absoluteUrl(profile.portrait.src),
+      jobTitle: profile.role,
       worksFor: {
         "@type": "Organization",
-        name: "Microsoft",
+        name: profile.employer,
       },
-      knowsAbout: [
-        "Xbox product engineering",
-        "Cloud infrastructure",
-        "Diagnostics",
-        "Reliable systems",
-        "Full-stack development",
-      ],
-      sameAs: [
-        "https://github.com/TheRoro",
-        "https://www.linkedin.com/in/rodrigoramirezb/",
-      ],
+      knowsAbout: profile.knowsAbout,
+      sameAs: socialLinks
+        .filter(link => ["github", "linkedin"].includes(link.id))
+        .map(link => link.href),
     },
     {
       "@type": "WebSite",

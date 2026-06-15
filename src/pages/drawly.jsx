@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectPage from "../components/projectPage"
-import { drawly } from "../components/projectsInfo"
+import { drawly } from "../content/projects"
 
 const DrawlyPage = () => <ProjectPage project={drawly} />
 

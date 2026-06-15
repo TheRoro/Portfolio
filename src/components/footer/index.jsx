@@ -1,4 +1,5 @@
 import React from "react"
+import { profile } from "../../content/profile"
 import "./styles.scss"
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
     <footer className="footer" id="footer">
       <p className="text">
         <span>Designed & Developed by</span>{" "}
-        <span className="name">Rodrigo Ramirez</span>
+        <span className="name">{profile.name}</span>
       </p>
     </footer>
   )

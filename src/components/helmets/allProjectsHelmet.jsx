@@ -1,5 +1,5 @@
 import React from "react"
-import { allProjects } from "../projectsInfo"
+import { allProjects } from "../../content/projects"
 import Seo, { PROJECTS_SEO, projectsStructuredData } from "../seo"
 
 const AllProjectsHelmet = () => {

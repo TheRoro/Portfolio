@@ -1,3 +1,30 @@
+/**
+ * @typedef {object} CareerRole
+ * @property {string} title
+ * @property {string=} start
+ * @property {string=} end
+ * @property {string} summary
+ * @property {string[]} highlights
+ *
+ * @typedef {object} CareerEntry
+ * @property {string} organization
+ * @property {string} location
+ * @property {string} start
+ * @property {string} end
+ * @property {string=} label
+ * @property {CareerRole[]} roles
+ *
+ * @typedef {object} EducationEntry
+ * @property {string} institution
+ * @property {string} program
+ * @property {string} date
+ * @property {string} detail
+ */
+
+const careerIntro =
+  "Building reliable systems across cloud infrastructure, diagnostics, and Xbox product experiences."
+
+/** @type {CareerEntry[]} */
 const experience = [
   {
     organization: "Microsoft",
@@ -69,6 +96,7 @@ const experience = [
   },
 ]
 
+/** @type {EducationEntry[]} */
 const education = [
   {
     institution: "Universidad Peruana de Ciencias Aplicadas",
@@ -86,4 +114,4 @@ const education = [
   },
 ]
 
-export { education, experience }
+export { careerIntro, education, experience }

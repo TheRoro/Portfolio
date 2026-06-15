@@ -1,10 +1,8 @@
 import React from "react"
 import { motion } from "framer-motion"
+import SocialIcon from "../socialIcon"
+import { floatingSocialIds, socialLinks } from "../../content/profile"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
-import GithubLogo from "../../assets/social/github.svg?react"
-import LinkedinLogo from "../../assets/social/linkedin.svg?react"
-import EmailLogo from "../../assets/social/email.svg?react"
-import ResumeLogo from "../../assets/social/resume.svg?react"
 import "./styles.scss"
 
 const FloatingLinks = () => {
@@ -28,6 +26,15 @@ const FloatingLinks = () => {
       opacity: 1,
     },
   }
+  const floatingLinks = floatingSocialIds.map(id => {
+    const link = socialLinks.find(item => item.id === id)
+
+    if (!link) {
+      throw new Error(`Unknown floating social link: ${id}`)
+    }
+
+    return link
+  })
 
   return (
     <motion.ul
@@ -37,41 +44,18 @@ const FloatingLinks = () => {
       initial={reduceMotion ? false : "hidden"}
       animate="visible"
     >
-      <motion.li className="logo-item" variants={itemAnimation} key={0}>
-        <a
-          href="https://www.linkedin.com/in/rodrigoramirezb/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <LinkedinLogo className="logo" />
-        </a>
-      </motion.li>
-      <motion.li className="logo-item" variants={itemAnimation} key={1}>
-        <a href="mailto:rodrigoramirezbr@outlook.com" aria-label="Email">
-          <EmailLogo className="logo" />
-        </a>
-      </motion.li>
-      <motion.li className="logo-item" variants={itemAnimation} key={2}>
-        <a
-          href="https://github.com/TheRoro"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <GithubLogo className="logo" />
-        </a>
-      </motion.li>
-      <motion.li className="logo-item" variants={itemAnimation} key={3}>
-        <a
-          href="/rodrigo_ramirez_resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Resume"
-        >
-          <ResumeLogo className="logo" />
-        </a>
-      </motion.li>
+      {floatingLinks.map(link => (
+        <motion.li className="logo-item" variants={itemAnimation} key={link.id}>
+          <a
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noopener noreferrer" : undefined}
+            aria-label={link.floatingLabel ?? link.label}
+          >
+            <SocialIcon id={link.id} className="logo" />
+          </a>
+        </motion.li>
+      ))}
     </motion.ul>
   )
 }

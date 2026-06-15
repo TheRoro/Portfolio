@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectTile from "../../components/projectTile"
-import { allProjects } from "../../components/projectsInfo"
+import { allProjects } from "../../content/projects"
 import "./styles.scss"
 
 const ProjectsModule = () => {

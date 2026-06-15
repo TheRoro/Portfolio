@@ -1,3 +1,24 @@
+/**
+ * @typedef {object} ProjectColor
+ * @property {string} background
+ * @property {string} text
+ *
+ * @typedef {object} Project
+ * @property {string} title
+ * @property {string} name
+ * @property {string} keywords
+ * @property {string} summary
+ * @property {string} description
+ * @property {string} tags
+ * @property {ProjectColor[]} palette
+ * @property {string} imgUrl
+ * @property {number} imgHeight
+ * @property {string} repoUrl
+ * @property {string} webUrl
+ * @property {string} webLabel
+ */
+
+/** @type {Project} */
 const drawly = {
   title: "Drawly",
   name: "drawly",
@@ -21,6 +42,7 @@ const drawly = {
   webLabel: "Play Drawly",
 }
 
+/** @type {Project} */
 const pokeapp = {
   title: "PokeApp",
   name: "pokeapp",
@@ -44,6 +66,7 @@ const pokeapp = {
   webLabel: "Open PokeApp",
 }
 
+/** @type {Project} */
 const vsquote = {
   title: "VSQuote",
   name: "vsquote",
@@ -68,6 +91,7 @@ const vsquote = {
   webLabel: "View on Marketplace",
 }
 
+/** @type {Project} */
 const upspell = {
   title: "UpSpell",
   name: "upspell",
@@ -91,6 +115,7 @@ const upspell = {
   webLabel: "Practice with UpSpell",
 }
 
+/** @type {Project} */
 const repoColors = {
   title: "Repo Colors",
   name: "repo-colors",
@@ -115,6 +140,7 @@ const repoColors = {
   webLabel: "View on Chrome Web Store",
 }
 
+/** @type {Project} */
 const portfolio = {
   title: "Front End Portfolio",
   name: "portfolio",
@@ -138,6 +164,7 @@ const portfolio = {
   webLabel: "Open Portfolio",
 }
 
+/** @type {Project} */
 const bodega = {
   title: "Bodega",
   name: "bodega",
@@ -161,7 +188,9 @@ const bodega = {
   webLabel: "Open Archived Demo",
 }
 
+/** @type {Project[]} */
 const selectedProjects = [drawly, pokeapp, vsquote]
+/** @type {Project[]} */
 const allProjects = [
   drawly,
   pokeapp,

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import NavLogo from "../components/navLogo"
+import { homeNavigation } from "../content/navigation"
 import IconScrollLink from "./links/iconLink"
 import TextScrollLink from "./links/textLink"
 import "./styles.scss"
@@ -61,14 +62,14 @@ const HomeNav = () => {
         className={`links${menuOpen ? " links-open" : ""}`}
         id="home-navigation-links"
       >
-        <TextScrollLink
-          href="experience"
-          name="Experience"
-          onClick={closeMenu}
-        />
-        <TextScrollLink href="main-projects" name="Work" onClick={closeMenu} />
-        <TextScrollLink href="about" name="About" onClick={closeMenu} />
-        <TextScrollLink href="contact" name="Contact" onClick={closeMenu} />
+        {homeNavigation.map(link => (
+          <TextScrollLink
+            key={link.target}
+            href={link.target}
+            name={link.label}
+            onClick={closeMenu}
+          />
+        ))}
       </div>
     </nav>
   )

@@ -6,6 +6,8 @@ import LinuxLogo from "../../assets/tech/linux_logo.svg?react"
 import ReactLogo from "../../assets/tech/react_logo.svg?react"
 import SqlLogo from "../../assets/tech/sql_logo.svg?react"
 import TypeScriptLogo from "../../assets/tech/typescript_logo.svg?react"
+import { capabilities } from "../../content/capabilities"
+import { profile } from "../../content/profile"
 import useMediaQuery from "../../hooks/useMediaQuery"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import "./styles.scss"
@@ -19,6 +21,44 @@ const DraggableIcon = ({ children, constraints, disabled }) => (
     {children}
   </motion.div>
 )
+
+const TelemetryIcon = props => (
+  <svg viewBox="0 0 32 32" {...props}>
+    <path d="M3 17h5l3-8 5 16 4-12 3 4h6" />
+  </svg>
+)
+
+const ReportingIcon = props => (
+  <svg viewBox="0 0 32 32" {...props}>
+    <path d="M5 27V15h5v12M14 27V9h5v18M23 27V4h5v23M3 27h27" />
+  </svg>
+)
+
+const capabilityIcons = {
+  csharp: CSharpLogo,
+  dotnet: DotNetLogo,
+  linux: LinuxLogo,
+  react: ReactLogo,
+  reporting: ReportingIcon,
+  sql: SqlLogo,
+  telemetry: TelemetryIcon,
+  typescript: TypeScriptLogo,
+}
+
+const CapabilityIcon = ({ icon }) => {
+  const Icon = capabilityIcons[icon.id]
+
+  if (!Icon) {
+    throw new Error(`Unknown capability icon: ${icon.id}`)
+  }
+
+  const baseClass = ["reporting", "telemetry"].includes(icon.id)
+    ? "line-icon"
+    : "tech-logo"
+  const className = [baseClass, icon.className].filter(Boolean).join(" ")
+
+  return <Icon className={className} />
+}
 
 const AboutModule = () => {
   const capabilitiesRef = useRef(null)
@@ -44,8 +84,8 @@ const AboutModule = () => {
             sizes="(max-width: 768px) 80vw, 320px"
           />
           <img
-            src="/rodrigo/portrait.jpg"
-            alt="Rodrigo Ramirez smiling on a beach"
+            src={profile.portrait.src}
+            alt={profile.portrait.alt}
             className="image"
             width="800"
             height="1000"
@@ -54,115 +94,42 @@ const AboutModule = () => {
           />
         </picture>
         <div className="text-container">
-          <p className="eyebrow">From Peru to Seattle</p>
+          <p className="eyebrow">{profile.about.eyebrow}</p>
           <div className="text">
             <p>
-              I&apos;m{" "}
-              <strong className="accent-text glowing-text">Rodrigo</strong>, a
-              software engineer from Peru now working on Xbox at Microsoft in
-              Seattle. I started coding at 16 with simple websites and games.
-              What began as curiosity gradually became a career I once could
-              only imagine.
+              {profile.about.introPrefix}
+              <strong className="accent-text glowing-text">
+                {profile.firstName}
+              </strong>
+              {profile.about.introSuffix}
             </p>
-            <p>
-              That curiosity took me from Peru to studying abroad, a Meta
-              engineering mentorship, Microsoft cloud infrastructure, and now
-              Xbox product engineering. Every step has felt bigger than what my
-              younger self imagined, and each one has reminded me that talent
-              can come from anywhere.
-            </p>
-            <p>
-              Moving from Peru to Seattle has shaped how I approach both people
-              and problems. It taught me to adapt quickly, listen closely, and
-              value perspectives different from my own, qualities I bring to
-              every team and product I work on.
-            </p>
+            {profile.about.paragraphs.map(paragraph => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </div>
       <div className="secondary-row">
         <h2 className="capabilities-title">What I work across</h2>
         <div className="capabilities-grid" ref={capabilitiesRef}>
-          <article className="capability-card">
-            <p className="capability-label">Product</p>
-            <div className="capability-icons" aria-hidden="true">
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <ReactLogo className="tech-logo" />
-              </DraggableIcon>
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <TypeScriptLogo className="tech-logo" />
-              </DraggableIcon>
-            </div>
-            <h3>Product interfaces</h3>
-            <p className="capability-tools">React · TypeScript</p>
-          </article>
-          <article className="capability-card">
-            <p className="capability-label">Services</p>
-            <div className="capability-icons" aria-hidden="true">
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <CSharpLogo className="tech-logo" />
-              </DraggableIcon>
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <DotNetLogo className="tech-logo" />
-              </DraggableIcon>
-            </div>
-            <h3>Backend systems</h3>
-            <p className="capability-tools">C# · .NET</p>
-          </article>
-          <article className="capability-card">
-            <p className="capability-label">Infrastructure</p>
-            <div className="capability-icons" aria-hidden="true">
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <LinuxLogo className="tech-logo monochrome-logo" />
-              </DraggableIcon>
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <svg className="line-icon" viewBox="0 0 32 32">
-                  <path d="M3 17h5l3-8 5 16 4-12 3 4h6" />
-                </svg>
-              </DraggableIcon>
-            </div>
-            <h3>Cloud diagnostics</h3>
-            <p className="capability-tools">Linux · Telemetry</p>
-          </article>
-          <article className="capability-card">
-            <p className="capability-label">Data</p>
-            <div className="capability-icons" aria-hidden="true">
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <SqlLogo className="tech-logo" />
-              </DraggableIcon>
-              <DraggableIcon
-                constraints={capabilitiesRef}
-                disabled={disableIconDrag}
-              >
-                <svg className="line-icon" viewBox="0 0 32 32">
-                  <path d="M5 27V15h5v12M14 27V9h5v18M23 27V4h5v23M3 27h27" />
-                </svg>
-              </DraggableIcon>
-            </div>
-            <h3>Insights &amp; automation</h3>
-            <p className="capability-tools">SQL · Reporting</p>
-          </article>
+          {capabilities.map(capability => (
+            <article className="capability-card" key={capability.id}>
+              <p className="capability-label">{capability.label}</p>
+              <div className="capability-icons" aria-hidden="true">
+                {capability.icons.map(icon => (
+                  <DraggableIcon
+                    key={icon.id}
+                    constraints={capabilitiesRef}
+                    disabled={disableIconDrag}
+                  >
+                    <CapabilityIcon icon={icon} />
+                  </DraggableIcon>
+                ))}
+              </div>
+              <h3>{capability.title}</h3>
+              <p className="capability-tools">{capability.tools}</p>
+            </article>
+          ))}
         </div>
         {!disableIconDrag && (
           <p className="capabilities-hint">you can play with the icons...</p>
