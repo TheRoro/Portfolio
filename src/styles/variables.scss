@@ -6,27 +6,18 @@ $nav-breakpoint: 700px;
 $home-breakpoint: 650px;
 $about-breakpoint: 1000px;
 
-//Palette colors
 $primary: #16ffd8;
-$primary-600: #21897e;
 $purple: #8980f5;
 $purple-100: color.adjust($purple, $lightness: 10%);
 $red: #ff7979;
 $red-100: color.adjust($red, $lightness: 10%);
 
-// $background: #0d131e;
-//$background: #151a22;
 $background: hsl(212, 31%, 10%);
 $background-100: rgba(39, 43, 53, 0.76);
 $nav-background: hsl(212, 31%, 10%);
 $background2: #2c3950;
 $text: #d4ddf8;
 $text2: #cad1e8;
-
-@mixin full-parent-size {
-  height: 100%;
-  width: 100%;
-}
 
 @mixin flex($justify-content, $align-items) {
   display: flex;

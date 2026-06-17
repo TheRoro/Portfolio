@@ -72,9 +72,7 @@ const ContactModule = () => {
               >
                 <SocialIcon
                   id={link.id}
-                  className={`logo ${
-                    activeLink === link.id ? "active" : "inactive"
-                  }`}
+                  className={`logo${activeLink === link.id ? " active" : ""}`}
                 />
                 <span className="contact-label">{link.displayLabel}</span>
               </a>

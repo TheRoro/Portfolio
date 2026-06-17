@@ -1,4 +1,4 @@
-<img align="left" width="80" height="80" src="https://raw.githubusercontent.com/TheRoro/Portfolio/main/static/sphere.png" alt="Resume application project app icon">
+<img align="left" width="80" height="80" src="https://raw.githubusercontent.com/TheRoro/Portfolio/main/static/sphere-nav.png" alt="Portfolio planet icon">
 
 # Hello! 👋
 
