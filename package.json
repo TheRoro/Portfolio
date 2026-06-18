@@ -12,12 +12,14 @@
     "build": "vite build && node scripts/generate-route-pages.mjs",
     "dev": "vite",
     "local": "vite --host 0.0.0.0",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,mjs,ts,tsx,json,md,yml,yaml}\"",
     "start": "vite",
     "serve": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
-    "check": "npm run format:check && npm run build"
+    "check": "npm run format:check && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -40,9 +42,14 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.4",
     "@vitejs/plugin-react": "^6.0.5",
+    "jsdom": "^29.1.1",
     "prettier": "^3.9.6",
     "vite": "^8.2.1",
-    "vite-plugin-svgr": "^5.2.0"
+    "vite-plugin-svgr": "^5.2.0",
+    "vitest": "^4.1.10"
   }
 }

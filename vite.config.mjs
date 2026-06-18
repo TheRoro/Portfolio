@@ -13,4 +13,9 @@ export default defineConfig({
     }),
   ],
   publicDir: "static",
+  test: {
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.js",
+    clearMocks: true,
+  },
 })
