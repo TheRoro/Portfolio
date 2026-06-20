@@ -3,6 +3,20 @@
  * @property {string} background
  * @property {string} text
  *
+ * @typedef {object} ProjectDecision
+ * @property {string} title
+ * @property {string} description
+ *
+ * @typedef {object} ProjectCaseStudy
+ * @property {string} title
+ * @property {string} problem
+ * @property {string[]} constraints
+ * @property {ProjectDecision[]} decisions
+ * @property {string[]} capabilities
+ * @property {string[]} quality
+ * @property {string} outcome
+ * @property {string} lesson
+ *
  * @typedef {object} Project
  * @property {string} title
  * @property {string} name
@@ -16,6 +30,7 @@
  * @property {string} repoUrl
  * @property {string} webUrl
  * @property {string} webLabel
+ * @property {ProjectCaseStudy=} caseStudy
  */
 
 /** @type {Project} */
@@ -40,6 +55,49 @@ const drawly = {
   repoUrl: "https://github.com/TheRoro/Drawly",
   webUrl: "https://drawly.vercel.app/",
   webLabel: "Play Drawly",
+  caseStudy: {
+    title: "Making real-time play feel dependable",
+    problem:
+      "A social drawing game only works when every player sees the same round, timer, submissions, and result. Drawly needed to keep that shared experience coherent across independent browsers without introducing accounts or permanent user data.",
+    constraints: [
+      "The server had to own game phases, timers, voting, and scoring while clients stayed responsive.",
+      "Players needed a short recovery path after transient disconnects, but the product intentionally had no account system or database.",
+      "Text, reactions, reconnect credentials, and canvas images all arrived as untrusted network input and required explicit limits.",
+    ],
+    decisions: [
+      {
+        title: "Keep progression authoritative",
+        description:
+          "Room membership, phase transitions, timers, voting, and scoring live on the server. Clients render typed events instead of independently deciding when the game advances.",
+      },
+      {
+        title: "Share contracts, validate at runtime",
+        description:
+          "The React client and Socket.IO server consume the same TypeScript event contracts, while server-side validation still treats every incoming payload as untrusted.",
+      },
+      {
+        title: "Reconnect without accounts",
+        description:
+          "Short-lived reconnect tokens are randomly generated, stored as hashes, compared safely, and rotated after use so an interrupted player can recover an active session.",
+      },
+    ],
+    capabilities: [
+      "Private rooms for up to ten players with host transfer and duplicate-name protection.",
+      "Synchronized prompts, drawing rounds, timers, anonymous voting, scoring, and final results.",
+      "Pointer and touch drawing with brush controls, erasing, undo, redo, and optional live previews.",
+      "Chat, reactions, downloadable drawings, recap generation, and native sharing when supported.",
+    ],
+    quality: [
+      "Rate limits, bounded text, allowlisted reactions, PNG validation, and drawing-memory controls.",
+      "Reconnect tests cover token rotation, non-serialization, and disconnect-aware submissions.",
+      "A deterministic integration test exercises a complete multiplayer round.",
+      "Health checks and explicit Vercel and Render configuration support deployment.",
+    ],
+    outcome:
+      "Drawly evolved from a drawing prototype into a deployable multiplayer game with coordinated rounds, reconnect support, voting, social reactions, and explicit operational safeguards.",
+    lesson:
+      "Keeping state in memory made the no-account experience simple and fast to iterate, but server restarts remain a clear durability boundary and future scaling work would require shared persistence.",
+  },
 }
 
 /** @type {Project} */
@@ -64,6 +122,49 @@ const pokeapp = {
   repoUrl: "https://github.com/TheRoro/PokeApp",
   webUrl: "https://pokeapp.onrender.com/search",
   webLabel: "Open PokeApp",
+  caseStudy: {
+    title: "Making third-party data feel reliable",
+    problem:
+      "Pokémon research is usually split across search, move references, type charts, and separate team tools. PokeApp brings those workflows together while depending entirely on live browser requests to PokeAPI.",
+    constraints: [
+      "There is no application backend, database, account system, or API key; state and caches live in the browser.",
+      "Searches can overlap, complete out of order, fail, or be interrupted while the user changes a six-slot team.",
+      "Team guidance must remain deterministic and clearly scoped to defensive typing rather than imply full competitive simulation.",
+    ],
+    decisions: [
+      {
+        title: "Keep analysis local and deterministic",
+        description:
+          "Type effectiveness and team coverage are calculated in the browser from complete type data. This keeps deployment simple and results reproducible while deliberately excluding abilities, held items, moves, and format-specific rules.",
+      },
+      {
+        title: "Treat requests as cancellable work",
+        description:
+          "Abort signals, generation checks, and slot checks prevent stale responses from changing a team after a newer search, removal, or reset.",
+      },
+      {
+        title: "Bound expensive API work",
+        description:
+          "Promise caches deduplicate in-flight requests, failed entries remain retryable, and move details load in controlled batches rather than flooding the public API.",
+      },
+    ],
+    capabilities: [
+      "Search by Pokémon name or National Pokédex number with special-name normalization.",
+      "Stats, artwork, typing, evolution chains, moves, and matchup exploration.",
+      "A six-slot unique team builder with autocomplete and defensive coverage summaries.",
+      "Distinct, retryable handling for not-found, network, rate-limit, server, and unexpected failures.",
+    ],
+    quality: [
+      "Tests cover request races, overlapping removals, resets, normalization, and team calculations.",
+      "Autocomplete exposes combobox and listbox semantics with keyboard navigation.",
+      "Loading, error, and team-analysis updates use status, alert, and live-region semantics.",
+      "CI tests and builds the application on Ubuntu and Windows and reviews pull-request dependencies.",
+    ],
+    outcome:
+      "PokeApp delivers a client-only toolkit for Pokémon discovery, move lookup, type analysis, and team weakness review with explicit failure states and tested asynchronous behavior.",
+    lesson:
+      "A client-only architecture keeps deployment small, but reliability still depends on a live third-party API. Cancellation, caching, and honest error states became product features rather than implementation details.",
+  },
 }
 
 /** @type {Project} */
@@ -89,6 +190,49 @@ const vsquote = {
   webUrl:
     "https://marketplace.visualstudio.com/items?itemName=RodrigoRamirez.vsquote",
   webLabel: "View on Marketplace",
+  caseStudy: {
+    title: "Adding personality without adding noise",
+    problem:
+      "VSQuote needed to add motivation and humor inside the editor without becoming another distracting popup, requiring a web service, or inspecting a developer's workspace.",
+    constraints: [
+      "Every quote had to remain available offline with no telemetry, accounts, remote loading, or workspace-file access.",
+      "The status bar has limited space, but users and assistive technology still need access to the complete quote and attribution.",
+      "Preferences should persist intentionally while ordinary viewing history should disappear with the session.",
+    ],
+    decisions: [
+      {
+        title: "Bundle and validate the corpus",
+        description:
+          "Local JSON removes runtime network and third-party data exposure. A validation script checks structure, collection counts, length limits, unsafe characters, normalized duplicates, and provenance coverage.",
+      },
+      {
+        title: "Project a compact status",
+        description:
+          "The status bar shows a configurable excerpt while the tooltip and accessible label retain the complete quote and attribution, balancing low visual noise with discoverability.",
+      },
+      {
+        title: "Separate transient and durable state",
+        description:
+          "Recent history and repeat suppression stay in session memory, while favorites and onboarding state use VS Code global storage because users explicitly expect those choices to persist.",
+      },
+    ],
+    capabilities: [
+      "Eight quote modes with configurable intervals and bounded status-bar length.",
+      "Commands for new quotes, copying, favorites, history, and mode selection.",
+      "Searchable Quick Picks, first-run setup, repeat suppression, and enable or disable behavior.",
+      "A packaged VSIX and tag-driven Visual Studio Marketplace release workflow.",
+    ],
+    quality: [
+      "Extension-host tests cover activation, commands, accessible rendering, settings, and disposal.",
+      "Tests also cover repeat suppression, clipboard behavior, favorites, onboarding, and fallback configuration.",
+      "CI runs tests, package inspection, and VSIX creation before release.",
+      "The documented privacy model excludes telemetry, network access, usage reporting, and workspace reads.",
+    ],
+    outcome:
+      "VSQuote is a self-contained offline extension with configurable delivery, explicit persistence boundaries, accessible status output, automated validation, and a repeatable Marketplace release path.",
+    lesson:
+      "Removing runtime services reduces privacy and reliability risks, but bundled third-party content still creates an ongoing responsibility to verify attribution and redistribution rights.",
+  },
 }
 
 /** @type {Project} */

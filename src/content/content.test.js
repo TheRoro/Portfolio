@@ -58,4 +58,16 @@ describe("portfolio content", () => {
     expect(new Set(iconIds).size).toBe(iconIds.length)
     expect(iconIds).toHaveLength(8)
   })
+
+  it("provides complete case studies for every selected project", () => {
+    for (const project of selectedProjects) {
+      expect(project.caseStudy).toBeDefined()
+      expect(project.caseStudy.decisions).toHaveLength(3)
+      expect(project.caseStudy.constraints.length).toBeGreaterThanOrEqual(3)
+      expect(project.caseStudy.capabilities.length).toBeGreaterThanOrEqual(3)
+      expect(project.caseStudy.quality.length).toBeGreaterThanOrEqual(3)
+      expect(project.caseStudy.outcome).toBeTruthy()
+      expect(project.caseStudy.lesson).toBeTruthy()
+    }
+  })
 })
