@@ -11,6 +11,7 @@
 
   .home-col {
     @include flex(flex-start, flex-start);
+    position: relative;
     flex-direction: column;
     margin-left: 10vw;
     z-index: 2;

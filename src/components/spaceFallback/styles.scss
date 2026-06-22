@@ -20,31 +20,53 @@
       circle at 82% 72%,
       rgba(212, 221, 248, 0.35) 0 1px,
       transparent 2px
+    ),
+    radial-gradient(
+      circle at 56% 44%,
+      rgba(18, 203, 174, 0.055),
+      transparent 42%
     );
+
+  &::after {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: radial-gradient(
+      circle at 56% 44%,
+      transparent 30%,
+      rgba(18, 25, 33, 0.68) 100%
+    );
+    content: "";
+    pointer-events: none;
+  }
 
   .fallback-orbit {
     position: absolute;
+    z-index: 1;
     top: 44%;
     left: 56%;
     width: 46%;
     aspect-ratio: 2.4;
-    border: 8px solid #8ad9cb;
+    border: 7px solid rgba(138, 217, 203, 0.78);
     border-radius: 50%;
     box-shadow:
       0 0 0 5px $background,
-      0 0 0 9px #5dcab7,
+      0 0 0 9px rgba(93, 202, 183, 0.62),
       0 0 0 14px $background,
-      0 0 0 19px #a2e0d5;
+      0 0 0 19px rgba(162, 224, 213, 0.68),
+      0 0 2rem rgba(93, 202, 183, 0.12);
     transform: translate(-50%, -50%) rotate(-18deg);
   }
 
   .fallback-planet {
     position: absolute;
+    z-index: 1;
     display: block;
     border-radius: 50%;
     box-shadow:
       inset -1rem -0.8rem 1.8rem rgba(18, 25, 33, 0.5),
-      0 0 2rem currentColor;
+      0 0 1.5rem currentColor,
+      0 0 3.5rem currentColor;
   }
 
   .fallback-planet-primary {
@@ -53,10 +75,11 @@
     width: 24.5%;
     aspect-ratio: 1;
     background: radial-gradient(
-      circle at 30% 25%,
-      #62dbc7,
-      #12cbae 48%,
-      #009d88
+      circle at 27% 22%,
+      #96eddf,
+      #31d3ba 24%,
+      #12cbae 52%,
+      #007d6d
     );
     color: rgba(18, 203, 174, 0.2);
   }
@@ -67,10 +90,11 @@
     width: 14%;
     aspect-ratio: 1;
     background: radial-gradient(
-      circle at 30% 25%,
-      $purple-100,
-      $purple 50%,
-      #4f478f
+      circle at 27% 22%,
+      #c8c3ff,
+      $purple-100 25%,
+      $purple 52%,
+      #443c84
     );
     color: rgba(137, 128, 245, 0.2);
   }
@@ -80,7 +104,13 @@
     bottom: 24%;
     width: 6%;
     aspect-ratio: 1;
-    background: radial-gradient(circle at 30% 25%, $red-100, $red 50%, #953f48);
+    background: radial-gradient(
+      circle at 27% 22%,
+      #ffc4cb,
+      $red-100 24%,
+      $red 52%,
+      #843740
+    );
     color: rgba(255, 121, 121, 0.18);
   }
 
@@ -90,10 +120,11 @@
     width: 8%;
     aspect-ratio: 1;
     background: radial-gradient(
-      circle at 30% 25%,
-      #ffe5a1,
-      #f4b95c 50%,
-      #8b632e
+      circle at 27% 22%,
+      #fff0c7,
+      #ffe5a1 24%,
+      #f4b95c 52%,
+      #765126
     );
     color: rgba(244, 185, 92, 0.16);
   }

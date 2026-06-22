@@ -18,12 +18,12 @@ decisions behind the work.
 The featured projects are:
 
 - [Drawly](https://github.com/TheRoro/Drawly), a real time multiplayer drawing
-   game built with React, TypeScript, Socket.IO, and Express.
+  game built with React, TypeScript, Socket.IO, and Express.
 - [PokeApp](https://github.com/TheRoro/PokeApp), a client side Pokémon research
-   and team analysis toolkit built with React, TypeScript, Vite, and PokeAPI.
+  and team analysis toolkit built with React, TypeScript, Vite, and PokeAPI.
 - [VSQuote](https://github.com/TheRoro/VSQuote), an offline, privacy conscious
-   Visual Studio Code extension with configurable quotes and no runtime
-   dependencies.
+  Visual Studio Code extension with configurable quotes and no runtime
+  dependencies.
 
 Each case study is based on implementation evidence from its repository rather
 than invented product or usage metrics.
@@ -31,19 +31,19 @@ than invented product or usage metrics.
 ## Highlights
 
 - Interactive React Three Fiber planets on capable displays, with lightweight
-   CSS artwork on small screens.
+  CSS artwork on small screens.
 - Responsive layouts designed for desktop, touch, and narrow mobile devices.
 - Keyboard navigation, visible focus states, semantic landmarks, accessible
-   project links, and reduced motion support.
+  project links, and reduced motion support.
 - Structured content modules for profile, career, projects, navigation, and
-   capabilities.
+  capabilities.
 - Metadata for every route, Open Graph data, JSON LD, sitemap, and robots
-   directives.
+  directives.
 - Local Sora and Raleway fonts with no runtime font provider requests.
 - Generated HTML entry points for every public project route.
 - Automated component, content, metadata, media query, and deployment tests.
 - Netlify redirects, security headers, Content Security Policy, and cache rules
-   stored with the application.
+  stored with the application.
 
 ## Technology
 
@@ -116,7 +116,7 @@ updates begin in `src/content`:
 - `profile.js` contains identity, biography, portrait, résumé, and social links.
 - `career.js` contains professional experience and education.
 - `projects.js` contains project metadata, palettes, links, and optional
-   engineering case studies.
+  engineering case studies.
 - `capabilities.js` and `navigation.js` define their respective interface data.
 
 Older project pages do not require case study content. The shared detail page
