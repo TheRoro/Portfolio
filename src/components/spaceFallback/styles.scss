@@ -147,62 +147,20 @@
 
 .space-fallback-mobile {
   overflow: visible;
-  background:
-    radial-gradient(
-      circle at 12% 22%,
-      rgba(212, 221, 248, 0.42) 0 1px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 78% 16%,
-      rgba(212, 221, 248, 0.32) 0 1px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 88% 78%,
-      rgba(212, 221, 248, 0.28) 0 1px,
-      transparent 2px
-    );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    black 14%,
-    black 84%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    black 14%,
-    black 84%,
-    transparent 100%
-  );
+  background: transparent;
+  pointer-events: none;
 
-  .fallback-orbit {
-    top: 58%;
-    left: 82%;
-    width: min(78vw, 350px);
+  &::after {
+    display: none;
   }
 
   .fallback-planet-primary {
-    top: 46%;
-    left: 68%;
-    width: min(40vw, 180px);
+    top: 50%;
+    left: 52%;
+    z-index: 1;
+    width: min(68vw, 280px);
+    opacity: 0.72;
+    transform: translateY(-50%);
   }
 
-  .fallback-planet-purple {
-    top: 28%;
-    left: 70%;
-    width: min(15vw, 64px);
-  }
-
-  .fallback-planet-red {
-    right: 9%;
-    bottom: 18%;
-    width: min(7vw, 30px);
-  }
-
-  .fallback-planet-gold {
-    display: none;
-  }
 }
