@@ -138,12 +138,14 @@
 
     &:hover {
       opacity: 0.8;
+      transform: translateY($icon-hover-lift);
       cursor: pointer;
     }
   }
 
   .links a:focus-visible .logo {
     opacity: 0.8;
+    transform: translateY($icon-hover-lift);
   }
 }
 

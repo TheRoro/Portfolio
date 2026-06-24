@@ -18,6 +18,7 @@ $nav-background: hsl(212, 31%, 10%);
 $background2: #2c3950;
 $text: #d4ddf8;
 $text2: #cad1e8;
+$icon-hover-lift: -5px;
 
 @mixin flex($justify-content, $align-items) {
   display: flex;

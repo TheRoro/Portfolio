@@ -55,14 +55,14 @@
       transition: all 0.2s ease-in-out;
 
       &:hover {
-        transform: translateY(-10px);
+        transform: translateY($icon-hover-lift);
         cursor: pointer;
         fill: $primary;
       }
     }
 
     .logo-item a:focus-visible .logo {
-      transform: translateY(-10px);
+      transform: translateY($icon-hover-lift);
       fill: $primary;
     }
 

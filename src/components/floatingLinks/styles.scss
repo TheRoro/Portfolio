@@ -30,14 +30,14 @@
 
     &:hover {
       opacity: 1;
-      transform: translateY(-5px);
+      transform: translateY($icon-hover-lift);
       cursor: pointer;
     }
   }
 
   .logo-item a:focus-visible .logo {
     opacity: 1;
-    transform: translateY(-5px);
+    transform: translateY($icon-hover-lift);
   }
 
   @media only screen and (max-width: $nav-breakpoint) {
