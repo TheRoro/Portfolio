@@ -1,13 +1,12 @@
 /**
  * @typedef {object} SocialLink
- * @property {"github"|"linkedin"|"email"|"resume"|"codepen"|"instagram"} id
+ * @property {"github"|"linkedin"|"email"|"resume"} id
  * @property {string} label
  * @property {string} displayLabel
  * @property {string=} floatingLabel
  * @property {string} href
  * @property {boolean} external
  * @property {boolean} featured
- * @property {boolean=} secondary
  */
 
 const identity = {
@@ -84,24 +83,6 @@ const socialLinks = [
     href: profile.resumePath,
     external: true,
     featured: true,
-  },
-  {
-    id: "codepen",
-    label: "CodePen",
-    displayLabel: "CodePen",
-    href: "https://codepen.io/theroro",
-    external: true,
-    featured: false,
-    secondary: true,
-  },
-  {
-    id: "instagram",
-    label: "Instagram",
-    displayLabel: "Instagram",
-    href: "https://www.instagram.com/rorocodes/",
-    external: true,
-    featured: false,
-    secondary: true,
   },
 ]
 

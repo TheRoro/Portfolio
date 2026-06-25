@@ -56,7 +56,7 @@ const ContactModule = () => {
         >
           {socialLinks.map(link => (
             <motion.li
-              className={`logo-item${link.secondary ? " secondary" : ""}`}
+              className="logo-item"
               variants={itemAnimation}
               key={link.id}
             >

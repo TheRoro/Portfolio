@@ -39,11 +39,6 @@
       min-height: 44px;
     }
 
-    .logo-item.secondary {
-      opacity: 0.55;
-      transform: scale(0.72);
-    }
-
     .contact-label {
       display: none;
     }
@@ -64,10 +59,6 @@
     .logo-item a:focus-visible .logo {
       transform: translateY($icon-hover-lift);
       fill: $primary;
-    }
-
-    .logo-item.secondary:focus-within {
-      opacity: 1;
     }
   }
 
@@ -91,8 +82,7 @@
     .contact-grid {
       @include flex(center, center);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 3rem 0;
       margin-top: 2rem;
       width: min(350px, 100%);
