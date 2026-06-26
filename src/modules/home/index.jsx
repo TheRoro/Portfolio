@@ -43,7 +43,16 @@ const HomeModule = () => {
   return (
     <section id="home" className="home">
       <div className="home-col">
-        <p className="current-role">{profile.heroRole}</p>
+        <p className="current-role">
+          <span>{profile.role}</span>
+          <span className="current-role-separator" aria-hidden="true">
+            {" "}
+            ·{" "}
+          </span>
+          <span className="current-role-company">
+            {profile.employer}, {profile.product}
+          </span>
+        </p>
         <h1 className="name">{profile.name}</h1>
         <nav className="hero-actions" aria-label="Portfolio actions">
           {heroActions.map((action, index) =>
