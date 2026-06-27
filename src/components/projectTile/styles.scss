@@ -13,6 +13,9 @@
     width: 28rem;
     max-width: 100%;
     position: relative;
+    overflow: hidden;
+    border: 1px solid rgba($text2, 0.14);
+    border-radius: 20px;
     transition: all 0.3s ease-in-out;
   }
 
@@ -48,8 +51,9 @@
   .image-container:hover .image,
   .image-container:focus-visible .image {
     cursor: pointer;
-    filter: brightness(0.1);
-    -webkit-filter: brightness(0.1);
+    filter: brightness(0.32);
+    transform: scale(1.02);
+    -webkit-filter: brightness(0.32);
   }
 
   @media (hover: none) {
@@ -85,8 +89,9 @@
   }
 
   .details-container {
-    @include flex(space-between, flex-end);
+    @include flex(center, flex-end);
     flex-direction: column;
+    gap: 0.75rem;
     height: 15rem;
     min-height: 15rem;
     width: 28rem;
@@ -98,28 +103,56 @@
     }
   }
 
-  .keywords {
-    font-size: 2.5rem;
+  .project-category {
+    color: $primary;
+    font-family: "Sora", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
     text-align: right;
-    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .project-name {
+    font-family: "Sora", sans-serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: right;
+
+    a {
+      transition:
+        color 0.2s ease-in-out,
+        text-shadow 0.2s ease-in-out;
+
+      &:hover,
+      &:focus-visible {
+        color: $primary;
+        text-shadow: 0 0 18px rgba($primary, 0.2);
+      }
+    }
   }
 
   .summary {
+    max-width: 26rem;
     color: $text2;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.5;
     text-align: end;
-    font-weight: 200;
+    font-weight: 300;
   }
 
   .tags {
     color: $text2;
-    font-size: 1rem;
-    font-weight: 200;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.72;
   }
 
   .links {
     @include flex(flex-start, center);
     gap: 0.75rem;
+    margin-top: 0.1rem;
   }
 
   .links a {
@@ -153,7 +186,8 @@
   flex-direction: row;
 
   @media only screen and (max-width: 900px) {
-    .keywords {
+    .project-category,
+    .project-name {
       text-align: left;
     }
 
@@ -177,7 +211,8 @@
     margin-right: 5vh;
   }
 
-  .keywords {
+  .project-category,
+  .project-name {
     text-align: left;
   }
 
@@ -210,7 +245,8 @@
       margin-bottom: 2vh;
     }
 
-    .keywords,
+    .project-category,
+    .project-name,
     .summary,
     .tags {
       text-align: center;

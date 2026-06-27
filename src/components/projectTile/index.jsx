@@ -22,7 +22,10 @@ const ProjectTile = ({ project, orientation }) => {
         <ProjectImage project={project} alt="" />
       </Link>
       <div className="details-container">
-        <h2 className="keywords">{keywords}</h2>
+        <p className="project-category">{keywords}</p>
+        <h2 className="project-name">
+          <Link to={`/${name}/`}>{title}</Link>
+        </h2>
         <p className="summary">{summary}</p>
         <p className="tags">{tags}</p>
         <div className="links">

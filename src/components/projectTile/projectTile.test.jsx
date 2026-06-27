@@ -16,6 +16,10 @@ describe("ProjectTile", () => {
     expect(
       screen.getByRole("link", { name: "View Drawly project details" }),
     ).toHaveAttribute("href", "/drawly/")
+    expect(screen.getByRole("link", { name: "Drawly" })).toHaveAttribute(
+      "href",
+      "/drawly/",
+    )
     expect(
       screen.getByRole("link", { name: "Drawly code repository" }),
     ).toHaveAttribute("href", drawly.repoUrl)
