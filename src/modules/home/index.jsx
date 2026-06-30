@@ -7,6 +7,7 @@ import { heroActions } from "../../content/navigation"
 import { profile } from "../../content/profile"
 import useMediaQuery from "../../hooks/useMediaQuery"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
+import { getScrollMotionProps } from "../../navigation/scrollMotion"
 import "./styles.scss"
 
 const Planets = lazy(() => import("../../components/planets"))
@@ -14,10 +15,7 @@ const Planets = lazy(() => import("../../components/planets"))
 const HomeModule = () => {
   const reduceMotion = usePrefersReducedMotion()
   const useMobileScene = useMediaQuery("(max-width: 650px)")
-  const scrollProps = {
-    smooth: !reduceMotion,
-    duration: reduceMotion ? 0 : 1000,
-  }
+  const scrollProps = getScrollMotionProps(reduceMotion)
   const renderAction = action =>
     action.type === "resume" ? (
       <a

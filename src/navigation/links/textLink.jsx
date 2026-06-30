@@ -1,19 +1,17 @@
 import React from "react"
 import { Link as LinkScroll } from "react-scroll"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
+import { getScrollMotionProps } from "../scrollMotion"
 
-const TextLink = ({ href, name, onClick }) => {
+const TextLink = ({ active, href, name, onClick }) => {
   const reduceMotion = usePrefersReducedMotion()
 
   return (
     <LinkScroll
-      activeClass="active"
-      className="navigation-link"
+      className={`navigation-link${active ? " active" : ""}`}
       to={href}
       href={`#${href}`}
-      spy={true}
-      smooth={!reduceMotion}
-      duration={reduceMotion ? 0 : 1000}
+      {...getScrollMotionProps(reduceMotion)}
       onClick={onClick}
     >
       {name}

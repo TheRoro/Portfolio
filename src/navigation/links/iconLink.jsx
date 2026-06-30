@@ -1,19 +1,17 @@
 import React from "react"
 import { Link as LinkScroll } from "react-scroll"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
+import { getScrollMotionProps } from "../scrollMotion"
 
-const IconLink = ({ href, icon, ariaLabel = "Home" }) => {
+const IconLink = ({ active, href, icon, ariaLabel = "Home" }) => {
   const reduceMotion = usePrefersReducedMotion()
 
   return (
     <LinkScroll
-      activeClass="active"
       to={href}
       href={`#${href}`}
-      spy={true}
-      smooth={!reduceMotion}
-      duration={reduceMotion ? 0 : 1000}
-      className="img-link"
+      {...getScrollMotionProps(reduceMotion)}
+      className={`img-link${active ? " active" : ""}`}
       aria-label={ariaLabel}
     >
       {icon}

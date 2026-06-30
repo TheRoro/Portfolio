@@ -1,15 +1,60 @@
 import React, { useEffect, useRef, useState } from "react"
 import NavLogo from "../components/navLogo"
 import { homeNavigation } from "../content/navigation"
+import { findActiveSection } from "./activeSection"
 import IconScrollLink from "./links/iconLink"
 import TextScrollLink from "./links/textLink"
 import "./styles.scss"
 
 const HomeNav = () => {
+  const [activeSection, setActiveSection] = useState("home")
   const [menuOpen, setMenuOpen] = useState(false)
   const navRef = useRef(null)
   const menuButtonRef = useRef(null)
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    let animationFrame
+    const sectionIds = ["home", ...homeNavigation.map(link => link.target)]
+
+    const updateActiveSection = () => {
+      animationFrame = undefined
+      const sections = sectionIds
+        .map(id => {
+          const element = document.getElementById(id)
+
+          return element
+            ? {
+                id,
+                top: element.getBoundingClientRect().top + window.scrollY,
+              }
+            : null
+        })
+        .filter(Boolean)
+
+      const navbarHeight = navRef.current?.getBoundingClientRect().height ?? 0
+      setActiveSection(
+        findActiveSection(sections, window.scrollY + navbarHeight + 1),
+      )
+    }
+    const scheduleUpdate = () => {
+      if (animationFrame === undefined) {
+        animationFrame = window.requestAnimationFrame(updateActiveSection)
+      }
+    }
+
+    updateActiveSection()
+    window.addEventListener("scroll", scheduleUpdate, { passive: true })
+    window.addEventListener("resize", scheduleUpdate)
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate)
+      window.removeEventListener("resize", scheduleUpdate)
+      if (animationFrame !== undefined) {
+        window.cancelAnimationFrame(animationFrame)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (!menuOpen) return undefined
@@ -46,7 +91,12 @@ const HomeNav = () => {
         }
       }}
     >
-      <IconScrollLink href="home" icon={<NavLogo />} ariaLabel="Back to top" />
+      <IconScrollLink
+        href="home"
+        icon={<NavLogo />}
+        ariaLabel="Back to top"
+        active={activeSection === "home"}
+      />
       <button
         ref={menuButtonRef}
         className="nav-menu-button"
@@ -68,6 +118,7 @@ const HomeNav = () => {
             href={link.target}
             name={link.label}
             onClick={closeMenu}
+            active={activeSection === link.target}
           />
         ))}
       </div>
