@@ -16,9 +16,22 @@ const ExperienceModule = () => {
           <article className="timeline-entry" key={entry.organization}>
             <div className="timeline-marker" aria-hidden="true" />
             <header className="entry-header">
-              <div>
-                <h2>{entry.organization}</h2>
-                <p>{entry.location}</p>
+              <div className="entry-identity">
+                <span className="organization-logo-frame" aria-hidden="true">
+                  <img
+                    className="organization-logo"
+                    src={entry.logo}
+                    alt=""
+                    width="52"
+                    height="52"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div>
+                  <h2>{entry.organization}</h2>
+                  <p>{entry.location}</p>
+                </div>
               </div>
               <p className="entry-dates">
                 {entry.start} – {entry.end}
@@ -31,7 +44,22 @@ const ExperienceModule = () => {
               {entry.roles.map(role => (
                 <section className="role" key={role.title}>
                   <div className="role-heading">
-                    <h3>{role.title}</h3>
+                    <div className="role-identity">
+                      {role.logo && (
+                        <span className="role-logo-frame" aria-hidden="true">
+                          <img
+                            className="role-logo"
+                            src={role.logo}
+                            alt=""
+                            width="28"
+                            height="28"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </span>
+                      )}
+                      <h3>{role.title}</h3>
+                    </div>
                     {role.start && (
                       <p>
                         {role.start} – {role.end}
@@ -59,7 +87,20 @@ const ExperienceModule = () => {
           {education.map(item => (
             <article key={item.institution}>
               <p className="education-date">{item.date}</p>
-              <h3>{item.institution}</h3>
+              <div className="education-identity">
+                <span className="education-logo-frame" aria-hidden="true">
+                  <img
+                    className="education-logo"
+                    src={item.logo}
+                    alt=""
+                    width="42"
+                    height="42"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <h3>{item.institution}</h3>
+              </div>
               <p className="education-program">{item.program}</p>
               <p>{item.detail}</p>
             </article>

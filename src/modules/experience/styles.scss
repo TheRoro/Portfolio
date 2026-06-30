@@ -77,6 +77,43 @@
     gap: 1.5rem;
   }
 
+  .entry-identity,
+  .role-identity,
+  .education-identity {
+    @include flex(flex-start, center);
+  }
+
+  .entry-identity {
+    gap: 1rem;
+  }
+
+  .organization-logo-frame,
+  .role-logo-frame,
+  .education-logo-frame {
+    @include flex(center, center);
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid rgba($text2, 0.16);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  }
+
+  .organization-logo-frame {
+    width: 3.75rem;
+    height: 3.75rem;
+    padding: 0.65rem;
+    border-radius: 1rem;
+  }
+
+  .organization-logo,
+  .role-logo,
+  .education-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
   .entry-header {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(202, 209, 232, 0.12);
@@ -109,6 +146,17 @@
     & + .role {
       margin-top: 1.75rem;
       border-top: 1px solid rgba(202, 209, 232, 0.12);
+    }
+
+    .role-identity {
+      gap: 0.75rem;
+    }
+
+    .role-logo-frame {
+      width: 2.25rem;
+      height: 2.25rem;
+      padding: 0.4rem;
+      border-radius: 0.65rem;
     }
 
     h3 {
@@ -176,10 +224,21 @@
     }
 
     h3 {
-      margin: 0.75rem 0 0.5rem;
       font-family: "Sora", sans-serif;
       font-size: 1.15rem;
       font-weight: 500;
+    }
+
+    .education-identity {
+      gap: 0.75rem;
+      margin: 0.75rem 0 0.5rem;
+    }
+
+    .education-logo-frame {
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0.35rem;
+      border-radius: 0.75rem;
     }
 
     p {

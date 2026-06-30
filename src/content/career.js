@@ -1,6 +1,7 @@
 /**
  * @typedef {object} CareerRole
  * @property {string} title
+ * @property {string=} logo
  * @property {string=} start
  * @property {string=} end
  * @property {string} summary
@@ -8,6 +9,7 @@
  *
  * @typedef {object} CareerEntry
  * @property {string} organization
+ * @property {string} logo
  * @property {string} location
  * @property {string} start
  * @property {string} end
@@ -16,6 +18,7 @@
  *
  * @typedef {object} EducationEntry
  * @property {string} institution
+ * @property {string} logo
  * @property {string} program
  * @property {string} date
  * @property {string} detail
@@ -28,12 +31,14 @@ const careerIntro =
 const experience = [
   {
     organization: "Microsoft",
+    logo: "/organizations/microsoft.svg",
     location: "Seattle, Washington",
     start: "October 2023",
     end: "Present",
     roles: [
       {
         title: "Software Engineer · Xbox",
+        logo: "/organizations/xbox.svg",
         start: "October 2025",
         end: "Present",
         summary:
@@ -47,6 +52,7 @@ const experience = [
       },
       {
         title: "Software Engineer · Cloud Infrastructure & Diagnostics",
+        logo: "/organizations/azure.svg",
         start: "October 2023",
         end: "October 2025",
         summary:
@@ -61,6 +67,7 @@ const experience = [
   },
   {
     organization: "Belcorp",
+    logo: "/organizations/belcorp.png",
     location: "Lima, Peru",
     start: "August 2021",
     end: "January 2022",
@@ -79,6 +86,7 @@ const experience = [
   },
   {
     organization: "Meta",
+    logo: "/organizations/meta.svg",
     location: "Remote",
     start: "November 2021",
     end: "February 2022",
@@ -100,6 +108,7 @@ const experience = [
 const education = [
   {
     institution: "Universidad Peruana de Ciencias Aplicadas",
+    logo: "/organizations/upc.png",
     program: "BS in Software Engineering · GPA 3.5",
     date: "December 2022",
     detail:
@@ -107,6 +116,7 @@ const education = [
   },
   {
     institution: "University of Hertfordshire",
+    logo: "/organizations/hertfordshire.jpg",
     program: "Study Abroad",
     date: "2020",
     detail:

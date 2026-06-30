@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest"
 import { capabilities } from "./capabilities"
+import { education, experience } from "./career"
 import { heroActions, homeNavigation } from "./navigation"
 import { allProjects, selectedProjects } from "./projects"
 import { floatingSocialIds, profile, socialLinks } from "./profile"
@@ -58,6 +59,20 @@ describe("portfolio content", () => {
     ])
     expect(new Set(iconIds).size).toBe(iconIds.length)
     expect(iconIds).toHaveLength(8)
+  })
+
+  it("provides local logos for career and education records", () => {
+    const logos = [
+      ...experience.flatMap(entry => [
+        entry.logo,
+        ...entry.roles.map(role => role.logo).filter(Boolean),
+      ]),
+      ...education.map(item => item.logo),
+    ]
+
+    expect(logos).toHaveLength(7)
+    expect(new Set(logos).size).toBe(logos.length)
+    expect(logos.every(logo => logo.startsWith("/organizations/"))).toBe(true)
   })
 
   it("provides complete case studies for every selected project", () => {
