@@ -113,7 +113,10 @@ const AboutModule = () => {
         <h2 className="capabilities-title">What I work across</h2>
         <div className="capabilities-grid" ref={capabilitiesRef}>
           {capabilities.map(capability => (
-            <article className="capability-card" key={capability.id}>
+            <article
+              className={`capability-card capability-card-${capability.id}`}
+              key={capability.id}
+            >
               <p className="capability-label">{capability.label}</p>
               <div className="capability-icons" aria-hidden="true">
                 {capability.icons.map(icon => (

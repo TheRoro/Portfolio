@@ -101,9 +101,14 @@
     }
 
     .capability-card {
+      --capability-accent: #{$primary};
+      --capability-border: #{rgba($primary, 0.34)};
+      --capability-glow: #{rgba($primary, 0.12)};
+
       min-height: 190px;
       padding: 1.35rem;
       border: 1px solid rgba($text2, 0.14);
+      border-top-color: var(--capability-border);
       border-radius: 18px;
       background: rgba($background2, 0.14);
       transition:
@@ -112,14 +117,14 @@
         transform 0.25s ease-in-out;
 
       &:hover {
-        border-color: rgba($primary, 0.45);
-        box-shadow: 0 0 24px rgba($primary, 0.12);
+        border-color: var(--capability-border);
+        box-shadow: 0 0 24px var(--capability-glow);
         transform: translateY($icon-hover-lift);
       }
 
       .capability-label {
         margin-bottom: 1rem;
-        color: $primary;
+        color: var(--capability-accent);
         font-size: 0.75rem;
         font-weight: 700;
         letter-spacing: 0.12rem;
@@ -131,7 +136,7 @@
         gap: 0.65rem;
         min-height: 34px;
         margin-bottom: 1rem;
-        color: $text2;
+        color: var(--capability-accent);
       }
 
       .draggable-icon {
@@ -157,6 +162,7 @@
       .line-icon {
         width: 28px;
         height: 28px;
+        filter: drop-shadow(0 0 8px var(--capability-glow));
         pointer-events: none;
         user-select: none;
       }
@@ -190,6 +196,24 @@
         font-weight: 300;
         line-height: 1.5;
       }
+    }
+
+    .capability-card-services {
+      --capability-accent: #a9a2ff;
+      --capability-border: #{rgba(#a9a2ff, 0.38)};
+      --capability-glow: #{rgba(#8980f5, 0.15)};
+    }
+
+    .capability-card-infrastructure {
+      --capability-accent: #62c4ff;
+      --capability-border: #{rgba(#62c4ff, 0.38)};
+      --capability-glow: #{rgba(#2892df, 0.15)};
+    }
+
+    .capability-card-data {
+      --capability-accent: #f4c76b;
+      --capability-border: #{rgba(#f4c76b, 0.38)};
+      --capability-glow: #{rgba(#f4c76b, 0.14)};
     }
 
     .capabilities-hint {
