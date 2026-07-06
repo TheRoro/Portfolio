@@ -61,6 +61,48 @@
 }
 
 .nav-home {
+  .img-link,
+  .navigation-link {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      left: 50%;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 50%;
+      background: $primary;
+      box-shadow: 0 0 0.6rem rgba($primary, 0.5);
+      content: "";
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5);
+      transition:
+        opacity 0.2s ease-in-out,
+        transform 0.2s ease-in-out;
+    }
+
+    &.active::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+
+  .img-link::after {
+    bottom: 0;
+  }
+
+  .navigation-link {
+    color: $text;
+
+    &.active {
+      color: $primary;
+    }
+
+    &::after {
+      bottom: 0.2rem;
+    }
+  }
+
   @media only screen and (max-width: $home-breakpoint) {
     .nav-menu-button {
       display: block;
@@ -98,6 +140,17 @@
       margin: 0;
       padding: 0.75rem;
       border-radius: 0.65rem;
+
+      &::after {
+        top: 50%;
+        bottom: auto;
+        left: 0.2rem;
+        transform: translateY(-50%) scale(0.5);
+      }
+
+      &.active::after {
+        transform: translateY(-50%) scale(1);
+      }
 
       &:hover,
       &:focus-visible {
