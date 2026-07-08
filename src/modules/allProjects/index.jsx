@@ -6,14 +6,19 @@ import "./styles.scss"
 const ProjectsModule = () => {
   return (
     <section className="projects">
-      <h1 className="section-title mb-5">All Projects</h1>
-      {allProjects.map((project, index) => (
-        <ProjectTile
-          key={project.name}
-          project={project}
-          orientation={index % 2 === 0 ? "right" : "left"}
-        />
-      ))}
+      <header className="projects-heading">
+        <p className="projects-eyebrow">Selected and experimental work</p>
+        <h1 className="section-title">All Projects</h1>
+        <p className="projects-intro">
+          Products, tools, extensions, and experiments built across different
+          stages of my engineering journey.
+        </p>
+      </header>
+      <div className="projects-grid">
+        {allProjects.map(project => (
+          <ProjectTile key={project.name} project={project} variant="card" />
+        ))}
+      </div>
     </section>
   )
 }

@@ -29,4 +29,17 @@ describe("ProjectTile", () => {
     expect(screen.getByText(drawly.summary)).toBeVisible()
     expect(screen.getByText(drawly.tags)).toBeVisible()
   })
+
+  it("supports the compact card layout used by the project index", () => {
+    render(
+      <MemoryRouter>
+        <ProjectTile project={drawly} variant="card" />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole("article")).toHaveClass("project-tile-card")
+    expect(
+      screen.getByRole("link", { name: "View Drawly project details" }),
+    ).toContainElement(screen.getByRole("heading", { name: "Drawly" }))
+  })
 })
