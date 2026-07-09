@@ -25,7 +25,14 @@ describe("portfolio content", () => {
       expect(project.repoUrl).toMatch(/^https:\/\/github\.com\//)
       expect(project.webUrl).toMatch(/^https:\/\//)
       expect(project.palette.length).toBeGreaterThanOrEqual(5)
+      expect(project.highlights.length).toBeGreaterThanOrEqual(3)
     }
+
+    expect(
+      allProjects
+        .filter(project => project.showPalette)
+        .map(project => project.name),
+    ).toEqual(["repo-colors", "portfolio"])
   })
 
   it("keeps navigation targets and social references internally consistent", () => {
@@ -80,8 +87,7 @@ describe("portfolio content", () => {
       expect(project.caseStudy).toBeDefined()
       expect(project.caseStudy.decisions).toHaveLength(3)
       expect(project.caseStudy.constraints.length).toBeGreaterThanOrEqual(3)
-      expect(project.caseStudy.capabilities.length).toBeGreaterThanOrEqual(3)
-      expect(project.caseStudy.quality.length).toBeGreaterThanOrEqual(3)
+      expect(project.highlights.length).toBeGreaterThanOrEqual(3)
       expect(project.caseStudy.outcome).toBeTruthy()
       expect(project.caseStudy.lesson).toBeTruthy()
     }

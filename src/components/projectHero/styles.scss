@@ -1,0 +1,211 @@
+@use "../../styles/variables.scss" as *;
+
+.project-hero {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(28rem, 1.35fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+  width: 100%;
+  padding: 3rem 0 4rem;
+
+  .project-hero-content {
+    min-width: 0;
+  }
+
+  .project-hero-category,
+  .project-hero-technology p:first-child,
+  .project-hero-palette > p {
+    color: $primary;
+    font-family: "Sora", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .project-hero-title {
+    display: block;
+    margin: 0.8rem 0 1rem;
+    color: $text;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+
+  .project-hero-summary {
+    display: block;
+    color: $purple-100;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .project-hero-description {
+    display: block;
+    margin-top: 1.25rem;
+    color: $text2;
+    font-size: 1.02rem;
+    font-weight: 300;
+    hyphens: auto;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .project-hero-technology {
+    margin-top: 1.75rem;
+
+    p {
+      display: block;
+    }
+
+    p:last-child {
+      margin-top: 0.5rem;
+      color: $text;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+  }
+
+  .project-hero-palette {
+    margin-top: 1.25rem;
+
+    & > p {
+      display: block;
+    }
+
+    [role="group"] {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+
+    [role="group"] > span {
+      display: block;
+      width: 1.65rem;
+      height: 1.65rem;
+      border: 1px solid rgba($text2, 0.22);
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .project-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  .project-hero-action {
+    @include flex(center, center);
+    min-height: 46px;
+    gap: 0.65rem;
+    padding: 0.75rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-family: "Sora", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition:
+      background 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      color 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+
+    svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-2px);
+    }
+  }
+
+  .project-hero-action-primary {
+    background: $primary;
+    color: $background;
+
+    &:hover,
+    &:focus-visible {
+      background: #52ffe2;
+    }
+  }
+
+  .project-hero-action-secondary {
+    border-color: rgba($text2, 0.35);
+    color: $text;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  .project-hero-visual {
+    position: relative;
+    min-width: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid rgba($text2, 0.16);
+    border-radius: 24px;
+    background: rgba($background2, 0.2);
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.28),
+      0 0 40px rgba($primary, 0.07);
+
+    .project-image,
+    .image {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image {
+      object-fit: cover;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem 0 3rem;
+
+    .project-hero-content {
+      max-width: 42rem;
+    }
+
+    .project-hero-title {
+      font-size: clamp(2.75rem, 13vw, 4.5rem);
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .project-hero-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .project-hero-action {
+      width: 100%;
+    }
+
+    .project-hero-visual {
+      border-radius: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-hero-action:hover,
+    .project-hero-action:focus-visible {
+      transform: none;
+    }
+  }
+}

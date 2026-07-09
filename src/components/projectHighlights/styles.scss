@@ -1,0 +1,65 @@
+@use "../../styles/variables.scss" as *;
+
+.project-highlights {
+  width: min(68rem, 100%);
+  margin-top: 3.5rem;
+
+  header {
+    margin-bottom: 1.5rem;
+
+    p {
+      display: block;
+      color: $primary;
+      font-family: "Sora", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 0.65rem;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      font-weight: 500;
+    }
+  }
+
+  .project-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  article {
+    padding: 1.4rem;
+    border: 1px solid rgba($text2, 0.14);
+    border-radius: 1.1rem;
+    background: rgba($background2, 0.16);
+
+    span {
+      color: $primary;
+      font-family: "Sora", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    p {
+      display: block;
+      margin-top: 0.7rem;
+      color: $text2;
+      font-size: 0.98rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+  }
+
+  @media only screen and (max-width: 760px) {
+    margin-top: 2.5rem;
+
+    .project-highlights-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

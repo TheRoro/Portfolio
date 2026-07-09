@@ -12,8 +12,6 @@
  * @property {string} problem
  * @property {string[]} constraints
  * @property {ProjectDecision[]} decisions
- * @property {string[]} capabilities
- * @property {string[]} quality
  * @property {string} outcome
  * @property {string} lesson
  *
@@ -24,7 +22,9 @@
  * @property {string} summary
  * @property {string} description
  * @property {string} tags
+ * @property {string[]} highlights
  * @property {ProjectColor[]} palette
+ * @property {boolean=} showPalette
  * @property {string} imgUrl
  * @property {number} imgHeight
  * @property {string} repoUrl
@@ -43,6 +43,12 @@ const drawly = {
   description:
     "Drawly is a real-time multiplayer drawing game with room-based sessions, reconnect-safe player identity, synchronized drawing rounds, voting, chat, reactions, and a prompt-author Spy Mode. Its React client and Socket.IO server are backed by shared TypeScript contracts, input validation, rate limits, memory controls, integration tests, and secure deployment defaults.",
   tags: "React · TypeScript · Socket.IO · Express",
+  highlights: [
+    "Private rooms coordinate drawing, voting, scoring, chat, reactions, and host transfer for up to ten players.",
+    "Reconnect-safe identity restores active sessions without accounts or permanent personal data.",
+    "Shared TypeScript contracts and server validation keep clients synchronized while bounding untrusted input.",
+    "Integration tests exercise complete rounds, reconnect behavior, rate limits, and deployment health.",
+  ],
   palette: [
     { background: "#F9EDD1", text: "#383B3D" },
     { background: "#383B3D", text: "#FFFFFF" },
@@ -81,18 +87,6 @@ const drawly = {
           "Short-lived reconnect tokens are randomly generated, stored as hashes, compared safely, and rotated after use so an interrupted player can recover an active session.",
       },
     ],
-    capabilities: [
-      "Private rooms for up to ten players with host transfer and duplicate-name protection.",
-      "Synchronized prompts, drawing rounds, timers, anonymous voting, scoring, and final results.",
-      "Pointer and touch drawing with brush controls, erasing, undo, redo, and optional live previews.",
-      "Chat, reactions, downloadable drawings, recap generation, and native sharing when supported.",
-    ],
-    quality: [
-      "Rate limits, bounded text, allowlisted reactions, PNG validation, and drawing-memory controls.",
-      "Reconnect tests cover token rotation, non-serialization, and disconnect-aware submissions.",
-      "A deterministic integration test exercises a complete multiplayer round.",
-      "Health checks and explicit Vercel and Render configuration support deployment.",
-    ],
     outcome:
       "Drawly evolved from a drawing prototype into a deployable multiplayer game with coordinated rounds, reconnect support, voting, social reactions, and explicit operational safeguards.",
     lesson:
@@ -110,6 +104,12 @@ const pokeapp = {
   description:
     "PokeApp combines Pokémon search, stats, evolutions, moves, type matchups, and a six-slot team builder in a responsive Pokédex-inspired interface. The modernized Vite application includes request cancellation, classified API errors, keyboard-accessible autocomplete, deterministic team analysis, regression tests, and a static deployment pipeline.",
   tags: "React · TypeScript · Vite · PokeAPI",
+  highlights: [
+    "Search brings Pokémon stats, artwork, evolutions, moves, and type matchups into one responsive workflow.",
+    "A six-slot team builder provides deterministic defensive coverage and weakness analysis.",
+    "Cancellation, caching, and classified errors prevent stale responses and make API failures recoverable.",
+    "Keyboard autocomplete, live status messaging, and regression tests protect accessible asynchronous behavior.",
+  ],
   palette: [
     { background: "#2A2D32", text: "#FFFFFF" },
     { background: "#DC0A2D", text: "#FFFFFF" },
@@ -148,18 +148,6 @@ const pokeapp = {
           "Promise caches deduplicate in-flight requests, failed entries remain retryable, and move details load in controlled batches rather than flooding the public API.",
       },
     ],
-    capabilities: [
-      "Search by Pokémon name or National Pokédex number with special-name normalization.",
-      "Stats, artwork, typing, evolution chains, moves, and matchup exploration.",
-      "A six-slot unique team builder with autocomplete and defensive coverage summaries.",
-      "Distinct, retryable handling for not-found, network, rate-limit, server, and unexpected failures.",
-    ],
-    quality: [
-      "Tests cover request races, overlapping removals, resets, normalization, and team calculations.",
-      "Autocomplete exposes combobox and listbox semantics with keyboard navigation.",
-      "Loading, error, and team-analysis updates use status, alert, and live-region semantics.",
-      "CI tests and builds the application on Ubuntu and Windows and reviews pull-request dependencies.",
-    ],
     outcome:
       "PokeApp delivers a client-only toolkit for Pokémon discovery, move lookup, type analysis, and team weakness review with explicit failure states and tested asynchronous behavior.",
     lesson:
@@ -177,6 +165,12 @@ const vsquote = {
   description:
     "VSQuote is a privacy-first VS Code extension with eight quote modes, configurable delivery intervals, favorites, history, copy actions, and accessible status-bar previews. More than one thousand bundled quotes work entirely offline, with no telemetry, network access, workspace reading, or runtime dependencies.",
   tags: "VS Code API · JavaScript · Offline",
+  highlights: [
+    "Eight quote modes support configurable intervals and compact status bar previews.",
+    "Favorites, history, copying, searchable commands, and repeat suppression keep interaction lightweight.",
+    "More than one thousand bundled quotes work offline without telemetry, network access, or workspace reads.",
+    "Corpus validation, extension host tests, and repeatable packaging protect content and releases.",
+  ],
   palette: [
     { background: "#181A1F", text: "#FFFFFF" },
     { background: "#252A34", text: "#FFFFFF" },
@@ -216,18 +210,6 @@ const vsquote = {
           "Recent history and repeat suppression stay in session memory, while favorites and onboarding state use VS Code global storage because users explicitly expect those choices to persist.",
       },
     ],
-    capabilities: [
-      "Eight quote modes with configurable intervals and bounded status-bar length.",
-      "Commands for new quotes, copying, favorites, history, and mode selection.",
-      "Searchable Quick Picks, first-run setup, repeat suppression, and enable or disable behavior.",
-      "A packaged VSIX and tag-driven Visual Studio Marketplace release workflow.",
-    ],
-    quality: [
-      "Extension-host tests cover activation, commands, accessible rendering, settings, and disposal.",
-      "Tests also cover repeat suppression, clipboard behavior, favorites, onboarding, and fallback configuration.",
-      "CI runs tests, package inspection, and VSIX creation before release.",
-      "The documented privacy model excludes telemetry, network access, usage reporting, and workspace reads.",
-    ],
     outcome:
       "VSQuote is a self-contained offline extension with configurable delivery, explicit persistence boundaries, accessible status output, automated validation, and a repeatable Marketplace release path.",
     lesson:
@@ -245,6 +227,11 @@ const upspell = {
   description:
     "UpSpell offers 4,380 validated prompts, deterministic daily challenges, missed-word practice, pronunciation, spelling guidance, streaks, statistics, and a character reference across 12 languages. The installable Nuxt PWA works with locally cached assets and includes accessibility, content-integrity, gameplay, and offline-delivery checks.",
   tags: "Nuxt · Vue · TypeScript · PWA",
+  highlights: [
+    "Daily challenges draw from 4,380 validated prompts across 12 languages.",
+    "Missed-word practice, pronunciation, streaks, statistics, and character references support continued learning.",
+    "The installable Nuxt PWA caches local assets and tests gameplay, accessibility, content integrity, and offline delivery.",
+  ],
   palette: [
     { background: "#3B82F6", text: "#0F172A" },
     { background: "#F9FAFB", text: "#111827" },
@@ -269,6 +256,11 @@ const repoColors = {
   description:
     "Repo Colors is a dependency-free Chrome extension that follows GitHub's dynamic navigation and applies accessible language palettes without disabling native controls. Users can disable effects, retain GitHub's native contrast, and override individual palettes. The release is protected by DOM fixtures, real Chromium tests, permission checks, and deterministic packaging.",
   tags: "Chrome MV3 · JavaScript · Playwright",
+  highlights: [
+    "Language-inspired palettes distinguish pinned repositories while preserving readable contrast.",
+    "The dependency-free extension follows GitHub navigation without replacing native controls.",
+    "DOM fixtures, Chromium tests, permission checks, and deterministic packaging protect releases.",
+  ],
   palette: [
     { background: "#0D1117", text: "#FFFFFF" },
     { background: "#2A3868", text: "#FFFFFF" },
@@ -276,6 +268,7 @@ const repoColors = {
     { background: "#42B883", text: "#052E16" },
     { background: "#DE63A2", text: "#2D0A1D" },
   ],
+  showPalette: true,
   imgUrl: "repo-colors.png",
   imgHeight: 750,
   repoUrl: "https://github.com/TheRoro/Repo-Colors",
@@ -294,6 +287,11 @@ const portfolio = {
   description:
     "This portfolio uses React, Vite, React Three Fiber, React Spring, and Framer Motion to create a distinctive space-inspired presentation for selected engineering work.",
   tags: "Vite · React · Three.js",
+  highlights: [
+    "Responsive WebGL and static fallbacks preserve the space-inspired identity across devices.",
+    "Structured project content presents products, engineering decisions, and career progression consistently.",
+    "Accessible navigation, reduced motion support, responsive media, and automated checks protect the experience.",
+  ],
   palette: [
     { background: "#121921", text: "#FFFFFF" },
     { background: "#12CBAE", text: "#062E28" },
@@ -301,6 +299,7 @@ const portfolio = {
     { background: "#9F76E6", text: "#24143D" },
     { background: "#FF8798", text: "#48151D" },
   ],
+  showPalette: true,
   imgUrl: "portfolio.png",
   imgHeight: 686,
   repoUrl: "https://github.com/TheRoro/Portfolio",
@@ -318,6 +317,11 @@ const bodega = {
   description:
     "Bodega is an archived e-commerce learning project built with Vue, Vuex, Bootstrap, and SCSS. It models product browsing and a persistent cart while reflecting an earlier stage of my front-end work.",
   tags: "Vue · Vuex · Sass · Archived",
+  highlights: [
+    "A Vue storefront models product discovery and a familiar neighborhood bodega experience.",
+    "Vuex coordinates cart state while browser persistence keeps selections between visits.",
+    "The archived project documents an earlier stage of front-end learning and product experimentation.",
+  ],
   palette: [
     { background: "#FAFAFA", text: "#353535" },
     { background: "#FF6699", text: "#3B0A1E" },

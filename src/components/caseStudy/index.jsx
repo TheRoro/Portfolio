@@ -23,13 +23,11 @@ const CaseStudy = ({ project }) => {
         <h2 id={headingId}>{caseStudy.title}</h2>
       </header>
 
-      <div className="case-study-overview">
+      <div className="case-study-challenge">
         <article>
           <h3>The challenge</h3>
           <p>{caseStudy.problem}</p>
-        </article>
-        <article>
-          <h3>Constraints</h3>
+          <p className="case-study-label">Constraints</p>
           <CaseStudyList items={caseStudy.constraints} />
         </article>
       </div>
@@ -49,25 +47,23 @@ const CaseStudy = ({ project }) => {
         </div>
       </div>
 
-      <div className="case-study-details">
+      <div className="case-study-section case-study-highlights">
+        <h3>Engineering highlights</h3>
         <article>
-          <h3>What I built</h3>
-          <CaseStudyList items={caseStudy.capabilities} />
-        </article>
-        <article>
-          <h3>Quality &amp; reliability</h3>
-          <CaseStudyList items={caseStudy.quality} />
+          <CaseStudyList items={project.highlights} />
         </article>
       </div>
 
-      <div className="case-study-summary">
+      <div className="case-study-closing">
         <article>
-          <p className="case-study-label">Outcome</p>
-          <p>{caseStudy.outcome}</p>
-        </article>
-        <article>
-          <p className="case-study-label">What I learned</p>
-          <p>{caseStudy.lesson}</p>
+          <div>
+            <p className="case-study-label">Outcome</p>
+            <p>{caseStudy.outcome}</p>
+          </div>
+          <div>
+            <p className="case-study-label">Takeaway</p>
+            <p>{caseStudy.lesson}</p>
+          </div>
         </article>
       </div>
     </section>
