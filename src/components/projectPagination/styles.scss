@@ -1,0 +1,105 @@
+@use "../../styles/variables.scss" as *;
+
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: min(68rem, 100%);
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba($text2, 0.14);
+
+  .project-pagination-card {
+    display: flex;
+    align-items: center;
+    max-width: 45%;
+    min-height: 44px;
+    gap: 0.7rem;
+    padding: 0.35rem 0;
+
+    &:hover,
+    &:focus-visible {
+      .project-pagination-direction,
+      .project-pagination-title,
+      .project-pagination-arrow {
+        color: $primary;
+      }
+
+      .project-pagination-arrow {
+        transform: translateX(-2px);
+      }
+    }
+  }
+
+  .project-pagination-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .project-pagination-card-next {
+    flex-direction: row-reverse;
+
+    .project-pagination-content {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    &:hover .project-pagination-arrow,
+    &:focus-visible .project-pagination-arrow {
+      transform: translateX(2px);
+    }
+  }
+
+  .project-pagination-arrow {
+    flex-shrink: 0;
+    color: $text2;
+    font-family: "Sora", sans-serif;
+    font-size: 1rem;
+    transition:
+      color 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  .project-pagination-direction {
+    color: $text2;
+    font-family: "Sora", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .project-pagination-title {
+    margin-top: 0.25rem;
+    color: $text;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.2;
+    transition: color 0.2s ease-in-out;
+  }
+
+  @media only screen and (max-width: 480px) {
+    gap: 1rem;
+    margin-top: 3rem;
+
+    .project-pagination-card {
+      max-width: calc(50% - 0.5rem);
+      gap: 0.45rem;
+    }
+
+    .project-pagination-direction {
+      font-size: 0.56rem;
+      letter-spacing: 0.07em;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-pagination-card:hover .project-pagination-arrow,
+    .project-pagination-card:focus-visible .project-pagination-arrow {
+      transform: none;
+    }
+  }
+}
