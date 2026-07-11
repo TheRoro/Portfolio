@@ -6,7 +6,7 @@
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
   width: 100%;
-  padding: 3rem 0 4rem;
+  padding: 0 0 4rem;
 
   .project-hero-content {
     min-width: 0;
@@ -176,7 +176,7 @@
   @media only screen and (max-width: 850px) {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding: 2rem 0 3rem;
+    padding-bottom: 3rem;
 
     .project-hero-content {
       max-width: 42rem;

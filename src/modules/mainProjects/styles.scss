@@ -2,14 +2,10 @@
 
 .main-projects {
   @include flex(flex-start, center);
+  @include content-container;
+  @include section-spacing;
   flex-direction: column;
   min-height: 100svh;
-  padding-top: $navbar-height;
-  margin: 0 10vw;
-
-  @media only screen and (max-width: 1600px) {
-    margin: 0 5vw;
-  }
 
   .projects-list {
     @include flex(center, center);

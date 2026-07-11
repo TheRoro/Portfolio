@@ -5,6 +5,13 @@ $floating-height: 7rem;
 $nav-breakpoint: 700px;
 $home-breakpoint: 650px;
 $about-breakpoint: 1000px;
+$content-max-width: 72rem;
+$content-gutter: 1.5rem;
+$content-gutter-small: 1rem;
+$section-padding-top: 3rem;
+$section-padding-bottom: 7rem;
+$section-padding-top-small: 2rem;
+$section-padding-bottom-small: 5rem;
 
 $primary: #16ffd8;
 $purple: #8980f5;
@@ -24,4 +31,24 @@ $icon-hover-lift: -5px;
   display: flex;
   align-items: $align-items;
   justify-content: $justify-content;
+}
+
+@mixin content-container {
+  width: min($content-max-width, calc(100% - #{$content-gutter * 2}));
+  margin-right: auto;
+  margin-left: auto;
+
+  @media only screen and (max-width: $nav-breakpoint) {
+    width: min($content-max-width, calc(100% - #{$content-gutter-small * 2}));
+  }
+}
+
+@mixin section-spacing {
+  padding-top: calc($navbar-height + $section-padding-top);
+  padding-bottom: $section-padding-bottom;
+
+  @media only screen and (max-width: $nav-breakpoint) {
+    padding-top: calc($navbar-height + $section-padding-top-small);
+    padding-bottom: $section-padding-bottom-small;
+  }
 }

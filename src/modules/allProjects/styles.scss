@@ -2,11 +2,10 @@
 
 .projects {
   @include flex(flex-start, center);
+  @include content-container;
+  @include section-spacing;
   flex-direction: column;
-  width: min(76rem, calc(100% - 3rem));
   min-height: 100svh;
-  margin: 0 auto;
-  padding: calc($navbar-height + 3rem) 0 7rem;
 
   .projects-heading {
     display: block;
@@ -52,10 +51,6 @@
   }
 
   @media only screen and (max-width: 700px) {
-    width: min(100% - 2rem, 38rem);
-    padding-top: calc($navbar-height + 2rem);
-    padding-bottom: 5rem;
-
     .projects-heading {
       margin-bottom: 2.5rem;
     }

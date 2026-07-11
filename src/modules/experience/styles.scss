@@ -1,9 +1,8 @@
 @use "../../styles/variables.scss" as *;
 
 .experience {
-  width: min(72rem, calc(100% - 3rem));
-  margin: 0 auto;
-  padding: calc($navbar-height + 3rem) 0 7rem;
+  @include content-container;
+  @include section-spacing;
 
   .experience-heading {
     @include flex(center, center);
@@ -256,9 +255,6 @@
   }
 
   @media only screen and (max-width: 700px) {
-    width: min(100% - 2rem, 42rem);
-    padding-bottom: 5rem;
-
     .experience-intro {
       font-size: 1.1rem;
     }

@@ -2,15 +2,8 @@
 
 .project-container {
   @include flex(flex-start, center);
+  @include content-container;
+  @include section-spacing;
   flex-direction: column;
-  width: min(76rem, calc(100% - 3rem));
   min-height: 100svh;
-  margin: 0 auto;
-  padding-top: $navbar-height;
-  padding-bottom: 7rem;
-
-  @media only screen and (max-width: 540px) {
-    width: min(100% - 2rem, 38rem);
-    padding-bottom: 5rem;
-  }
 }

@@ -2,14 +2,13 @@
 
 .about {
   @include flex(flex-start, center);
+  @include section-spacing;
   flex-direction: column;
   min-height: 100svh;
-  padding: $navbar-height 3rem 3rem 3rem;
 
   .content-row {
     @include flex(center, center);
-    width: 100%;
-    max-width: 1080px;
+    @include content-container;
 
     .portrait {
       flex: 0 0 clamp(260px, 25vw, 320px);
@@ -79,9 +78,8 @@
 
   .secondary-row {
     @include flex(center, center);
+    @include content-container;
     flex-direction: column;
-    width: 100%;
-    max-width: 1080px;
     margin-top: 5vh;
 
     .capabilities-title {
@@ -227,7 +225,6 @@
 
   @media only screen and (max-width: $about-breakpoint) {
     @include flex(flex-start, center);
-    padding: $navbar-height 1rem 1rem 1rem;
 
     .content-row {
       @include flex(center, center);
