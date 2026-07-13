@@ -10,6 +10,7 @@ import { capabilities } from "../../content/capabilities"
 import { profile } from "../../content/profile"
 import useMediaQuery from "../../hooks/useMediaQuery"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
+import SectionHeading from "../../components/sectionHeading"
 import "./styles.scss"
 
 const DraggableIcon = ({ children, constraints, disabled }) => (
@@ -70,7 +71,11 @@ const AboutModule = () => {
 
   return (
     <section className="about" id="about">
-      <h2 className="section-title glowing-text mb-5">About</h2>
+      <SectionHeading
+        eyebrow="Beyond the résumé"
+        title="About"
+        intro="The experiences, places, and curiosity that shaped how I build products and work with people."
+      />
       <div className="content-row">
         <picture className="portrait">
           <source

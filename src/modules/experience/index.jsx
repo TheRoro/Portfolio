@@ -1,15 +1,16 @@
 import React from "react"
+import SectionHeading from "../../components/sectionHeading"
 import { careerIntro, education, experience } from "../../content/career"
 import "./styles.scss"
 
 const ExperienceModule = () => {
   return (
     <section className="experience" id="experience">
-      <div className="experience-heading">
-        <p className="experience-eyebrow">Career timeline</p>
-        <h2 className="section-title glowing-text">Experience</h2>
-        <p className="experience-intro">{careerIntro}</p>
-      </div>
+      <SectionHeading
+        eyebrow="Career timeline"
+        title="Experience"
+        intro={careerIntro}
+      />
 
       <div className="timeline">
         {experience.map(entry => (

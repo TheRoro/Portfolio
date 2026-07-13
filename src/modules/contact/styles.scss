@@ -2,14 +2,15 @@
 
 .contact {
   @include flex(flex-start, center);
+  @include content-container;
   @include section-spacing;
   flex-direction: column;
   min-height: 100svh;
 
   .contact-container {
     @include flex(center, center);
-    @include content-container;
     flex-direction: column;
+    width: 100%;
     min-height: 60vh;
     flex: 1;
   }

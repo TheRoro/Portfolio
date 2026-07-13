@@ -4,14 +4,6 @@
   @include content-container;
   @include section-spacing;
 
-  .experience-heading {
-    @include flex(center, center);
-    flex-direction: column;
-    margin-bottom: 4rem;
-    text-align: center;
-  }
-
-  .experience-eyebrow,
   .entry-label,
   .education-date {
     color: $primary;
@@ -20,18 +12,6 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-  }
-
-  .section-title {
-    margin: 0.75rem 0 1.25rem;
-  }
-
-  .experience-intro {
-    max-width: 44rem;
-    color: $text2;
-    font-size: 1.3rem;
-    font-weight: 300;
-    line-height: 1.7;
   }
 
   .timeline {
@@ -255,10 +235,6 @@
   }
 
   @media only screen and (max-width: 700px) {
-    .experience-intro {
-      font-size: 1.1rem;
-    }
-
     .timeline {
       padding-left: 1.25rem;
 

@@ -2,13 +2,14 @@
 
 .about {
   @include flex(flex-start, center);
+  @include content-container;
   @include section-spacing;
   flex-direction: column;
   min-height: 100svh;
 
   .content-row {
     @include flex(center, center);
-    @include content-container;
+    width: 100%;
 
     .portrait {
       flex: 0 0 clamp(260px, 25vw, 320px);
@@ -78,8 +79,8 @@
 
   .secondary-row {
     @include flex(center, center);
-    @include content-container;
     flex-direction: column;
+    width: 100%;
     margin-top: 5vh;
 
     .capabilities-title {

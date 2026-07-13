@@ -1,6 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import ProjectTile from "../../components/projectTile"
+import SectionHeading from "../../components/sectionHeading"
 import { selectedProjects } from "../../content/projects"
 import "./styles.scss"
 
@@ -9,7 +10,11 @@ const MainProjectsModule = () => {
 
   return (
     <section className="main-projects" id="main-projects">
-      <h2 className="section-title glowing-text mb-5">Selected Projects</h2>
+      <SectionHeading
+        eyebrow="Featured work"
+        title="Selected Projects"
+        intro="Products and tools where I focused on thoughtful interactions, dependable engineering, and clear user value."
+      />
       <div className="projects-list">
         {selectedProjects.map((project, index) => (
           <ProjectTile

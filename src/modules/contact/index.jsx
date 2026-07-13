@@ -3,6 +3,7 @@ import { useAnimation, motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import Footer from "../../components/footer/index"
+import SectionHeading from "../../components/sectionHeading"
 import SocialIcon from "../../components/socialIcon"
 import { socialLinks } from "../../content/profile"
 import "./styles.scss"
@@ -45,7 +46,11 @@ const ContactModule = () => {
 
   return (
     <section className="contact" id="contact">
-      <h2 className="section-title glowing-text mb-5">Get In Touch</h2>
+      <SectionHeading
+        eyebrow="Let's connect"
+        title="Get In Touch"
+        intro="Explore my work, connect professionally, send me a note, or download my résumé."
+      />
       <div className="contact-container">
         <motion.ul
           className="contact-grid"
