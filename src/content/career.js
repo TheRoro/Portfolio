@@ -51,7 +51,7 @@ const experience = [
         ],
       },
       {
-        title: "Software Engineer · Cloud Infrastructure & Diagnostics",
+        title: "Software Engineer · Azure Infrastructure & Diagnostics",
         logo: "/organizations/azure.svg",
         start: "October 2023",
         end: "October 2025",
