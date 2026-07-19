@@ -1,13 +1,11 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import ProjectTile from "../../components/projectTile"
 import SectionHeading from "../../components/sectionHeading"
 import { selectedProjects } from "../../content/projects"
 import "./styles.scss"
 
 const MainProjectsModule = () => {
-  const navigate = useNavigate()
-
   return (
     <section className="main-projects" id="main-projects">
       <SectionHeading
@@ -24,14 +22,9 @@ const MainProjectsModule = () => {
           />
         ))}
       </div>
-      <button
-        className="button"
-        onClick={() => {
-          navigate("/projects/")
-        }}
-      >
+      <Link className="more-projects-action" to="/projects/">
         More Projects
-      </button>
+      </Link>
     </section>
   )
 }

@@ -13,23 +13,9 @@
     width: 100%;
   }
 
-  .button {
-    padding: 0.8em 1.8em;
-    margin: 1em auto;
-    border: 2px solid $text2;
-    border-radius: 15px;
-    background: none;
-    color: $text;
-    font-family: "Sora", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    vertical-align: baseline;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      background: $text;
-      color: $background;
-      cursor: pointer;
-    }
+  .more-projects-action {
+    @include action-button;
+    @include action-button-secondary;
+    margin: 1rem auto;
   }
 }

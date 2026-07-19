@@ -100,53 +100,15 @@
   }
 
   .project-hero-action {
-    @include flex(center, center);
-    min-height: 46px;
-    gap: 0.65rem;
-    padding: 0.75rem 1.1rem;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    font-family: "Sora", sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    transition:
-      background 0.2s ease-in-out,
-      border-color 0.2s ease-in-out,
-      color 0.2s ease-in-out,
-      transform 0.2s ease-in-out;
-
-    svg {
-      width: 1.15rem;
-      height: 1.15rem;
-      flex-shrink: 0;
-      fill: currentColor;
-    }
-
-    &:hover,
-    &:focus-visible {
-      transform: translateY(-2px);
-    }
+    @include action-button;
   }
 
   .project-hero-action-primary {
-    background: $primary;
-    color: $background;
-
-    &:hover,
-    &:focus-visible {
-      background: #52ffe2;
-    }
+    @include action-button-primary;
   }
 
   .project-hero-action-secondary {
-    border-color: rgba($text2, 0.35);
-    color: $text;
-
-    &:hover,
-    &:focus-visible {
-      border-color: $primary;
-      color: $primary;
-    }
+    @include action-button-secondary;
   }
 
   .project-hero-visual {
@@ -199,13 +161,6 @@
 
     .project-hero-visual {
       border-radius: 18px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-hero-action:hover,
-    .project-hero-action:focus-visible {
-      transform: none;
     }
   }
 }
