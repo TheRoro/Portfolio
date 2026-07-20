@@ -82,7 +82,7 @@ const HomeNav = () => {
 
   return (
     <nav
-      className="nav nav-home"
+      className={`nav nav-home${activeSection === "home" ? "" : " nav-scrolled"}`}
       aria-label="Primary"
       ref={navRef}
       onBlur={event => {

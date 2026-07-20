@@ -61,6 +61,14 @@
 }
 
 .nav-home {
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  transition:
+    background 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+
   .img-link,
   .navigation-link {
     position: relative;
@@ -101,6 +109,14 @@
     &::after {
       bottom: 0.2rem;
     }
+  }
+
+  &.nav-scrolled {
+    border-bottom-color: rgba($text2, 0.1);
+    background: rgba($nav-background, 0.84);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   @media only screen and (max-width: $home-breakpoint) {
