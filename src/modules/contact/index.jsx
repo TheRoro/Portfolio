@@ -10,11 +10,6 @@ import "./styles.scss"
 
 const ContactModule = () => {
   const reduceMotion = usePrefersReducedMotion()
-  const [hoveredLink, setHoveredLink] = React.useState("")
-  const [focusedLink, setFocusedLink] = React.useState("")
-  const activeLink = hoveredLink || focusedLink
-  const logoName = socialLinks.find(link => link.id === activeLink)?.label ?? ""
-
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
@@ -52,40 +47,42 @@ const ContactModule = () => {
         intro="Explore my work, connect professionally, send me a note, or download my résumé."
       />
       <div className="contact-container">
-        <motion.ul
-          className="contact-grid"
-          variants={containerAnimation}
-          initial={reduceMotion ? false : "hidden"}
-          animate={controls}
-          ref={ref}
-        >
-          {socialLinks.map(link => (
-            <motion.li
-              className="logo-item"
-              variants={itemAnimation}
-              key={link.id}
-            >
-              <a
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                aria-label={link.label}
-                onMouseEnter={() => setHoveredLink(link.id)}
-                onMouseLeave={() => setHoveredLink("")}
-                onFocus={() => setFocusedLink(link.id)}
-                onBlur={() => setFocusedLink("")}
+        <div className="contact-system">
+          <div className="contact-core" aria-hidden="true">
+            <span>Let&apos;s</span>
+            <strong>Connect</strong>
+          </div>
+          <motion.ul
+            className="contact-grid"
+            variants={containerAnimation}
+            initial={reduceMotion ? false : "hidden"}
+            animate={controls}
+            ref={ref}
+          >
+            {socialLinks.map(link => (
+              <motion.li
+                className={`contact-item contact-item--${link.id}`}
+                variants={itemAnimation}
+                key={link.id}
               >
-                <SocialIcon
-                  id={link.id}
-                  className={`logo${activeLink === link.id ? " active" : ""}`}
-                />
-                <span className="contact-label">{link.displayLabel}</span>
-              </a>
-            </motion.li>
-          ))}
-        </motion.ul>
-        <div className="name-container">
-          <p className="name-text">{logoName}</p>
+                <a
+                  className="contact-action"
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  aria-label={link.label}
+                >
+                  <span className="contact-icon" aria-hidden="true">
+                    <SocialIcon id={link.id} className="logo" />
+                  </span>
+                  <span className="contact-copy">
+                    <span className="contact-label">{link.displayLabel}</span>
+                    <span className="contact-hint">{link.contactHint}</span>
+                  </span>
+                </a>
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
       </div>
 

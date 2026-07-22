@@ -45,14 +45,20 @@ const FloatingLinks = () => {
       animate="visible"
     >
       {floatingLinks.map(link => (
-        <motion.li className="logo-item" variants={itemAnimation} key={link.id}>
+        <motion.li
+          className={`logo-item logo-item--${link.id}`}
+          variants={itemAnimation}
+          key={link.id}
+        >
           <a
             href={link.href}
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener noreferrer" : undefined}
             aria-label={link.floatingLabel ?? link.label}
           >
-            <SocialIcon id={link.id} className="logo" />
+            <span className="floating-planet" aria-hidden="true">
+              <SocialIcon id={link.id} className="logo" />
+            </span>
           </a>
         </motion.li>
       ))}

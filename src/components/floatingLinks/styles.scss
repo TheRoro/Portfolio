@@ -2,6 +2,7 @@
 
 .floating-links {
   @include flex(space-evenly, center);
+  gap: 1.5rem;
   height: 10vh;
   position: absolute;
   bottom: max(1vh, env(safe-area-inset-bottom));
@@ -9,6 +10,9 @@
   padding: 0 3rem;
 
   .logo-item {
+    --floating-planet-color: #08c9ae;
+    --floating-orbit-angle: -14deg;
+
     list-style: none;
     padding: 0;
 
@@ -16,40 +20,114 @@
       @include flex(center, center);
       min-width: 44px;
       min-height: 44px;
-      margin-right: 1rem;
+
+      &:hover,
+      &:focus-visible {
+        .floating-planet {
+          box-shadow:
+            0.22rem 0.2rem 0 rgba($background, 0.72),
+            0 0 1.25rem var(--floating-planet-color);
+          transform: translateY($icon-hover-lift);
+
+          &::before {
+            opacity: 0.85;
+            transform: translate(-50%, -50%)
+              rotate(var(--floating-orbit-angle)) scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  .logo-item--linkedin {
+    --floating-planet-color: #328bd1;
+  }
+
+  .logo-item--email {
+    --floating-planet-color: #9146c7;
+    --floating-orbit-angle: 12deg;
+  }
+
+  .logo-item--github {
+    --floating-planet-color: #7c8798;
+    --floating-orbit-angle: -8deg;
+  }
+
+  .logo-item--resume {
+    --floating-planet-color: #e9a63a;
+    --floating-orbit-angle: 17deg;
+  }
+
+  .floating-planet {
+    @include flex(center, center);
+    position: relative;
+    z-index: 0;
+    width: 2.65rem;
+    height: 2.65rem;
+    border-radius: 50%;
+    background: var(--floating-planet-color);
+    box-shadow: 0.22rem 0.2rem 0 rgba($background, 0.72);
+    color: var(--floating-planet-color);
+    isolation: isolate;
+    transition:
+      box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: 142%;
+      height: 48%;
+      border: 0.12rem solid currentColor;
+      border-radius: 50%;
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) rotate(var(--floating-orbit-angle))
+        scale(0.82);
+      transition:
+        opacity 0.2s ease-in-out,
+        transform 0.2s ease-in-out;
     }
   }
 
   .logo {
-    width: 2.5rem;
-    height: auto;
+    position: relative;
+    z-index: 2;
+    width: 1.05rem;
+    height: 1.05rem;
     flex-shrink: 0;
-    fill: $text2;
+    fill: $background;
     margin-right: 0;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      opacity: 1;
-      transform: translateY($icon-hover-lift);
-      cursor: pointer;
-    }
-  }
-
-  .logo-item a:focus-visible .logo {
-    opacity: 1;
-    transform: translateY($icon-hover-lift);
   }
 
   @media only screen and (max-width: $nav-breakpoint) {
+    gap: 1.15rem;
     height: auto;
     padding: 1rem max(1rem, env(safe-area-inset-left));
 
-    .logo {
-      width: 2.25rem;
+    .floating-planet {
+      width: 2.45rem;
+      height: 2.45rem;
     }
+  }
 
+  @media (prefers-reduced-motion: reduce) {
     .logo-item a {
-      margin-right: 1.25rem;
+      &:hover,
+      &:focus-visible {
+        .floating-planet {
+          transform: none;
+
+          &::before {
+            transform: translate(-50%, -50%)
+              rotate(var(--floating-orbit-angle)) scale(1);
+            transition: none;
+          }
+        }
+      }
     }
   }
 }

@@ -48,7 +48,7 @@ describe("portfolio content", () => {
         .every(action => sectionTargets.has(action.target)),
     ).toBe(true)
     expect(heroActions.find(action => action.type === "resume")).toBeTruthy()
-    expect([...socialIds]).toEqual(["github", "linkedin", "email", "resume"])
+    expect([...socialIds]).toEqual(["linkedin", "email", "github", "resume"])
     expect(floatingSocialIds.every(id => socialIds.has(id))).toBe(true)
     expect(profile.resumePath).toMatch(/\.pdf$/)
   })

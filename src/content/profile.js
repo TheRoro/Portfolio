@@ -4,6 +4,7 @@
  * @property {string} label
  * @property {string} displayLabel
  * @property {string=} floatingLabel
+ * @property {string} contactHint
  * @property {string} href
  * @property {boolean} external
  * @property {boolean} featured
@@ -51,17 +52,10 @@ const profile = {
 /** @type {SocialLink[]} */
 const socialLinks = [
   {
-    id: "github",
-    label: "GitHub",
-    displayLabel: "GitHub",
-    href: "https://github.com/TheRoro",
-    external: true,
-    featured: true,
-  },
-  {
     id: "linkedin",
     label: "LinkedIn",
     displayLabel: "LinkedIn",
+    contactHint: "Connect professionally",
     href: "https://www.linkedin.com/in/rodrigoramirezb/",
     external: true,
     featured: true,
@@ -71,8 +65,18 @@ const socialLinks = [
     label: "Email Me",
     displayLabel: "Email",
     floatingLabel: "Email",
+    contactHint: "Start a conversation",
     href: "mailto:rodrigoramirezbr@outlook.com",
     external: false,
+    featured: true,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    displayLabel: "GitHub",
+    contactHint: "Explore my code",
+    href: "https://github.com/TheRoro",
+    external: true,
     featured: true,
   },
   {
@@ -80,6 +84,7 @@ const socialLinks = [
     label: "Resume CV",
     displayLabel: "Résumé",
     floatingLabel: "Resume",
+    contactHint: "View my experience",
     href: profile.resumePath,
     external: true,
     featured: true,
