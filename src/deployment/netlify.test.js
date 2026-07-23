@@ -78,5 +78,14 @@ describe("Netlify deployment configuration", () => {
     expect(headersFor("/favicon.ico")["Cache-Control"]).toContain(
       "stale-while-revalidate",
     )
+    expect(headersFor("/planet-*")["Cache-Control"]).toContain(
+      "stale-while-revalidate",
+    )
+    expect(headersFor("/apple-touch-icon.png")["Cache-Control"]).toContain(
+      "stale-while-revalidate",
+    )
+    expect(headersFor("/site.webmanifest")["Cache-Control"]).toContain(
+      "stale-while-revalidate",
+    )
   })
 })

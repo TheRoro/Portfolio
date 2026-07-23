@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Glowing teal ringed planet</title>
+  <defs>
+    <filter id="planet-glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feFlood flood-color="#12cbae" flood-opacity=".28" />
+      <feComposite in2="blur" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <radialGradient id="planet-surface" cx="30%" cy="24%" r="82%">
+      <stop offset="0" stop-color="#2ad9be" />
+      <stop offset=".48" stop-color="#12cbae" />
+      <stop offset="1" stop-color="#079c88" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="270" cy="272" r="150" fill="#073d3e" opacity=".78" filter="url(#planet-glow)" />
+
+  <g fill="none" transform="rotate(-14 256 256)">
+    <ellipse cx="256" cy="256" rx="215" ry="68" stroke="#8ad9cb" stroke-width="18" />
+    <ellipse cx="256" cy="256" rx="237" ry="78" stroke="#5dcab7" stroke-width="9" />
+    <ellipse cx="256" cy="256" rx="257" ry="88" stroke="#a2e0d5" stroke-width="11" />
+  </g>
+
+  <circle cx="256" cy="256" r="144" fill="url(#planet-surface)" />
+
+  <g
+    fill="none"
+    stroke-dasharray="50 50"
+    transform="rotate(-14 256 256)"
+  >
+    <ellipse cx="256" cy="256" rx="215" ry="68" pathLength="100" stroke="#8ad9cb" stroke-width="18" />
+    <ellipse cx="256" cy="256" rx="237" ry="78" pathLength="100" stroke="#5dcab7" stroke-width="9" />
+    <ellipse cx="256" cy="256" rx="257" ry="88" pathLength="100" stroke="#a2e0d5" stroke-width="11" />
+  </g>
+</svg>

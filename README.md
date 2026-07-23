@@ -1,4 +1,4 @@
-<img align="left" width="80" height="80" src="static/sphere-nav.png" alt="Portfolio planet icon">
+<img align="left" width="80" height="80" src="static/planet-logo.svg" alt="Portfolio planet icon">
 
 # Rodrigo Ramirez
 
