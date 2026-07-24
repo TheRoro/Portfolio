@@ -164,7 +164,7 @@ const vsquote = {
     "An offline VS Code extension that brings configurable motivational, funny, and chaotic quotes into coding sessions.",
   description:
     "VSQuote is a privacy-first VS Code extension with eight quote modes, configurable delivery intervals, favorites, history, copy actions, and accessible status-bar previews. More than one thousand bundled quotes work entirely offline, with no telemetry, network access, workspace reading, or runtime dependencies.",
-  tags: "VS Code API · JavaScript · Offline",
+  tags: "VS Code API · JavaScript",
   highlights: [
     "Eight quote modes support configurable intervals and compact status bar previews.",
     "Favorites, history, copying, searchable commands, and repeat suppression keep interaction lightweight.",

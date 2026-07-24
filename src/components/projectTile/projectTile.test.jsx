@@ -16,18 +16,28 @@ describe("ProjectTile", () => {
     expect(
       screen.getByRole("link", { name: "View Drawly project details" }),
     ).toHaveAttribute("href", "/drawly/")
-    expect(screen.getByRole("link", { name: "Drawly" })).toHaveAttribute(
-      "href",
-      "/drawly/",
-    )
+    expect(screen.getByRole("heading", { name: "Drawly" })).toBeVisible()
+    expect(
+      screen.getByRole("link", { name: "Explore Project" }),
+    ).toHaveAttribute("href", "/drawly/")
     expect(
       screen.getByRole("link", { name: "Drawly code repository" }),
     ).toHaveAttribute("href", drawly.repoUrl)
-    expect(
-      screen.getByRole("link", { name: "Play Drawly for Drawly" }),
-    ).toHaveAttribute("href", drawly.webUrl)
+    expect(screen.getByRole("link", { name: "Play Drawly" })).toHaveAttribute(
+      "href",
+      drawly.webUrl,
+    )
+    expect(screen.getByRole("link", { name: "Play Drawly" })).toHaveClass(
+      "project-action-product",
+    )
     expect(screen.getByText(drawly.summary)).toBeVisible()
-    expect(screen.getByText(drawly.tags)).toBeVisible()
+    expect(
+      screen.getByRole("list", { name: "Drawly technologies" }),
+    ).toHaveTextContent("ReactTypeScriptSocket.IOExpress")
+    expect(screen.getByText("React")).toHaveClass("technology-react")
+    expect(screen.getByText("TypeScript")).toHaveClass("technology-typescript")
+    expect(screen.getByText("Socket.IO")).toHaveClass("technology-socket-io")
+    expect(screen.getByText("Express")).toHaveClass("technology-express")
   })
 
   it("supports the compact card layout used by the project index", () => {

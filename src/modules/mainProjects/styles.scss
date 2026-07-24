@@ -7,15 +7,35 @@
   flex-direction: column;
   min-height: 100svh;
 
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    animation: none;
+    text-shadow: 0 0 12px rgba($primary, 0.16);
+  }
+
   .projects-list {
     @include flex(center, center);
     flex-direction: column;
+    gap: 4rem;
     width: 100%;
   }
 
   .more-projects-action {
     @include action-button;
     @include action-button-secondary;
-    margin: 1rem auto;
+    margin: 4rem auto 1rem;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .projects-list {
+      gap: 3.5rem;
+    }
   }
 }

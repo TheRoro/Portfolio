@@ -18,6 +18,7 @@ const MainProjectsModule = () => {
           <ProjectTile
             key={project.name}
             project={project}
+            index={index}
             orientation={index % 2 === 0 ? "right" : "left"}
           />
         ))}
