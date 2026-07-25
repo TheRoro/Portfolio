@@ -15,8 +15,13 @@ const ProjectsModule = () => {
         </p>
       </header>
       <div className="projects-grid">
-        {allProjects.map(project => (
-          <ProjectTile key={project.name} project={project} variant="card" />
+        {allProjects.map((project, index) => (
+          <ProjectTile
+            index={index}
+            key={project.name}
+            project={project}
+            variant="card"
+          />
         ))}
       </div>
     </section>

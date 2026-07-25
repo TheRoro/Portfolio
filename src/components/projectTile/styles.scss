@@ -182,12 +182,105 @@
   }
 }
 
+.project-technologies {
+  @include flex(flex-start, center);
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    --technology-color: #{$text2};
+
+    padding: 0.32rem 0.58rem;
+    border: 1px solid
+      color-mix(in srgb, var(--technology-color) 48%, transparent);
+    border-radius: 999px;
+    background: color-mix(
+      in srgb,
+      var(--technology-color) 12%,
+      transparent
+    );
+    color: color-mix(in srgb, var(--technology-color) 78%, white);
+    font-family: "Sora", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .technology-react {
+    --technology-color: #61dafb;
+  }
+
+  .technology-typescript {
+    --technology-color: #3178c6;
+  }
+
+  .technology-socket-io {
+    --technology-color: #b784ff;
+  }
+
+  .technology-express {
+    --technology-color: #ffffff;
+  }
+
+  .technology-vite {
+    --technology-color: #a788ff;
+  }
+
+  .technology-pokeapi {
+    --technology-color: #ffcb05;
+  }
+
+  .technology-vscode {
+    --technology-color: #23a9f2;
+  }
+
+  .technology-javascript {
+    --technology-color: #f7df1e;
+  }
+
+  .technology-nuxt {
+    --technology-color: #00dc82;
+  }
+
+  .technology-vue,
+  .technology-vuex {
+    --technology-color: #42b883;
+  }
+
+  .technology-pwa {
+    --technology-color: #a98cff;
+  }
+
+  .technology-chrome {
+    --technology-color: #5bb974;
+  }
+
+  .technology-playwright {
+    --technology-color: #d65348;
+  }
+
+  .technology-three {
+    --technology-color: #ffffff;
+  }
+
+  .technology-sass {
+    --technology-color: #cf649a;
+  }
+
+  .technology-archived {
+    --technology-color: #a7afbc;
+  }
+}
+
 .project-tile-right {
   flex-direction: row;
 
   @media only screen and (max-width: 900px) {
     .project-category,
-    .project-name {
+    .project-name,
+    .summary {
       text-align: left;
     }
 
@@ -274,13 +367,21 @@
   background: rgba($background2, 0.18);
   transition:
     border-color 0.25s ease-in-out,
-    box-shadow 0.25s ease-in-out,
-    transform 0.25s ease-in-out;
+    box-shadow 0.25s ease-in-out;
 
-  &:hover {
-    border-color: rgba($primary, 0.28);
+  &:hover,
+  &:has(.project-card-primary:focus-visible) {
+    border-color: rgba($primary, 0.34);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
+
+    .image {
+      filter: saturate(1.08) brightness(1.02);
+      transform: scale(1.025);
+    }
+
+    .project-name {
+      color: $primary;
+    }
   }
 
   .project-card-primary {
@@ -435,65 +536,6 @@
     text-align: left;
   }
 
-  .project-technologies {
-    @include flex(flex-start, center);
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin: 0 0 1.25rem;
-    padding: 0;
-    list-style: none;
-
-    li {
-      --technology-color: #{$text2};
-
-      padding: 0.32rem 0.58rem;
-      border: 1px solid color-mix(in srgb, var(--technology-color) 48%, transparent);
-      border-radius: 999px;
-      background: color-mix(
-        in srgb,
-        var(--technology-color) 12%,
-        transparent
-      );
-      color: color-mix(in srgb, var(--technology-color) 78%, white);
-      font-family: "Sora", sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-    }
-
-    .technology-react {
-      --technology-color: #61dafb;
-    }
-
-    .technology-typescript {
-      --technology-color: #3178c6;
-    }
-
-    .technology-socket-io {
-      --technology-color: #b784ff;
-    }
-
-    .technology-express {
-      --technology-color: #ffffff;
-    }
-
-    .technology-vite {
-      --technology-color: #a788ff;
-    }
-
-    .technology-pokeapi {
-      --technology-color: #ffcb05;
-    }
-
-    .technology-vscode {
-      --technology-color: #23a9f2;
-    }
-
-    .technology-javascript {
-      --technology-color: #f7df1e;
-    }
-
-  }
-
   .project-actions {
     @include flex(flex-start, center);
     position: relative;
@@ -537,14 +579,14 @@
   }
 
   .project-action-repository {
-    border-color: #c1c8d2;
-    background: #c1c8d2;
+    border-color: $repository-button;
+    background: $repository-button;
     color: $background;
 
     &:hover,
     &:focus-visible {
-      border-color: #d8dde4;
-      background: #d8dde4;
+      border-color: $repository-button-hover;
+      background: $repository-button-hover;
       color: $background;
     }
   }
@@ -636,25 +678,32 @@
   .image-container {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     flex-shrink: 0;
     border: 0;
     border-bottom: 1px solid rgba($text2, 0.12);
     border-radius: 0;
+    background: rgba($background, 0.5);
   }
 
   .image {
     border-radius: 0;
+    box-shadow: none;
+    transition:
+      filter 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
   }
 
-  .view-more {
-    font-size: 1.35rem;
+  .image-container:hover .image,
+  .image-container:focus-visible .image {
+    filter: saturate(1.08) brightness(1.02);
+    transform: scale(1.025);
   }
 
   .details-container {
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 0.75rem;
+    gap: 0;
     width: 100%;
     height: auto;
     min-height: 0;
@@ -663,38 +712,74 @@
     padding: 1.5rem;
   }
 
-  .project-card-links {
-    width: 100%;
-    padding: 0 1.5rem 1.25rem;
+  .project-category {
+    margin-bottom: 1rem;
   }
 
   .project-category,
   .project-name,
-  .summary,
-  .tags {
+  .summary {
     text-align: left;
   }
 
   .project-name {
+    margin-bottom: 0.9rem;
     font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    transition: color 0.25s ease-in-out;
   }
 
   .summary {
     max-width: none;
+    margin-bottom: 0;
   }
 
-  .links {
-    justify-content: flex-start;
-    margin-top: 0;
+  .project-card-actions {
+    @include flex(flex-start, center);
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    width: 100%;
+    padding: 1rem 1.5rem 1.25rem;
+    border-top: 1px solid rgba($text2, 0.1);
   }
 
-  .logo {
-    margin: 0 0.75rem 0 0;
+  .project-card-action {
+    @include action-button;
+    min-height: 40px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  .project-card-action-product {
+    @include action-button-secondary;
+
+    &:hover,
+    &:focus-visible {
+      border-color: rgba($text, 0.58);
+      background: rgba($text, 0.06);
+      color: $text;
+    }
+  }
+
+  .project-card-action-repository {
+    border-color: $repository-button;
+    background: $repository-button;
+    color: $background;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $repository-button-hover;
+      background: $repository-button-hover;
+      color: $background;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    &:hover {
-      transform: none;
+    &:hover,
+    &:has(.project-card-primary:focus-visible) {
+      .image {
+        transform: none;
+      }
     }
+
   }
 }

@@ -51,5 +51,15 @@ describe("ProjectTile", () => {
     expect(
       screen.getByRole("link", { name: "View Drawly project details" }),
     ).toContainElement(screen.getByRole("heading", { name: "Drawly" }))
+    expect(screen.getByText(drawly.summary)).toBeVisible()
+    expect(
+      screen.queryByRole("list", { name: "Drawly technologies" }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.getByRole("link", { name: "Play Drawly for Drawly" }),
+    ).toHaveTextContent("Product")
+    expect(
+      screen.getByRole("link", { name: "Drawly code repository" }),
+    ).toHaveTextContent("Repository")
   })
 })

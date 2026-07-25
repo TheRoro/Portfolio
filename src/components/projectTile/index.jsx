@@ -14,6 +14,15 @@ const technologyClassNames = {
   PokeAPI: "technology-pokeapi",
   "VS Code API": "technology-vscode",
   JavaScript: "technology-javascript",
+  Nuxt: "technology-nuxt",
+  Vue: "technology-vue",
+  PWA: "technology-pwa",
+  "Chrome MV3": "technology-chrome",
+  Playwright: "technology-playwright",
+  "Three.js": "technology-three",
+  Vuex: "technology-vuex",
+  Sass: "technology-sass",
+  Archived: "technology-archived",
 }
 
 const ProjectTile = ({
@@ -30,50 +39,6 @@ const ProjectTile = ({
       ? "project-tile project-tile-card"
       : `project-tile project-tile-featured project-tile-${orientation}`
   const technologies = tags.split(" · ")
-  const projectImage = (
-    <>
-      <span className="text">
-        <span className="view-more">View {title}</span>
-      </span>
-      <ProjectImage
-        project={project}
-        alt=""
-        sizes={
-          variant === "card"
-            ? "(max-width: 760px) calc(100vw - 2rem), (max-width: 1100px) calc(50vw - 3rem), 24rem"
-            : undefined
-        }
-      />
-    </>
-  )
-  const projectDetails = (
-    <>
-      <p className="project-category">{keywords}</p>
-      <h2 className="project-name">{title}</h2>
-      <p className="summary">{summary}</p>
-      <p className="tags">{tags}</p>
-    </>
-  )
-  const projectLinks = (
-    <div className="links">
-      <a
-        href={repoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`${title} code repository`}
-      >
-        <GithubLogo className="logo" />
-      </a>
-      <a
-        href={webUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={webLabel ? `${webLabel} for ${title}` : `Open ${title}`}
-      >
-        <ExternalLinkLogo className="logo" />
-      </a>
-    </div>
-  )
 
   if (variant === "card") {
     return (
@@ -83,10 +48,41 @@ const ProjectTile = ({
           to={detailPath}
           aria-label={`View ${title} project details`}
         >
-          <span className="image-container">{projectImage}</span>
-          <div className="details-container">{projectDetails}</div>
+          <span className="image-container">
+            <ProjectImage
+              project={project}
+              alt=""
+              sizes="(max-width: 700px) calc(100vw - 2rem), (max-width: 1100px) calc(50vw - 3rem), 24rem"
+            />
+          </span>
+          <div className="details-container">
+            <p className="project-category">{keywords}</p>
+            <h2 className="project-name">{title}</h2>
+            <p className="summary">{summary}</p>
+          </div>
         </Link>
-        <div className="project-card-links">{projectLinks}</div>
+        <div className="project-card-actions">
+          <a
+            className="project-card-action project-card-action-product"
+            href={webUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={webLabel ? `${webLabel} for ${title}` : `Open ${title}`}
+          >
+            <ExternalLinkLogo />
+            Product
+          </a>
+          <a
+            className="project-card-action project-card-action-repository"
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} code repository`}
+          >
+            <GithubLogo />
+            Repository
+          </a>
+        </div>
       </article>
     )
   }

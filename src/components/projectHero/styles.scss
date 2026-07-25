@@ -108,7 +108,16 @@
   }
 
   .project-hero-action-secondary {
-    @include action-button-secondary;
+    border-color: $repository-button;
+    background: $repository-button;
+    color: $background;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $repository-button-hover;
+      background: $repository-button-hover;
+      color: $background;
+    }
   }
 
   .project-hero-visual {
