@@ -22,11 +22,13 @@
         rgba($primary, 0.12) 0 0 36px;
       transition: box-shadow 0.45s ease-in-out;
 
-      &:hover {
-        box-shadow:
-          rgba(0, 0, 0, 0.28) 0 18px 45px,
-          rgba($primary, 0.52) 0 0 34px,
-          rgba($primary, 0.22) 0 0 64px;
+      @media (hover: hover) {
+        &:hover {
+          box-shadow:
+            rgba(0, 0, 0, 0.28) 0 18px 45px,
+            rgba($primary, 0.52) 0 0 34px,
+            rgba($primary, 0.22) 0 0 64px;
+        }
       }
     }
 
@@ -107,18 +109,15 @@
       min-height: 190px;
       padding: 1.35rem;
       border: 1px solid rgba($text2, 0.14);
-      border-top-color: var(--capability-border);
       border-radius: 18px;
       background: rgba($background2, 0.14);
       transition:
         border-color 0.25s ease-in-out,
-        box-shadow 0.25s ease-in-out,
-        transform 0.25s ease-in-out;
+        box-shadow 0.25s ease-in-out;
 
       &:hover {
         border-color: var(--capability-border);
         box-shadow: 0 0 24px var(--capability-glow);
-        transform: translateY($icon-hover-lift);
       }
 
       .capability-label {
@@ -227,10 +226,13 @@
   @media only screen and (max-width: $about-breakpoint) {
     @include flex(flex-start, center);
 
+    .section-heading {
+      margin-bottom: 2rem;
+    }
+
     .content-row {
       @include flex(center, center);
       flex-direction: column;
-      margin-top: 5vh;
 
       .portrait {
         flex-basis: auto;
@@ -240,7 +242,7 @@
       .text-container {
         width: auto;
         max-width: 400px;
-        margin: 5vh 5vw 0;
+        margin: 2rem 5vw 0;
 
         .text {
           font-size: 1rem;
@@ -292,8 +294,14 @@
   }
 }
 
-@media only screen and (max-width: 370px) {
-  .about .secondary-row .capabilities-grid {
-    grid-template-columns: 1fr;
+@media only screen and (max-width: 480px) {
+  .about .secondary-row {
+    .capabilities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .capability-card {
+      min-height: 135px;
+    }
   }
 }
