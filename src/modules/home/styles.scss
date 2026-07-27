@@ -108,54 +108,103 @@
   }
 
   @media only screen and (max-width: $home-breakpoint) {
-    @include flex(center, flex-start);
+    @include flex(center, center);
     flex-direction: column;
+    padding-right: 1rem;
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+    padding-left: 1rem;
+
     .home-col {
-      margin-left: 4vw;
+      align-items: center;
+      gap: clamp(1.75rem, 3.5svh, 2.4rem);
+      width: 100%;
+      margin-left: 0;
+      text-align: center;
 
       .name {
         max-width: calc(100vw - 2rem);
         font-size: clamp(2.4rem, 12vw, 3.5rem);
-        line-height: 1.05;
+        line-height: 0.95;
+
+        span {
+          display: block;
+        }
       }
 
       .current-role {
         max-width: calc(100vw - 2rem);
-        font-size: clamp(1.05rem, 4.8vw, 1.15rem);
+        margin-bottom: 0;
+        font-size: clamp(0.86rem, 3.6vw, 1.05rem);
+        white-space: nowrap;
       }
 
-      .hero-actions {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        gap: 0.7rem 0.75rem;
-        width: auto;
-        max-width: calc(100vw - 2rem);
-        margin-top: 1.5rem;
+      .current-role-title,
+      .current-role-company {
+        display: block;
       }
 
-      .hero-action-group:nth-child(3) .hero-action-separator {
-        display: none;
-      }
-    }
-
-    .planets-container {
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      max-height: none;
-      opacity: 0.58;
-      transform: none;
-    }
-  }
-
-  @media only screen and (max-width: 560px) {
-    .home-col {
       .current-role-separator {
         display: none;
       }
 
-      .current-role-company {
-        display: block;
+      .mobile-planet-container {
+        width: clamp(10rem, 48vw, 13rem);
+        height: clamp(7.5rem, 34vw, 9.5rem);
+        margin: 0 auto;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem 2rem;
+        width: min(20rem, calc(100vw - 2rem));
+        margin-top: 0;
+      }
+
+      .hero-action-group {
+        position: relative;
+        width: 100%;
+
+        &:nth-child(odd) {
+          justify-content: flex-end;
+          text-align: right;
+        }
+
+        &:nth-child(even) {
+          justify-content: flex-start;
+          text-align: left;
+
+          &::before {
+            position: absolute;
+            left: -1rem;
+            color: rgba($text2, 0.5);
+            content: "·";
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      .hero-action-separator {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $home-breakpoint) and (max-height: 760px) {
+    .home-col {
+      gap: 0.8rem;
+
+      .name {
+        font-size: clamp(2.25rem, 10.5vw, 3rem);
+      }
+
+      .mobile-planet-container {
+        width: clamp(8.5rem, 38vw, 10.5rem);
+        height: clamp(6.25rem, 29vw, 7.5rem);
+      }
+
+      .hero-actions {
+        gap: 0.45rem 0.7rem;
       }
     }
   }

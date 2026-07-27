@@ -146,6 +146,9 @@
 }
 
 .space-fallback-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: visible;
   background: transparent;
   pointer-events: none;
@@ -154,13 +157,11 @@
     display: none;
   }
 
-  .fallback-planet-primary {
-    top: 50%;
-    left: 52%;
-    z-index: 1;
-    width: min(68vw, 280px);
-    opacity: 0.72;
-    transform: translateY(-50%);
+  .fallback-planet-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 1.5rem rgba(18, 203, 174, 0.22));
   }
-
 }

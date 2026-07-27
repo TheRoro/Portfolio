@@ -42,7 +42,7 @@ const HomeModule = () => {
     <section id="home" className="home">
       <div className="home-col">
         <p className="current-role">
-          <span>{profile.role}</span>
+          <span className="current-role-title">{profile.role}</span>
           <span className="current-role-separator" aria-hidden="true">
             {" "}
             ·{" "}
@@ -51,35 +51,36 @@ const HomeModule = () => {
             {profile.employer}, {profile.product}
           </span>
         </p>
-        <h1 className="name">{profile.name}</h1>
+        <h1 className="name">
+          <span>{profile.firstName}</span> <span>{profile.lastName}</span>
+        </h1>
+        {useMobileScene && (
+          <div className="mobile-planet-container">
+            <SpaceFallback mobile />
+          </div>
+        )}
         <nav className="hero-actions" aria-label="Portfolio actions">
-          {heroActions.map((action, index) =>
-            index === 0 ? (
-              <React.Fragment key={action.target}>
-                {renderAction(action)}
-              </React.Fragment>
-            ) : (
-              <span className="hero-action-group" key={action.target}>
+          {heroActions.map((action, index) => (
+            <span className="hero-action-group" key={action.target}>
+              {index > 0 && (
                 <span className="hero-action-separator" aria-hidden="true">
                   ·
                 </span>
-                {renderAction(action)}
-              </span>
-            ),
-          )}
+              )}
+              {renderAction(action)}
+            </span>
+          ))}
         </nav>
       </div>
-      <div className="planets-container">
-        {useMobileScene ? (
-          <SpaceFallback mobile />
-        ) : (
+      {!useMobileScene && (
+        <div className="planets-container">
           <WebGLBoundary fallback={<SpaceFallback />}>
             <Suspense fallback={<SpaceFallback />}>
               <Planets />
             </Suspense>
           </WebGLBoundary>
-        )}
-      </div>
+        </div>
+      )}
       <FloatingLinks />
     </section>
   )

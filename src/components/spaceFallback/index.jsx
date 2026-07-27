@@ -12,19 +12,27 @@ const SpaceFallback = ({ compact = false, mobile = false }) => {
 
   return (
     <div className={classes} aria-hidden="true">
-      {!mobile && (
+      {mobile ? (
+        <img
+          className="fallback-planet-logo"
+          src="/planet-logo.svg"
+          alt=""
+          width="512"
+          height="512"
+        />
+      ) : (
         <>
           <span className="fallback-orbit" aria-hidden="true" />
           <span
             className="fallback-planet fallback-planet-purple"
             aria-hidden="true"
           />
+          <span
+            className="fallback-planet fallback-planet-primary"
+            aria-hidden="true"
+          />
         </>
       )}
-      <span
-        className="fallback-planet fallback-planet-primary"
-        aria-hidden="true"
-      />
       {!compact && !mobile && (
         <>
           <span

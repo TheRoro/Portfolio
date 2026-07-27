@@ -13,6 +13,7 @@
 const identity = {
   name: "Rodrigo Ramirez",
   firstName: "Rodrigo",
+  lastName: "Ramirez",
   role: "Software Engineer",
   employer: "Microsoft",
   product: "Xbox",
