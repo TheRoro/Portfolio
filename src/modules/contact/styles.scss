@@ -117,8 +117,30 @@
       padding: 0.55rem 0.75rem 0.55rem 0.55rem;
       color: $text;
 
-      &:hover,
       &:focus-visible {
+        .contact-icon {
+          transform: translateY(-4px);
+          box-shadow:
+            0.3rem 0.3rem 0 rgba($background, 0.72),
+            0 0 1.4rem currentColor;
+        }
+
+        .contact-label {
+          color: var(--contact-accent);
+        }
+
+        .contact-copy {
+          transform: translateY(-2px);
+        }
+
+        .contact-hint {
+          color: $text;
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      .contact-action:hover {
         .contact-icon {
           transform: translateY(-4px);
           box-shadow:
@@ -290,23 +312,60 @@
 
     .footer {
       min-height: 3rem;
-      padding: 0.5rem;
+      padding: 0.5rem max(0.5rem, env(safe-area-inset-right))
+        max(0.5rem, env(safe-area-inset-bottom))
+        max(0.5rem, env(safe-area-inset-left));
     }
   }
 
-  @media only screen and (max-width: 460px) {
+  @media only screen and (max-width: 650px) {
     .contact-grid {
+      gap: clamp(1.25rem, 3svh, 2rem) clamp(0.75rem, 3vw, 1.25rem);
+
       .contact-action {
         align-items: center;
         flex-direction: column;
         gap: 0.65rem;
-        width: 7.5rem;
+        width: min(100%, 9rem);
+        min-height: 7.5rem;
         text-align: center;
       }
 
       .contact-hint {
-        max-width: 7.5rem;
+        max-width: 9rem;
         white-space: normal;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    padding-top: calc($navbar-height + 1rem);
+
+    .section-heading {
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-grid {
+      gap: 1rem 0.5rem;
+
+      .contact-action {
+        min-height: 7rem;
+        padding: 0.35rem;
+      }
+
+      .contact-icon {
+        width: 2.6rem;
+        height: 2.6rem;
+        flex-basis: 2.6rem;
+      }
+
+      .contact-label {
+        margin-bottom: 0.15rem;
+        font-size: 0.86rem;
+      }
+
+      .contact-hint {
+        font-size: 0.7rem;
       }
     }
   }
