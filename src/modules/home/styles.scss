@@ -161,6 +161,10 @@
         margin-top: 0;
       }
 
+      .hero-action {
+        min-height: 44px;
+      }
+
       .hero-action-group {
         position: relative;
         width: 100%;
@@ -176,10 +180,11 @@
 
           &::before {
             position: absolute;
+            top: 50%;
             left: -1rem;
             color: rgba($text2, 0.5);
             content: "·";
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
           }
         }
       }
@@ -187,6 +192,13 @@
       .hero-action-separator {
         display: none;
       }
+    }
+  }
+
+  @media only screen and (max-width: $home-breakpoint) and (min-height: 800px) {
+    .home-col {
+      gap: clamp(2.15rem, 4.5svh, 2.75rem);
+      transform: translateY(-2.25rem);
     }
   }
 
