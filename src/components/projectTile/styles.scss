@@ -536,6 +536,10 @@
     text-align: left;
   }
 
+  .project-technologies {
+    margin-bottom: 1.25rem;
+  }
+
   .project-actions {
     @include flex(flex-start, center);
     position: relative;
