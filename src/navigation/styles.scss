@@ -89,6 +89,20 @@
   }
 }
 
+.nav-project {
+  @media only screen and (max-width: 480px) {
+    .links {
+      gap: 0.15rem;
+    }
+
+    .navigation-link {
+      margin: 0 0.35rem;
+      padding: 0 0.15rem;
+      font-size: 0.82rem;
+    }
+  }
+}
+
 .nav-home {
   border-bottom: 1px solid transparent;
   background: transparent;

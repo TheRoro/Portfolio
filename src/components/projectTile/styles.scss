@@ -369,7 +369,6 @@
     border-color 0.25s ease-in-out,
     box-shadow 0.25s ease-in-out;
 
-  &:hover,
   &:has(.project-card-primary:focus-visible) {
     border-color: rgba($primary, 0.34);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
@@ -381,6 +380,22 @@
 
     .project-name {
       color: $primary;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: rgba($primary, 0.34);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+
+      .image {
+        filter: saturate(1.08) brightness(1.02);
+        transform: scale(1.025);
+      }
+
+      .project-name {
+        color: $primary;
+      }
     }
   }
 
@@ -698,12 +713,6 @@
       transform 0.3s ease-in-out;
   }
 
-  .image-container:hover .image,
-  .image-container:focus-visible .image {
-    filter: saturate(1.08) brightness(1.02);
-    transform: scale(1.025);
-  }
-
   .details-container {
     align-items: flex-start;
     justify-content: flex-start;
@@ -777,13 +786,35 @@
     }
   }
 
+  @media only screen and (max-width: 360px) {
+    .details-container {
+      padding: 1.25rem;
+    }
+
+    .project-card-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .project-card-action {
+      width: 100%;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    &:hover,
     &:has(.project-card-primary:focus-visible) {
       .image {
         transform: none;
       }
     }
 
+    @media (hover: hover) {
+      &:hover {
+        .image {
+          transform: none;
+        }
+      }
+    }
   }
 }
