@@ -25,15 +25,23 @@ const CaseStudy = ({ project }) => {
 
       <div className="case-study-challenge">
         <article>
-          <h3>The challenge</h3>
-          <p>{caseStudy.problem}</p>
-          <p className="case-study-label">Constraints</p>
-          <CaseStudyList items={caseStudy.constraints} />
+          <div>
+            <p className="case-study-step">01 / Context</p>
+            <h3>The challenge</h3>
+            <p>{caseStudy.problem}</p>
+          </div>
+          <div>
+            <p className="case-study-label">Constraints</p>
+            <CaseStudyList items={caseStudy.constraints} />
+          </div>
         </article>
       </div>
 
       <div className="case-study-section">
-        <h3>Key decisions</h3>
+        <header className="case-study-section-heading">
+          <p className="case-study-step">02 / Architecture</p>
+          <h3>Key decisions</h3>
+        </header>
         <div className="decision-grid">
           {caseStudy.decisions.map((decision, index) => (
             <article key={decision.title}>
@@ -48,13 +56,20 @@ const CaseStudy = ({ project }) => {
       </div>
 
       <div className="case-study-section case-study-highlights">
-        <h3>Engineering highlights</h3>
+        <header className="case-study-section-heading">
+          <p className="case-study-step">03 / Execution</p>
+          <h3>Engineering highlights</h3>
+        </header>
         <article>
           <CaseStudyList items={project.highlights} />
         </article>
       </div>
 
       <div className="case-study-closing">
+        <header className="case-study-section-heading">
+          <p className="case-study-step">04 / Results</p>
+          <h3>Outcome and takeaway</h3>
+        </header>
         <article>
           <div>
             <p className="case-study-label">Outcome</p>

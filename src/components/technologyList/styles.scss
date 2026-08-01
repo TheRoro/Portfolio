@@ -1,0 +1,87 @@
+@use "../../styles/variables.scss" as *;
+
+.technology-list {
+  @include flex(flex-start, center);
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    --technology-color: #{$text2};
+
+    padding: 0.32rem 0.58rem;
+    border: 1px solid
+      color-mix(in srgb, var(--technology-color) 48%, transparent);
+    border-radius: 999px;
+    background: color-mix(
+      in srgb,
+      var(--technology-color) 12%,
+      transparent
+    );
+    color: color-mix(in srgb, var(--technology-color) 78%, white);
+    font-family: "Sora", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .technology-react {
+    --technology-color: #61dafb;
+  }
+
+  .technology-typescript {
+    --technology-color: #3178c6;
+  }
+
+  .technology-socket-io {
+    --technology-color: #b784ff;
+  }
+
+  .technology-express,
+  .technology-three {
+    --technology-color: #ffffff;
+  }
+
+  .technology-vite,
+  .technology-pwa {
+    --technology-color: #a788ff;
+  }
+
+  .technology-pokeapi {
+    --technology-color: #ffcb05;
+  }
+
+  .technology-vscode {
+    --technology-color: #23a9f2;
+  }
+
+  .technology-javascript {
+    --technology-color: #f7df1e;
+  }
+
+  .technology-nuxt {
+    --technology-color: #00dc82;
+  }
+
+  .technology-vue,
+  .technology-vuex {
+    --technology-color: #42b883;
+  }
+
+  .technology-chrome {
+    --technology-color: #5bb974;
+  }
+
+  .technology-playwright {
+    --technology-color: #d65348;
+  }
+
+  .technology-sass {
+    --technology-color: #cf649a;
+  }
+
+  .technology-archived {
+    --technology-color: #a7afbc;
+  }
+}

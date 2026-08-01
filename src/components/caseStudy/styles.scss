@@ -2,16 +2,17 @@
 
 .case-study {
   width: 100%;
-  margin-top: 7rem;
+  margin-top: 4rem;
   color: $text;
 
   .case-study-heading {
     max-width: 46rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .case-study-eyebrow,
   .case-study-label,
+  .case-study-step,
   .decision-number {
     color: $primary;
     font-family: "Sora", sans-serif;
@@ -82,9 +83,19 @@
   }
 
   .case-study-section {
-    margin: 4rem 0;
+    margin: 3.5rem 0;
 
-    & > h3 {
+    .case-study-section-heading h3 {
+      color: $text;
+      font-size: 1.5rem;
+    }
+  }
+
+  .case-study-section-heading {
+    margin-bottom: 1.25rem;
+
+    h3 {
+      margin: 0.55rem 0 0;
       color: $text;
       font-size: 1.5rem;
     }
@@ -102,9 +113,24 @@
   }
 
   .case-study-challenge {
+    article {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      background: linear-gradient(
+        135deg,
+        rgba($background2, 0.24),
+        rgba($background2, 0.12)
+      );
+    }
+
+    .case-study-step {
+      margin-bottom: 0.75rem;
+    }
+
     .case-study-label {
       display: block;
-      margin: 1.5rem 0 0.8rem;
+      margin-bottom: 0.8rem;
     }
   }
 
@@ -120,10 +146,13 @@
   }
 
   .case-study-closing {
+    margin-top: 3.5rem;
+
     article {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
+      background: rgba($primary, 0.045);
     }
 
     .case-study-label {
@@ -133,8 +162,9 @@
   }
 
   @media only screen and (max-width: 760px) {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
 
+    .case-study-challenge article,
     .decision-grid,
     .case-study-highlights ul,
     .case-study-closing article {
@@ -142,11 +172,34 @@
     }
 
     .case-study-section {
-      margin: 3rem 0;
+      margin: 2.5rem 0;
     }
 
     article {
-      padding: 1.4rem;
+      padding: 1.2rem;
+      border-radius: 1rem;
+    }
+
+    .case-study-heading {
+      margin-bottom: 1.75rem;
+    }
+
+    .case-study-section-heading {
+      margin-bottom: 1rem;
+    }
+
+    .case-study-closing {
+      margin-top: 2.5rem;
+    }
+
+    p,
+    li {
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    h3 {
+      font-size: 1.15rem;
     }
   }
 }

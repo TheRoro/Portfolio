@@ -2,11 +2,11 @@
 
 .project-hero {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.9fr) minmax(28rem, 1.35fr);
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.35fr);
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
   width: 100%;
-  padding: 0 0 4rem;
+  padding: 0 0 3rem;
 
   .project-hero-content {
     min-width: 0;
@@ -56,16 +56,13 @@
   .project-hero-technology {
     margin-top: 1.75rem;
 
-    p {
-      display: block;
-    }
+    .project-hero-technologies {
+      margin-top: 0.7rem;
 
-    p:last-child {
-      margin-top: 0.5rem;
-      color: $text;
-      font-size: 0.95rem;
-      font-weight: 500;
-      line-height: 1.5;
+      li {
+        padding: 0.38rem 0.68rem;
+        font-size: 0.74rem;
+      }
     }
   }
 
@@ -144,28 +141,61 @@
     }
   }
 
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 
     .project-hero-content {
       max-width: 42rem;
     }
 
     .project-hero-title {
-      font-size: clamp(2.75rem, 13vw, 4.5rem);
+      font-size: clamp(2.65rem, 8vw, 4.5rem);
+    }
+
+    .project-hero-visual {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 20px;
     }
   }
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 650px) {
     .project-hero-actions {
-      align-items: stretch;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .project-hero-action {
       width: 100%;
+      min-width: 0;
+      padding-right: 0.8rem;
+      padding-left: 0.8rem;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 430px) {
+    .project-hero-title {
+      font-size: clamp(2.4rem, 10vw, 3rem);
+    }
+
+    .project-hero-summary {
+      font-size: 1.15rem;
+    }
+
+    .project-hero-description {
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .project-hero-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .project-hero-technologies {
+      gap: 0.5rem;
     }
 
     .project-hero-visual {

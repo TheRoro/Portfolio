@@ -2,7 +2,7 @@
 
 .project-highlights {
   width: 100%;
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 
   header {
     margin-bottom: 1.5rem;
@@ -56,10 +56,14 @@
   }
 
   @media only screen and (max-width: 760px) {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 
     .project-highlights-grid {
       grid-template-columns: 1fr;
+    }
+
+    article {
+      padding: 1.15rem;
     }
   }
 }

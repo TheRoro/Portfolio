@@ -14,7 +14,10 @@ describe("ProjectHero", () => {
     expect(screen.getByText(drawly.keywords)).toBeVisible()
     expect(screen.getByText(drawly.summary)).toBeVisible()
     expect(screen.getByText(drawly.description)).toBeVisible()
-    expect(screen.getByText(drawly.tags)).toBeVisible()
+    expect(
+      screen.getByRole("list", { name: `${drawly.title} technologies` }),
+    ).toHaveTextContent("ReactTypeScriptSocket.IOExpress")
+    expect(screen.getByText("React")).toHaveClass("technology-react")
     expect(
       screen.getByRole("img", {
         name: `${drawly.title} product screenshot`,

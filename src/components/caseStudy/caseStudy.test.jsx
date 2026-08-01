@@ -17,6 +17,10 @@ describe("CaseStudy", () => {
     expect(
       screen.getByRole("heading", { name: "Engineering highlights" }),
     ).toBeVisible()
+    expect(
+      screen.getByRole("heading", { name: "Outcome and takeaway" }),
+    ).toBeVisible()
+    expect(screen.getByText("01 / Context")).toBeVisible()
     expect(screen.getAllByText(/authoritative/i).length).toBeGreaterThan(0)
     expect(screen.getByText(drawly.caseStudy.outcome)).toBeVisible()
     expect(screen.getByText(drawly.caseStudy.lesson)).toBeVisible()

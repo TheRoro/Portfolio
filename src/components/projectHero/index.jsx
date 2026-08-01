@@ -2,6 +2,7 @@ import React from "react"
 import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
 import GithubLogo from "../../assets/social/github.svg?react"
 import ProjectImage from "../projectImage"
+import TechnologyList from "../technologyList"
 import "./styles.scss"
 
 const ProjectHero = ({ project }) => {
@@ -27,7 +28,11 @@ const ProjectHero = ({ project }) => {
         <p className="project-hero-description">{description}</p>
         <div className="project-hero-technology">
           <p>Built with</p>
-          <p>{tags}</p>
+          <TechnologyList
+            className="project-hero-technologies"
+            technologies={tags.split(" · ")}
+            ariaLabel={`${title} technologies`}
+          />
         </div>
         {showPalette && (
           <div className="project-hero-palette">
@@ -71,7 +76,7 @@ const ProjectHero = ({ project }) => {
         <ProjectImage
           project={project}
           alt={`${title} product screenshot`}
-          sizes="(max-width: 850px) calc(100vw - 2rem), 42rem"
+          sizes="(max-width: 1000px) calc(100vw - 2rem), 42rem"
         />
       </div>
     </header>

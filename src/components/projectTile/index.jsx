@@ -3,27 +3,8 @@ import { Link } from "react-router-dom"
 import GithubLogo from "../../assets/social/github.svg?react"
 import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
 import ProjectImage from "../projectImage"
+import TechnologyList from "../technologyList"
 import "./styles.scss"
-
-const technologyClassNames = {
-  React: "technology-react",
-  TypeScript: "technology-typescript",
-  "Socket.IO": "technology-socket-io",
-  Express: "technology-express",
-  Vite: "technology-vite",
-  PokeAPI: "technology-pokeapi",
-  "VS Code API": "technology-vscode",
-  JavaScript: "technology-javascript",
-  Nuxt: "technology-nuxt",
-  Vue: "technology-vue",
-  PWA: "technology-pwa",
-  "Chrome MV3": "technology-chrome",
-  Playwright: "technology-playwright",
-  "Three.js": "technology-three",
-  Vuex: "technology-vuex",
-  Sass: "technology-sass",
-  Archived: "technology-archived",
-}
 
 const ProjectTile = ({
   project,
@@ -110,16 +91,11 @@ const ProjectTile = ({
         </div>
         <h2 className="project-name">{title}</h2>
         <p className="summary">{summary}</p>
-        <ul
+        <TechnologyList
           className="project-technologies"
-          aria-label={`${title} technologies`}
-        >
-          {technologies.map(technology => (
-            <li className={technologyClassNames[technology]} key={technology}>
-              {technology}
-            </li>
-          ))}
-        </ul>
+          ariaLabel={`${title} technologies`}
+          technologies={technologies}
+        />
         <div className="project-actions">
           <Link
             className="project-action project-action-primary"
