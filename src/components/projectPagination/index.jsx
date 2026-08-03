@@ -1,5 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import {
+  analyticsSource,
+  trackProjectDetailsOpened,
+} from "../../analytics/events"
 import "./styles.scss"
 
 const getAdjacentProjects = (projects, currentName) => {
@@ -21,6 +25,13 @@ const ProjectPaginationCard = ({ direction, project }) => (
     className={`project-pagination-card project-pagination-card-${direction}`}
     to={`/${project.name}/`}
     aria-label={`${direction === "previous" ? "Previous" : "Next"} project ${project.title}`}
+    onClick={() =>
+      trackProjectDetailsOpened(
+        project.name,
+        analyticsSource.projectPagination,
+        direction,
+      )
+    }
   >
     <span className="project-pagination-arrow" aria-hidden="true">
       {direction === "previous" ? "←" : "→"}

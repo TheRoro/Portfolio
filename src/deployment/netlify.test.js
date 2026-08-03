@@ -55,11 +55,13 @@ describe("Netlify deployment configuration", () => {
     })
     expect(policy).toContain("default-src 'self'")
     expect(policy).toContain("script-src 'self'")
+    expect(policy).toContain("connect-src 'self' https://us.i.posthog.com")
     expect(policy).toContain("style-src-attr 'unsafe-inline'")
     expect(policy).toContain("frame-ancestors 'none'")
     expect(policy).toContain("object-src 'none'")
     expect(policy).not.toMatch(/script-src[^;]*'unsafe-inline'/)
     expect(policy).not.toMatch(/script-src[^;]*'unsafe-eval'/)
+    expect(policy).not.toMatch(/connect-src[^;]*\*/)
   })
 
   it("caches only fingerprinted build assets as immutable", () => {

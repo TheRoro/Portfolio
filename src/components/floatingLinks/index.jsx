@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { analyticsSource, trackProfileLinkOpened } from "../../analytics/events"
 import SocialIcon from "../socialIcon"
 import { floatingSocialIds, socialLinks } from "../../content/profile"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
@@ -55,6 +56,9 @@ const FloatingLinks = () => {
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener noreferrer" : undefined}
             aria-label={link.floatingLabel ?? link.label}
+            onClick={() =>
+              trackProfileLinkOpened(link.id, analyticsSource.floatingLinks)
+            }
           >
             <span className="floating-planet" aria-hidden="true">
               <SocialIcon id={link.id} className="logo" />

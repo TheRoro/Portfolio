@@ -2,6 +2,8 @@
 
 .footer {
   @include flex(center, center);
+  flex-direction: column;
+  gap: 0.35rem;
   width: 100%;
   min-height: 5rem;
   margin-top: auto;
@@ -19,6 +21,13 @@
     .name {
       font-weight: 600;
     }
+  }
+
+  .analytics-note {
+    color: rgba($text, 0.58);
+    font-size: 0.7rem;
+    line-height: 1.5;
+    text-align: center;
   }
 
   @media only screen and (max-width: $nav-breakpoint) {

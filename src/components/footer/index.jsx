@@ -9,6 +9,9 @@ const Footer = () => {
         <span>Designed & Developed by</span>{" "}
         <span className="name">{profile.name}</span>
       </p>
+      <p className="analytics-note">
+        Anonymous usage analytics · No session recordings or personal profiles
+      </p>
     </footer>
   )
 }

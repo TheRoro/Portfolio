@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { analyticsSource, trackNavigationClick } from "../../analytics/events"
 import ProjectTile from "../../components/projectTile"
 import SectionHeading from "../../components/sectionHeading"
 import { selectedProjects } from "../../content/projects"
@@ -23,7 +24,13 @@ const MainProjectsModule = () => {
           />
         ))}
       </div>
-      <Link className="more-projects-action" to="/projects/">
+      <Link
+        className="more-projects-action"
+        to="/projects/"
+        onClick={() =>
+          trackNavigationClick("/projects/", analyticsSource.featuredProjects)
+        }
+      >
         More Projects
       </Link>
     </section>

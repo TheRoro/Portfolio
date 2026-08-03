@@ -1,4 +1,9 @@
 import React from "react"
+import {
+  analyticsSource,
+  trackProjectProductOpened,
+  trackProjectRepositoryOpened,
+} from "../../analytics/events"
 import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
 import GithubLogo from "../../assets/social/github.svg?react"
 import ProjectImage from "../projectImage"
@@ -8,6 +13,7 @@ import "./styles.scss"
 const ProjectHero = ({ project }) => {
   const {
     title,
+    name,
     keywords,
     summary,
     description,
@@ -56,6 +62,9 @@ const ProjectHero = ({ project }) => {
             href={webUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackProjectProductOpened(name, analyticsSource.projectHero)
+            }
           >
             <ExternalLinkLogo aria-hidden="true" />
             <span>{webLabel}</span>
@@ -65,6 +74,9 @@ const ProjectHero = ({ project }) => {
             href={repoUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackProjectRepositoryOpened(name, analyticsSource.projectHero)
+            }
           >
             <GithubLogo aria-hidden="true" />
             <span>View repository</span>

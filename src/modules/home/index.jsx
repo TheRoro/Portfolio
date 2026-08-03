@@ -1,5 +1,10 @@
 import React, { lazy, Suspense } from "react"
 import { Link as LinkScroll } from "react-scroll"
+import {
+  analyticsSource,
+  trackNavigationClick,
+  trackProfileLinkOpened,
+} from "../../analytics/events"
 import FloatingLinks from "../../components/floatingLinks"
 import SpaceFallback from "../../components/spaceFallback"
 import WebGLBoundary from "../../components/webglBoundary"
@@ -24,6 +29,7 @@ const HomeModule = () => {
         target="_blank"
         rel="noopener noreferrer"
         download
+        onClick={() => trackProfileLinkOpened("resume", analyticsSource.hero)}
       >
         <span>{action.label}</span>
       </a>
@@ -33,6 +39,9 @@ const HomeModule = () => {
         to={action.target}
         href={`#${action.target}`}
         {...scrollProps}
+        onClick={() =>
+          trackNavigationClick(action.target, analyticsSource.hero)
+        }
       >
         <span>{action.label}</span>
       </LinkScroll>

@@ -1,5 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import {
+  analyticsSource,
+  trackProjectDetailsOpened,
+  trackProjectProductOpened,
+  trackProjectRepositoryOpened,
+} from "../../analytics/events"
 import GithubLogo from "../../assets/social/github.svg?react"
 import ExternalLinkLogo from "../../assets/social/externalLink.svg?react"
 import ProjectImage from "../projectImage"
@@ -20,6 +26,10 @@ const ProjectTile = ({
       ? "project-tile project-tile-card"
       : `project-tile project-tile-featured project-tile-${orientation}`
   const technologies = tags.split(" · ")
+  const source =
+    variant === "card"
+      ? analyticsSource.projectsGrid
+      : analyticsSource.featuredProjects
 
   if (variant === "card") {
     return (
@@ -28,6 +38,7 @@ const ProjectTile = ({
           className="project-card-primary"
           to={detailPath}
           aria-label={`View ${title} project details`}
+          onClick={() => trackProjectDetailsOpened(name, source)}
         >
           <span className="image-container">
             <ProjectImage
@@ -49,6 +60,7 @@ const ProjectTile = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={webLabel ? `${webLabel} for ${title}` : `Open ${title}`}
+            onClick={() => trackProjectProductOpened(name, source)}
           >
             <ExternalLinkLogo />
             Product
@@ -59,6 +71,7 @@ const ProjectTile = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${title} code repository`}
+            onClick={() => trackProjectRepositoryOpened(name, source)}
           >
             <GithubLogo />
             Repository
@@ -74,6 +87,7 @@ const ProjectTile = ({
         className="project-spotlight-link"
         to={detailPath}
         aria-label={`View ${title} project details`}
+        onClick={() => trackProjectDetailsOpened(name, source)}
       />
       <span className="image-container">
         <ProjectImage
@@ -100,6 +114,7 @@ const ProjectTile = ({
           <Link
             className="project-action project-action-primary"
             to={detailPath}
+            onClick={() => trackProjectDetailsOpened(name, source)}
           >
             Explore Project
           </Link>
@@ -108,6 +123,7 @@ const ProjectTile = ({
             href={webUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackProjectProductOpened(name, source)}
           >
             <ExternalLinkLogo />
             {webLabel}
@@ -118,6 +134,7 @@ const ProjectTile = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${title} code repository`}
+            onClick={() => trackProjectRepositoryOpened(name, source)}
           >
             <GithubLogo />
             Repository

@@ -93,6 +93,37 @@ npm run local
 
 The production build is written to `dist`.
 
+## Anonymous analytics
+
+Production deployments can send anonymous page views and meaningful click
+events to PostHog. Analytics are disabled unless `VITE_POSTHOG_KEY` is present
+at build time and are never enabled during local development or tests.
+
+The integration intentionally disables autocapture, session recordings,
+personal profiles, heatmaps, surveys, experiments, durable browser
+persistence, and external PostHog modules. It records only explicit portfolio
+events, approximate geographic information added by PostHog, and standard
+device and referral context. Captured URLs have query strings and fragments
+removed before transmission, campaign and advertising identifiers are
+discarded, and browser Do Not Track preferences are respected.
+
+To enable analytics:
+
+1. Create a PostHog Cloud project in the US region.
+2. Copy its public project key.
+3. Set `VITE_POSTHOG_KEY` in the Netlify site's environment variables.
+4. Trigger a new production deployment because Vite embeds the public key at
+   build time.
+
+For local production-build testing, copy `.env.example` to `.env.production.local`
+and replace the placeholder. Never store a PostHog personal API key in this
+repository; only the public `phc_` project key belongs in the Vite variable.
+
+Tracked events include route views, project-detail opens, product and
+repository clicks, résumé opens, contact/profile actions, project pagination,
+and primary navigation. Event properties use stable project and interface
+identifiers rather than visible text or personal visitor data.
+
 ## Project structure
 
 ```text

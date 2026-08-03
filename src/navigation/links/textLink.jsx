@@ -1,5 +1,6 @@
 import React from "react"
 import { Link as LinkScroll } from "react-scroll"
+import { analyticsSource, trackNavigationClick } from "../../analytics/events"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import { getScrollMotionProps } from "../scrollMotion"
 
@@ -12,7 +13,10 @@ const TextLink = ({ active, href, name, onClick }) => {
       to={href}
       href={`#${href}`}
       {...getScrollMotionProps(reduceMotion)}
-      onClick={onClick}
+      onClick={() => {
+        trackNavigationClick(href, analyticsSource.primaryNavigation)
+        onClick?.()
+      }}
     >
       {name}
     </LinkScroll>

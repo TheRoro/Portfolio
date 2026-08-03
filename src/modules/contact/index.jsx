@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useAnimation, motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { analyticsSource, trackProfileLinkOpened } from "../../analytics/events"
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion"
 import Footer from "../../components/footer/index"
 import SectionHeading from "../../components/sectionHeading"
@@ -71,6 +72,9 @@ const ContactModule = () => {
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                   aria-label={link.label}
+                  onClick={() =>
+                    trackProfileLinkOpened(link.id, analyticsSource.contact)
+                  }
                 >
                   <span className="contact-icon" aria-hidden="true">
                     <SocialIcon id={link.id} className="logo" />

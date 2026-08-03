@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect } from "react"
 import { AnimatePresence } from "framer-motion"
 import { Navigate, Route, Routes, useLocation } from "react-router-dom"
+import AnalyticsRouteTracker from "./analytics/routeTracker"
 
 const BodegaPage = lazy(() => import("./pages/bodega"))
 const DrawlyPage = lazy(() => import("./pages/drawly"))
@@ -21,6 +22,7 @@ const App = () => {
 
   return (
     <>
+      <AnalyticsRouteTracker />
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
